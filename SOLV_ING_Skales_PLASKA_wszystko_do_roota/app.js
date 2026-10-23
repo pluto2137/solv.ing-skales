@@ -37,9 +37,9 @@ function split(el){var out=[];(function walk(n){Array.prototype.slice.call(n.chi
 function start(){
  var intro=[];
  $$('[data-split]').forEach(function(el){var ws=split(el);el._w=ws;gsap.set(ws,{yPercent:118})});
- var heroW=$('.hero h1')._w;
+ var heroW=$('.hero .tag')._w;
  $$('[data-reveal]').forEach(function(el){var ws=split(el);gsap.set(ws,{opacity:.12});gsap.to(ws,{opacity:1,stagger:.12,ease:'none',scrollTrigger:{trigger:el,start:'top 82%',end:'bottom 48%',scrub:true}})});
- $$('[data-split]').forEach(function(el){if(el===$('.hero h1'))return;ScrollTrigger.create({trigger:el,start:'top 86%',once:true,onEnter:function(){gsap.to(el._w,{yPercent:0,duration:1.1,ease:'power4.out',stagger:.07})}})});
+ $$('[data-split]').forEach(function(el){if(el===$('.hero .tag'))return;ScrollTrigger.create({trigger:el,start:'top 86%',once:true,onEnter:function(){gsap.to(el._w,{yPercent:0,duration:1.1,ease:'power4.out',stagger:.07})}})});
  gsap.set('[data-rise]',{opacity:0,y:44});
  var heroRise=$$('.hero [data-rise]');
  $$('[data-rise]').forEach(function(el){if(heroRise.indexOf(el)>-1)return;ScrollTrigger.create({trigger:el,start:'top 90%',once:true,onEnter:function(){gsap.to(el,{opacity:1,y:0,duration:1,ease:'power3.out'})}})});

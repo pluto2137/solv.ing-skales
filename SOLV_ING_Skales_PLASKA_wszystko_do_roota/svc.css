@@ -1,0 +1,11 @@
+
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 28px;border-radius:99px;font-weight:600;color:#fff;text-decoration:none;font-size:1rem;background:linear-gradient(135deg,#3b5bff,#1b2fd0);box-shadow:0 10px 40px -8px rgba(42,75,255,.8),inset 0 1px 0 rgba(255,255,255,.3);transition:transform .3s}
+.btn:hover{transform:translateY(-2px)}
+.lead{font-size:1.2rem;color:#d4ddff;max-width:680px}
+.price{display:inline-block;padding:14px 22px;border-radius:18px;border:1px solid var(--line);background:rgba(14,22,70,.5);font-family:'Bricolage Grotesque',Arial,sans-serif;font-weight:700;font-size:1.7rem;margin:8px 0 6px}
+.steps{list-style:none;padding:0;display:grid;gap:12px;counter-reset:s;margin-top:14px}
+.steps li{counter-increment:s;margin:0;padding:16px 18px 16px 64px;position:relative;border:1px solid var(--line);border-radius:18px;background:rgba(14,22,70,.35)}
+.steps li::before{content:counter(s);position:absolute;left:18px;top:14px;width:32px;height:32px;border-radius:50%;border:1px solid var(--glow);display:grid;place-items:center;color:var(--glow);font-weight:700}
+.faqs div{padding:18px 0;border-top:1px solid var(--line)}.faqs h3{font-family:'Bricolage Grotesque',Arial,sans-serif;font-size:1.2rem;letter-spacing:-.02em;margin-bottom:6px;line-height:1.2}
+.cta{margin-top:44px}
+.xl{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:12px}.xl a{color:var(--glow)}

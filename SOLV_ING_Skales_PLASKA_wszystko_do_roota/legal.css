@@ -11,9 +11,9 @@ a{color:var(--glow);text-underline-offset:3px}
 .top img{width:26px;height:26px}
 .top a.bk{color:var(--mut);text-decoration:none;font-size:.95rem}.top a.bk:hover{color:#fff}
 main{max-width:780px;margin:0 auto;padding:7vh 6vw 10vh}
-h1{font-family:'Bricolage Grotesque',Arial,sans-serif;font-weight:700;letter-spacing:-.04em;line-height:1;font-size:clamp(2.3rem,6vw,3.8rem);margin-bottom:12px}
+h1{font-family:'Bricolage Grotesque',Arial,sans-serif;font-weight:700;letter-spacing:-.025em;line-height:1.02;font-size:clamp(2.3rem,6vw,3.8rem);margin-bottom:12px}
 .upd{color:var(--mut);font-size:.95rem;margin-bottom:6vh}
-h2{font-family:'Bricolage Grotesque',Arial,sans-serif;font-weight:700;letter-spacing:-.03em;font-size:1.45rem;line-height:1.15;margin:44px 0 12px}
+h2{font-family:'Bricolage Grotesque',Arial,sans-serif;font-weight:700;letter-spacing:-.02em;font-size:1.45rem;line-height:1.15;margin:44px 0 12px}
 p,li{color:#cfd8f7}p+p{margin-top:12px}ul{padding-left:22px;margin-top:8px}li{margin-top:6px}
 table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.95rem}th,td{text-align:left;vertical-align:top;padding:12px 10px;border-top:1px solid var(--line)}th{color:var(--mut);font-weight:600}
 .en{margin-top:60px;padding-top:30px;border-top:1px solid var(--line)}
