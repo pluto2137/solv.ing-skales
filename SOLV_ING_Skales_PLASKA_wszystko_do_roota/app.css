@@ -281,6 +281,20 @@ a.card:hover{border-color:rgba(150,175,255,.5);transform:translateY(-3px)}
 .vid video{width:100%;height:100%;object-fit:cover;display:block}
 .tagex{position:absolute;left:14px;top:14px;z-index:2;background:#fff;color:#02040f;font-weight:700;font-size:.78rem;padding:6px 12px;border-radius:99px;letter-spacing:.06em;text-transform:uppercase}
 .snd{position:absolute;right:14px;bottom:14px;z-index:2;padding:9px 16px;border-radius:99px;background:rgba(14,22,70,.7);border:1px solid rgba(150,175,255,.35);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;font-size:.9rem;cursor:pointer}
+.vid.p{aspect-ratio:9/16;max-width:340px;width:100%;margin:0 auto;background:#02040f}
+.vid.p video{object-fit:contain}
+.vid.p:fullscreen video,.vid video:fullscreen{object-fit:contain;background:#000}
+.play{position:absolute;inset:0;width:100%;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;border:0;color:#fff;cursor:pointer;font:inherit;background:linear-gradient(180deg,rgba(2,4,15,0) 50%,rgba(2,4,15,.6))}
+.play .tri{width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.96);display:grid;place-items:center;box-shadow:0 8px 44px rgba(70,100,255,.55);transition:transform .25s ease}
+.play .tri::before{content:"";margin-left:6px;border-style:solid;border-width:13px 0 13px 21px;border-color:transparent transparent transparent #02040f}
+.play:hover .tri,.play:focus-visible .tri{transform:scale(1.08)}
+.play:focus-visible{outline:2px solid #9db2ff;outline-offset:-4px}
+.play i{font-style:normal;font-weight:600;font-size:.92rem;background:rgba(14,22,70,.72);padding:7px 14px;border-radius:99px;border:1px solid rgba(150,175,255,.35)}
+.vid.on .play{display:none}
+.chip{display:inline-block;background:#fff;color:#02040f;font-weight:700;font-size:.74rem;padding:5px 11px;border-radius:99px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+.reels{margin-top:4vh;display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+.reel{display:grid;gap:20px;padding:22px;align-content:start}
+.reel .dt p{margin-top:8px}
 .dt h3{font-size:clamp(1.4rem,2.2vw,2rem);margin-bottom:6px}
 .dt p{margin-top:12px;color:#aab6e6}.dt b{color:#fff}
 .ph{border-style:dashed;max-width:820px}

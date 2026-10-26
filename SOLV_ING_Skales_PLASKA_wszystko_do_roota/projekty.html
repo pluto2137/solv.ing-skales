@@ -13,6 +13,43 @@
 <link rel="stylesheet" href="/app.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Projekty i opinie","url":"https://www.solving-agency.pl/projekty","description":"Zobacz na przykładach, jak działa strona z ceną i wolnym terminem, wizytówka Google, system opinii i automatyczne odpowiedzi. Realizacje i opinie klientów SOLV.ING.","inLanguage":"pl","provider":{"@type":"ProfessionalService","name":"SOLV.ING","url":"https://www.solving-agency.pl"}}</script>
 <script src="/early.js"></script>
+<!-- VIDEO-LD:START -->
+<script type="application/ld+json">[
+ {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Automatyczne odpowiedzi i jedna lista zapytań",
+  "description": "Para pisze do DJ-a o 23:40. W 28 sekund dostaje cenę od i link do oferty, a rano DJ potwierdza wstępną rezerwację i termin blokuje się w kalendarzu.",
+  "thumbnailUrl": "https://www.solving-agency.pl/film-recepcjonistka-ai.webp",
+  "uploadDate": "2026-10-26",
+  "duration": "PT42S",
+  "contentUrl": "https://www.solving-agency.pl/film-recepcjonistka-ai.mp4",
+  "inLanguage": "pl"
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "System zbierania opinii Google",
+  "description": "Dzień po imprezie para dostaje link do opinii w Google, a DJ odpowiada na każdą opinię. W przykładzie liczba opinii rośnie z 12 do 31.",
+  "thumbnailUrl": "https://www.solving-agency.pl/film-opinie-same-sie-zbieraja.webp",
+  "uploadDate": "2026-10-26",
+  "duration": "PT43S",
+  "contentUrl": "https://www.solving-agency.pl/film-opinie-same-sie-zbieraja.mp4",
+  "inLanguage": "pl"
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Tabliczka na stolik: menu, kelner i opinia w jednym skanie",
+  "description": "Gość skanuje kod na stoliku, bez aplikacji i bez zakładania konta. Widzi menu, wzywa kelnera, sprawdza rachunek, łączy się z Wi-Fi i zostawia opinię w Google. Obsługa widzi na jednym ekranie, który stolik czegoś potrzebuje.",
+  "thumbnailUrl": "https://www.solving-agency.pl/film-tabliczka-na-stolik.webp",
+  "uploadDate": "2026-10-26",
+  "duration": "PT44S",
+  "contentUrl": "https://www.solving-agency.pl/film-tabliczka-na-stolik.mp4",
+  "inLanguage": "pl"
+ }
+]</script>
+<!-- VIDEO-LD:END -->
 </head>
 <body class="pj">
 <a class="skip" href="#main">Przejdź do treści</a>
@@ -58,31 +95,50 @@
       </div>
     </article>
     <article class="demo card" id="opinie" data-r>
-      <div class="vid">
-        <span class="tagex">Przykład</span>
-        <video poster="demo-opinie.webp" muted loop playsinline preload="none" aria-label="Film pokazujący przykład: System zbierania opinii Google. Film wkrótce."></video>
-        <button class="snd" type="button" hidden>Włącz dźwięk</button>
+      <div class="vid p" data-film>
+        <video poster="/film-opinie-same-sie-zbieraja.webp" data-src="/film-opinie-same-sie-zbieraja.mp4" playsinline preload="none" aria-label="Film: System zbierania opinii Google"></video>
+        <button class="play" type="button" aria-label="Odtwórz film z dźwiękiem: System zbierania opinii Google"><span class="tri" aria-hidden="true"></span><i>Odtwórz z dźwiękiem</i></button>
       </div>
       <div class="dt">
+        <span class="chip">Przykład</span>
         <h3>System zbierania opinii Google</h3>
-        <p><b>Co widać na filmie:</b> kilka dni po zleceniu klient dostaje krótką wiadomość z podziękowaniem i linkiem. Jedno kliknięcie otwiera okno wystawiania opinii w Google.</p>
+        <p><b>Co widać na filmie:</b> dzień po imprezie para dostaje o 12:00 krótką wiadomość z podziękowaniem i linkiem. Jedno kliknięcie otwiera okno wystawiania opinii w Google, a właściciel odpowiada na każdą opinię. W przykładzie liczba opinii rośnie z 12 do 31.</p>
         <p><b>Jak to działa:</b> prośba wychodzi automatycznie do każdego klienta, a nie tylko do wybranych. Nie filtrujemy opinii i nie nagradzamy za oceny.</p>
         <p><b>Dlaczego pomaga:</b> świeże opinie to dla nowego klienta najmocniejszy dowód, że warto zapłacić więcej. Pomagają też w wynikach mapy Google.</p>
       </div>
     </article>
     <article class="demo card" id="automatyzacja" data-r>
-      <div class="vid">
-        <span class="tagex">Przykład</span>
-        <video poster="demo-automatyzacja.webp" muted loop playsinline preload="none" aria-label="Film pokazujący przykład: Automatyczne odpowiedzi i jedna lista zapytań. Film wkrótce."></video>
-        <button class="snd" type="button" hidden>Włącz dźwięk</button>
+      <div class="vid p" data-film>
+        <video poster="/film-recepcjonistka-ai.webp" data-src="/film-recepcjonistka-ai.mp4" playsinline preload="none" aria-label="Film: Automatyczne odpowiedzi i jedna lista zapytań"></video>
+        <button class="play" type="button" aria-label="Odtwórz film z dźwiękiem: Automatyczne odpowiedzi i jedna lista zapytań"><span class="tri" aria-hidden="true"></span><i>Odtwórz z dźwiękiem</i></button>
       </div>
       <div class="dt">
+        <span class="chip">Przykład</span>
         <h3>Automatyczne odpowiedzi i jedna lista zapytań</h3>
-        <p><b>Co widać na filmie:</b> zapytania z Facebooka, Instagrama, maila i formularza trafiają na jedną listę. Każde dostaje natychmiastową odpowiedź, a po dwóch dniach bez reakcji wychodzi uprzejme przypomnienie.</p>
-        <p><b>Jak to działa:</b> zamiast przeglądać pięć aplikacji, właściciel widzi wszystkie zapytania w jednym miejscu, z datą, źródłem i statusem. Proste rzeczy, takie jak cennik czy wolny termin, wysyłają się same.</p>
+        <p><b>Co widać na filmie:</b> o 23:40 para pisze do DJ-a w sprawie wesela. W 28 sekund dostaje odpowiedź z ceną „od” i linkiem do oferty, a rano DJ widzi wstępną rezerwację, potwierdza ją i termin blokuje się w kalendarzu.</p>
+        <p><b>Jak to działa:</b> odpowiedź wychodzi od razu, także w nocy. Zapytania z Facebooka, Instagrama, maila i formularza trafiają na jedną listę z datą, źródłem i statusem, więc właściciel nie przegląda pięciu aplikacji. Proste rzeczy, takie jak cennik czy wolny termin, wysyłają się same, a po dwóch dniach bez reakcji klient dostaje uprzejme przypomnienie.</p>
         <p><b>Dlaczego pomaga:</b> zapytania nie giną, a klient dostaje odpowiedź w minutę, nawet gdy właściciel pracuje. Raport co miesiąc pokazuje, które źródła przynoszą zlecenia, a które tylko pytania.</p>
       </div>
     </article>
+  </div>
+</section>
+
+<section class="sec" id="filmy">
+  <h2>Więcej <em>filmów</em></h2>
+  <p class="lead" data-r>Krótkie filmy z przykładami na wymyślonych firmach. Kliknij, żeby włączyć film z dźwiękiem. Kolejne dodajemy na bieżąco.</p>
+  <div class="reels">
+        <article class="reel card" data-r>
+      <div class="vid p" data-film>
+        <video poster="/film-tabliczka-na-stolik.webp" data-src="/film-tabliczka-na-stolik.mp4" playsinline preload="none" aria-label="Film: Tabliczka na stolik: menu, kelner i opinia w jednym skanie"></video>
+        <button class="play" type="button" aria-label="Odtwórz film z dźwiękiem: Tabliczka na stolik: menu, kelner i opinia w jednym skanie"><span class="tri" aria-hidden="true"></span><i>Odtwórz z dźwiękiem</i></button>
+      </div>
+      <div class="dt">
+        <span class="chip">Przykład</span>
+        <h3>Tabliczka na stolik: menu, kelner i opinia w jednym skanie</h3>
+        <p>Gość skanuje kod na stoliku, bez aplikacji i bez zakładania konta. Widzi menu, wzywa kelnera, sprawdza rachunek, łączy się z Wi-Fi i zostawia opinię w Google. Obsługa widzi na jednym ekranie, który stolik czegoś potrzebuje.</p>
+      </div>
+    </article>
+    <!-- FILMY:KONIEC -->
   </div>
 </section>
 
