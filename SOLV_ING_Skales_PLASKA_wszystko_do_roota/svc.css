@@ -9,3 +9,14 @@
 .faqs div{padding:18px 0;border-top:1px solid var(--line)}.faqs h3{font-family:'Bricolage Grotesque',Arial,sans-serif;font-size:1.2rem;letter-spacing:-.02em;margin-bottom:6px;line-height:1.2}
 .cta{margin-top:44px}
 .xl{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:12px}.xl a{color:var(--glow)}
+
+main h3{font-family:'Bricolage Grotesque',Arial,sans-serif;font-size:1.2rem;letter-spacing:-.02em;line-height:1.2;margin:22px 0 4px}
+.art ol{padding-left:24px;margin-top:10px}.art li{margin-top:10px}.art h2:first-child{margin-top:30px}
+.art strong,.pains strong,main li strong{color:#fff}
+.pains li{margin-top:10px}
+.upd{color:var(--mut);font-size:.95rem;margin:4px 0 18px}
+.crumb{margin-bottom:18px;font-size:.95rem}.crumb a{color:var(--mut);text-decoration:none}.crumb a:hover{color:#fff}
+.hb{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px}
+.ctab{margin-top:48px;padding:28px;border:1px solid var(--line);border-radius:26px;background:rgba(14,22,70,.45)}.ctab h2{margin-top:0}.ctab .cta{margin:18px 0 14px}
+.blist{display:grid;gap:16px;margin-top:26px}.bl{padding:22px 24px;border:1px solid var(--line);border-radius:22px;background:rgba(14,22,70,.35)}.bl h2{margin:0 0 8px;font-size:1.35rem}.bl h2 a{color:#fff;text-decoration:none}.bl h2 a:hover{color:var(--glow)}.bl .upd{margin:10px 0 0}
+ul+p,ol+p{margin-top:16px}
