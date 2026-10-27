@@ -1,0 +1,28 @@
+# SOLV.ING
+
+> SOLV.ING (solving-agency.pl) to agencja z Pomorza, która pomaga firmom usługowym zamieniać zapytania w rezerwacje i sprzedaż. Najwięcej pracuje z DJ-ami, zespołami weselnymi i firmami eventowymi, a także z restauracjami i lokalnymi usługami w całej Polsce. Założyciel: Oskar Rowe. Kontakt: oscar.rowe21@gmail.com, +48 505 119 531.
+
+## Co robimy
+- Strony internetowe z cenami „od”, pakietami i formularzem wolnego terminu (od 800 zł, bez abonamentu)
+- Profil firmy w Google, zbieranie opinii od dawnych klientów i automatyczna prośba o opinię
+- Automatyczne odpowiedzi na zapytania i system zapytań z kalendarzem
+- Proste narzędzia webowe: CRM dla firm usługowych, generatory ofert PDF, formularze rezerwacji
+- Rolki, social media, reklamy Meta i Google, krótkie reklamy wideo i animacje
+
+## Jak pracujemy
+- Darmowy audyt (quiz, około 4 minuty), potem konkretne wnioski
+- Darmowy podgląd przed płatnością, płatność 50/50, prawa autorskie przechodzą na klienta
+- Kontakt w wiadomościach, bez obowiązkowych rozmów telefonicznych
+
+## Strony
+- [Strona główna](https://www.solving-agency.pl/)
+- [Dla DJ-ów i zespołów weselnych](https://www.solving-agency.pl/dla-dj)
+- [Strona internetowa](https://www.solving-agency.pl/strona-internetowa)
+- [Wizytówka Google](https://www.solving-agency.pl/wizytowka-google)
+- [System opinii](https://www.solving-agency.pl/system-opinii)
+- [Automatyzacja](https://www.solving-agency.pl/automatyzacja)
+- [Projekty](https://www.solving-agency.pl/projekty)
+
+## Poradnik
+- [Ile kosztuje strona dla DJ-a w 2026?](https://www.solving-agency.pl/blog/ile-kosztuje-strona-dla-dj)
+- [Jak DJ może zdobyć więcej wesel na 2027?](https://www.solving-agency.pl/blog/jak-dj-moze-zdobyc-wiecej-wesel)
