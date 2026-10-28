@@ -1,2 +1,4 @@
 GSAP 3.12.5 (gsap.min.js, ScrollTrigger.min.js), (c) GreenSock. Used under the GSAP standard "no charge" license: https://gsap.com/standard-license
 Fonts: Bricolage Grotesque, Instrument Serif, Hanken Grotesk, SIL Open Font License 1.1 (via Fontsource).
+
+Bitter (demo/bitter-latin-wght-normal.woff2) and Work Sans (demo/work-sans-latin-wght-normal.woff2): SIL Open Font License 1.1, via Fontsource.

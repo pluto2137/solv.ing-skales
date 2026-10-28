@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fernwood Cabins (demo)</title>
+<meta name="description" content="A demo direct-booking website for a small cabin rental, made by SOLV.ING.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preload" href="/demo/bitter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/demo/cabins.css">
+<script src="/demo/cabins.js" defer></script>
+</head>
+<body data-season="summer">
+
+<p class="demo-note">This is a demo website by <a href="https://solving-agency.pl/">SOLV.ING</a>. Fernwood Cabins is a made-up property, used to show what a direct-booking site for a small rental can look like.</p>
+
+<header class="hero">
+  <svg class="scene" viewBox="0 0 1440 640" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop class="sky-top" offset="0"/>
+        <stop class="sky-bottom" offset="1"/>
+      </linearGradient>
+      <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1">
+        <stop class="lake-top" offset="0"/>
+        <stop class="lake-bottom" offset="1"/>
+      </linearGradient>
+    </defs>
+    <rect width="1440" height="640" fill="url(#sky)"/>
+    <circle class="orb" cx="1080" cy="170" r="46"/>
+    <path class="ridge ridge-far" d="M0 360 L120 300 L210 330 L330 250 L450 320 L560 270 L690 330 L820 240 L960 310 L1080 260 L1210 320 L1330 280 L1440 310 L1440 640 L0 640Z"/>
+    <path class="ridge ridge-mid" d="M0 410 L90 380 L170 395 L260 350 L380 400 L470 370 L600 410 L720 360 L840 405 L980 365 L1100 410 L1230 375 L1340 400 L1440 385 L1440 640 L0 640Z"/>
+    <g class="trees">
+      <path d="M150 440 l22 -70 l22 70z M196 440 l16 -52 l16 52z M1180 440 l20 -64 l20 64z M1222 440 l26 -84 l26 84z M1272 440 l15 -48 l15 48z"/>
+    </g>
+    <rect y="440" width="1440" height="200" fill="url(#lake)"/>
+    <g class="cabin">
+      <path d="M1000 440 v-44 l38 -30 l38 30 v44z"/>
+      <rect class="window" x="1028" y="408" width="20" height="16"/>
+    </g>
+    <rect class="glow" x="1030" y="452" width="16" height="60"/>
+    <path class="shore" d="M0 440 H1440" />
+  </svg>
+
+  <div class="hero-text">
+    <h1>Fernwood Cabins</h1>
+    <p class="lede">Three cedar cabins on a quiet lake in the Cascades, twenty minutes from the nearest town and its one good bakery.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#availability">Check availability</a>
+      <a class="btn btn-ghost" href="#rates">See rates</a>
+    </div>
+  </div>
+
+  <fieldset class="season-switch">
+    <legend>Show prices for</legend>
+    <label><input type="radio" name="season" value="summer" checked> Summer</label>
+    <label><input type="radio" name="season" value="shoulder"> Spring &amp; fall</label>
+    <label><input type="radio" name="season" value="winter"> Winter</label>
+  </fieldset>
+</header>
+
+<main>
+  <section id="rates" class="rates">
+    <div class="section-head">
+      <h2>Cabins and nightly rates</h2>
+      <p>Prices are per night for the whole cabin. Book here and you pay no platform service fee.</p>
+    </div>
+
+    <table class="rate-table">
+      <thead>
+        <tr>
+          <th scope="col">Cabin</th>
+          <th scope="col" data-col="summer">Summer<span>Jun to Aug</span></th>
+          <th scope="col" data-col="shoulder">Spring &amp; fall<span>Mar to May, Sep to Nov</span></th>
+          <th scope="col" data-col="winter">Winter<span>Dec to Feb</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">
+            <strong>Cedar</strong>
+            <span>Sleeps 2. Wood stove, lake view from the bed, outdoor shower.</span>
+          </th>
+          <td data-col="summer">$165</td>
+          <td data-col="shoulder">$125</td>
+          <td data-col="winter">$110</td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <strong>Alder</strong>
+            <span>Sleeps 4. Sleeping loft, private dock, dogs welcome.</span>
+          </th>
+          <td data-col="summer">$210</td>
+          <td data-col="shoulder">$160</td>
+          <td data-col="winter">$140</td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <strong>Big Spruce</strong>
+            <span>Sleeps 6. Two bedrooms, cedar hot tub, full kitchen.</span>
+          </th>
+          <td data-col="summer">$295</td>
+          <td data-col="shoulder">$225</td>
+          <td data-col="winter">$195</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="table-note">Minimum stay is 2 nights, 3 nights in July and August. A cleaning fee of $60 is added once per stay.</p>
+  </section>
+
+  <section id="availability" class="availability">
+    <div class="section-head">
+      <h2>Ask for your dates</h2>
+      <p>Tell us when you'd like to come. We check the calendar and reply with a confirmation and a payment link, usually within a few hours.</p>
+    </div>
+
+    <form class="request" id="request" novalidate>
+      <div class="field">
+        <label for="arrive">Arrival</label>
+        <input id="arrive" name="arrive" type="date" required>
+      </div>
+      <div class="field">
+        <label for="leave">Departure</label>
+        <input id="leave" name="leave" type="date" required>
+      </div>
+      <div class="field">
+        <label for="cabin">Cabin</label>
+        <select id="cabin" name="cabin">
+          <option value="cedar">Cedar (sleeps 2)</option>
+          <option value="alder" selected>Alder (sleeps 4)</option>
+          <option value="spruce">Big Spruce (sleeps 6)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="guests">Guests</label>
+        <input id="guests" name="guests" type="number" min="1" max="6" value="2">
+      </div>
+      <div class="field wide">
+        <label for="name">Your name</label>
+        <input id="name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="field wide">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="field full">
+        <label for="note">Anything we should know? <span>Optional</span></label>
+        <textarea id="note" name="note" rows="3"></textarea>
+      </div>
+
+      <output class="estimate" id="estimate" for="arrive leave cabin">Pick your dates to see the price.</output>
+
+      <button class="btn btn-primary" type="submit">Send request</button>
+      <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <section class="info">
+    <h2>Good to know</h2>
+    <dl>
+      <div><dt>Check-in and check-out</dt><dd>Arrive from 4 pm, leave by 11 am. The key is in a lockbox, and we send the code the day before.</dd></div>
+      <div><dt>Dogs</dt><dd>Welcome in Alder for $25 per stay. Please keep them off the beds.</dd></div>
+      <div><dt>Cancellation</dt><dd>Free up to 14 days before arrival. After that, we refund 50% if we can rebook the dates.</dd></div>
+      <div><dt>Getting here</dt><dd>The last mile is a gravel road. Any car makes it in summer; in winter, bring chains or let us know and we'll plow early.</dd></div>
+    </dl>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>Fernwood Cabins is a demo. Want a site like this for your rental, with your photos, rates and calendar? <a href="https://solving-agency.pl/">SOLV.ING</a> builds them from $250, and you see a free preview of your own homepage first.</p>
+</footer>
+</body>
+</html>
