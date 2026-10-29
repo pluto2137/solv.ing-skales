@@ -1,0 +1,21 @@
+/* English landing page (/en). Loaded after legal.css and svc.css. */
+.top .tn{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.top .tn a{color:var(--mut);text-decoration:none;font-size:.95rem}.top .tn a:hover{color:#fff}
+.top .tn a.lang{padding:4px 12px;border:1px solid var(--line);border-radius:99px;font-weight:600;color:var(--fg)}
+.top .tn a.lang:hover{border-color:var(--glow)}
+h1 em,h2 em{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;color:var(--glow);letter-spacing:-.01em}
+h1 em{display:block;margin-top:6px}
+.hook{margin-top:30px;padding:18px 22px;border-left:2px solid var(--glow);color:#d4ddff}
+.ptable td.pc{white-space:nowrap;color:#fff;font-weight:600;text-align:right}
+.ptable td small{display:block;color:var(--mut);font-size:.88rem;margin-top:2px}
+@media(max-width:620px){.ptable td.pc{text-align:left;white-space:normal;padding-bottom:8px}}
+.note{color:var(--mut);font-size:.95rem;margin-top:14px}
+.eform{display:grid;gap:16px;margin-top:26px;padding:30px;border-radius:26px;background:linear-gradient(170deg,rgba(14,22,70,.6),rgba(3,6,25,.85));border:1px solid var(--line);position:relative}
+.eform label{display:grid;gap:8px;font-size:.92rem;color:var(--mut)}
+.eform input,.eform textarea{width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(150,175,255,.25);background:rgba(255,255,255,.05);color:var(--fg);font:inherit;font-size:1rem}
+.eform textarea{min-height:130px;resize:vertical}
+.eform input:focus,.eform textarea:focus{outline:none;border-color:var(--glow);box-shadow:0 0 0 3px rgba(107,140,255,.25)}
+.eform .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.eform .btn{justify-self:start;cursor:pointer;border:0;font:inherit;font-weight:600}
+.eform .fine{font-size:.85rem;color:var(--mut)}
+@media(max-width:520px){.eform{padding:22px}.eform .btn{justify-self:stretch;justify-content:center}}

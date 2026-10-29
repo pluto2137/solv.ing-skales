@@ -307,3 +307,5 @@ a.card:hover{border-color:rgba(150,175,255,.5);transform:translateY(-3px)}
 @media(max-width:1100px){.logo small{display:none}}
 @media(max-width:899px){.pj-top{padding-top:17vh}.demo{padding:18px;border-radius:24px}}
 @media(prefers-reduced-motion:reduce){.js [data-r]{opacity:1;transform:none;transition:none}}
+
+@media(max-width:999px){.links a[href="/en"]{display:none}}
