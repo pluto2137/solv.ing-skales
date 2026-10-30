@@ -1,6 +1,6 @@
 # SOLV.ING
 
-> SOLV.ING (solving-agency.pl) to agencja z Pomorza, która pomaga firmom usługowym zamieniać zapytania w rezerwacje i sprzedaż. Najwięcej pracuje z DJ-ami, zespołami weselnymi i firmami eventowymi, a także z restauracjami i lokalnymi usługami w całej Polsce. Założyciel: Oskar Rowe. Kontakt: oscar.rowe21@gmail.com, +48 505 119 531.
+> SOLV.ING (solving-agency.pl) to agencja z Pomorza, która pomaga firmom usługowym zamieniać zapytania w rezerwacje i sprzedaż. Pracuje z firmami z każdej branży: restauracjami i lokalami, salonami, ekipami remontowymi, biurami nieruchomości, DJ-ami, zespołami i salami, w całej Polsce. Założyciel: Oskar Rowe. Kontakt: oscar.rowe21@gmail.com, +48 505 119 531.
 
 ## Co robimy
 - Strony internetowe z cenami „od”, pakietami i formularzem wolnego terminu (od 800 zł, bez abonamentu)
@@ -30,19 +30,19 @@
 - [Ile kosztuje strona dla firmy remontowej w 2026?](https://www.solving-agency.pl/blog/ile-kosztuje-strona-dla-firmy-remontowej)
 - [Jak restauracja może mieć więcej rezerwacji z Google?](https://www.solving-agency.pl/blog/jak-restauracja-moze-miec-wiecej-rezerwacji-z-google)
 - [Własny system rezerwacji dla salonu: kiedy warto odejść od platform?](https://www.solving-agency.pl/blog/wlasny-system-rezerwacji-dla-salonu)
-- [Wizytówka Google dla DJ-a: ile kosztuje, jak ją zrobić i jak zdobyć opinie](https://www.solving-agency.pl/blog/wizytowka-google-dla-dj)
-- [Social media dla DJ-a i zespołu weselnego: co publikować i ile kosztuje prowadzenie](https://www.solving-agency.pl/blog/social-media-dla-dj)
+- [Wizytówka Google dla firmy bez lokalu: jak ją założyć, ukryć adres i zdobyć opinie](https://www.solving-agency.pl/blog/wizytowka-google-firma-bez-lokalu): Wizytówka Google jest za darmo. Jak firma, która dojeżdża do klienta, ustawi obszar działania, ukryje adres, przejdzie weryfikację i zbierze opinie.
+- [Social media dla firmy usługowej: co publikować, jak często i z jakimi zgodami](https://www.solving-agency.pl/blog/social-media-dla-firmy-uslugowej): Co firma usługowa powinna publikować w social mediach, jak często, jak prosić klientów o zgodę na zdjęcia i czemu nie opierać się na samym Facebooku.
 - [Ile kosztuje krótka reklama wideo z AI w 2026?](https://www.solving-agency.pl/blog/ile-kosztuje-reklama-wideo-z-ai)
 - [Jak firma usługowa może zdobyć więcej opinii w Google?](https://www.solving-agency.pl/blog/jak-zdobyc-wiecej-opinii-w-google)
-- [Opinie Google dla sali weselnej i lokalu: jak je zdobyć i jak odpowiadać](https://www.solving-agency.pl/blog/opinie-google-sala-weselna)
-- [Strona internetowa dla zespołu weselnego: ile kosztuje i co musi mieć](https://www.solving-agency.pl/blog/strona-dla-zespolu-weselnego)
-- [Zapytania o wesele: jak szybko odpowiadać i nie tracić par](https://www.solving-agency.pl/blog/system-zapytan-wesela)
-- [Strona internetowa dla sali weselnej: co musi mieć i ile kosztuje](https://www.solving-agency.pl/blog/strona-dla-sali-weselnej)
-- [Cennik DJ-a i zespołu weselnego na stronie: pokazywać ceny czy nie?](https://www.solving-agency.pl/blog/cennik-dj-na-wesele-na-stronie)
-- [Jak zespół weselny może zdobyć więcej wesel i klientów na 2027?](https://www.solving-agency.pl/blog/jak-zespol-weselny-moze-zdobyc-wiecej-wesel)
-- [Jak odpisać na zapytanie o wesele: wzór odpowiedzi dla DJ-a i zespołu](https://www.solving-agency.pl/blog/wzor-odpowiedzi-na-zapytanie-o-wesele)
-- [Wizytówka Google dla sali weselnej: jak ją ustawić, żeby pary pisały](https://www.solving-agency.pl/blog/wizytowka-google-sala-weselna)
-- [Wolne terminy w sali weselnej: jak sprzedać piątki, niedziele i zimę](https://www.solving-agency.pl/blog/wolne-terminy-sala-weselna)
-- [Klub i bar z muzyką: jak pokazać imprezy w Google i na stronie, żeby ludzie przychodzili](https://www.solving-agency.pl/blog/imprezy-klub-bar-google-strona)
-- [Jak odpowiedzieć na negatywną opinię w Google: wzory dla DJ-a, zespołu, sali i klubu](https://www.solving-agency.pl/blog/jak-odpowiedziec-na-negatywna-opinie-google)
-- [Umowa DJ-a i zespołu z parą młodą: co powinna zawierać](https://www.solving-agency.pl/blog/umowa-dj-zespol-wesele)
+- [Prośba o opinię w Google: gotowe wzory wiadomości, zgoda i zasady](https://www.solving-agency.pl/blog/prosba-o-opinie-google-wzory): Gotowe wzory prośby o opinię w Google: SMS, e-mail, przypomnienie i tabliczka z kodem QR. Kiedy wysłać, jak zapytać o zgodę i czego unikać.
+- [Strona internetowa firmy: co musi mieć, żeby klienci wysyłali zapytania](https://www.solving-agency.pl/blog/strona-internetowa-firmy-co-musi-miec): Co musi mieć strona firmy usługowej, żeby przynosiła zapytania: oferta prostymi słowami, cena „od”, dowody pracy, opinie i krótki formularz.
+- [System zapytań dla firmy: jak szybko odpowiadać i nie tracić klientów](https://www.solving-agency.pl/blog/system-zapytan-dla-firmy): Gdzie giną zapytania od klientów, jedna lista, automatyczna odpowiedź z kalendarzem i przypomnienie. Co zrobisz za darmo i kiedy opłaca się system.
+- [Strona internetowa dla restauracji i lokalu: co musi mieć i ile kosztuje](https://www.solving-agency.pl/blog/strona-dla-restauracji-i-lokalu): Co gość sprawdza na stronie restauracji, sali, salonu albo pensjonatu: godziny, menu i ceny, rezerwacja, dojazd, zdjęcia. I ile kosztuje taka strona.
+- [Ceny na stronie firmy usługowej: pokazywać je czy nie?](https://www.solving-agency.pl/blog/ceny-na-stronie-firmy): Czy firma usługowa powinna pokazywać ceny na stronie? Jak podać uczciwą cenę „od”, co wpisać w pakiet, co podnosi cenę i co, jeśli zobaczy ją konkurencja.
+- [Jak lokalna firma może zdobyć więcej klientów: od czego zacząć](https://www.solving-agency.pl/blog/jak-firma-moze-zdobyc-wiecej-klientow): Prawdziwe zdjęcia pracy, cena „od”, łatwe zapytanie, szybka odpowiedź, wizytówka Google i opinie. Kolejność kroków dla lokalnej firmy i czego nie robić.
+- [Jak odpisać na zapytanie klienta: wzory odpowiedzi do skopiowania](https://www.solving-agency.pl/blog/wzor-odpowiedzi-na-zapytanie-klienta): Gotowe wzory odpowiedzi na zapytanie klienta: termin wolny, zajęty, „ile kosztuje?”, wycena po oględzinach i jedno przypomnienie. Plus czego unikać.
+- [Wizytówka Google dla lokalu: jak ustawić adres, godziny, zdjęcia i opis](https://www.solving-agency.pl/blog/wizytowka-google-dla-lokalu): Jak restauracja, salon, biuro, agencja nieruchomości albo sala ustawi wizytówkę Google: adres i pinezka, godziny, kategoria, zdjęcia, opis i duplikaty.
+- [Wolne terminy w firmie: jak zapełnić puste dni i godziny w kalendarzu](https://www.solving-agency.pl/blog/wolne-terminy-jak-zapelnic-kalendarz): Jak firma usługowa może sprzedać wolne dni i godziny: aktualna lista terminów, osobna cena „od”, propozycja innego terminu i czego nie robić.
+- [Wydarzenia w firmie: jak pokazać je na stronie i w Google, żeby ludzie przychodzili](https://www.solving-agency.pl/blog/wydarzenia-firmy-strona-google): Jak firma może pokazać wydarzenia, warsztaty, koncerty i dni otwarte: kalendarz na stronie jako tekst, dane wydarzeń, wizytówka Google, zapisy.
+- [Jak odpowiedzieć na negatywną opinię w Google: 5 wzorów dla firmy](https://www.solving-agency.pl/blog/jak-odpowiedziec-na-negatywna-opinie-google): Jak odpowiedzieć na negatywną opinię w Google: 5 wzorów do skopiowania, czego nie pisać i kiedy można zgłosić opinię do usunięcia.
+- [Umowa z klientem na usługę: co powinna zawierać](https://www.solving-agency.pl/blog/umowa-z-klientem-uslugi): Lista tematów do umowy z klientem na usługę: zakres, cena, zadatek czy zaliczka, odwołanie, prace dodatkowe, odstąpienie i dane. Nie wzór umowy.

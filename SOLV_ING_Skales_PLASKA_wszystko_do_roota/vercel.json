@@ -1,5 +1,137 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/blog/wizytowka-google-dla-dj",
+      "destination": "/blog/wizytowka-google-firma-bez-lokalu",
+      "permanent": true
+    },
+    {
+      "source": "/blog/wizytowka-google-dla-dj.html",
+      "destination": "/blog/wizytowka-google-firma-bez-lokalu",
+      "permanent": true
+    },
+    {
+      "source": "/blog/wizytowka-google-sala-weselna",
+      "destination": "/blog/wizytowka-google-dla-lokalu",
+      "permanent": true
+    },
+    {
+      "source": "/blog/wizytowka-google-sala-weselna.html",
+      "destination": "/blog/wizytowka-google-dla-lokalu",
+      "permanent": true
+    },
+    {
+      "source": "/blog/social-media-dla-dj",
+      "destination": "/blog/social-media-dla-firmy-uslugowej",
+      "permanent": true
+    },
+    {
+      "source": "/blog/social-media-dla-dj.html",
+      "destination": "/blog/social-media-dla-firmy-uslugowej",
+      "permanent": true
+    },
+    {
+      "source": "/blog/opinie-google-sala-weselna",
+      "destination": "/blog/prosba-o-opinie-google-wzory",
+      "permanent": true
+    },
+    {
+      "source": "/blog/opinie-google-sala-weselna.html",
+      "destination": "/blog/prosba-o-opinie-google-wzory",
+      "permanent": true
+    },
+    {
+      "source": "/blog/strona-dla-zespolu-weselnego",
+      "destination": "/blog/strona-internetowa-firmy-co-musi-miec",
+      "permanent": true
+    },
+    {
+      "source": "/blog/strona-dla-zespolu-weselnego.html",
+      "destination": "/blog/strona-internetowa-firmy-co-musi-miec",
+      "permanent": true
+    },
+    {
+      "source": "/blog/system-zapytan-wesela",
+      "destination": "/blog/system-zapytan-dla-firmy",
+      "permanent": true
+    },
+    {
+      "source": "/blog/system-zapytan-wesela.html",
+      "destination": "/blog/system-zapytan-dla-firmy",
+      "permanent": true
+    },
+    {
+      "source": "/blog/strona-dla-sali-weselnej",
+      "destination": "/blog/strona-dla-restauracji-i-lokalu",
+      "permanent": true
+    },
+    {
+      "source": "/blog/strona-dla-sali-weselnej.html",
+      "destination": "/blog/strona-dla-restauracji-i-lokalu",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cennik-dj-na-wesele-na-stronie",
+      "destination": "/blog/ceny-na-stronie-firmy",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cennik-dj-na-wesele-na-stronie.html",
+      "destination": "/blog/ceny-na-stronie-firmy",
+      "permanent": true
+    },
+    {
+      "source": "/blog/jak-zespol-weselny-moze-zdobyc-wiecej-wesel",
+      "destination": "/blog/jak-firma-moze-zdobyc-wiecej-klientow",
+      "permanent": true
+    },
+    {
+      "source": "/blog/jak-zespol-weselny-moze-zdobyc-wiecej-wesel.html",
+      "destination": "/blog/jak-firma-moze-zdobyc-wiecej-klientow",
+      "permanent": true
+    },
+    {
+      "source": "/blog/wzor-odpowiedzi-na-zapytanie-o-wesele",
+      "destination": "/blog/wzor-odpowiedzi-na-zapytanie-klienta",
+      "permanent": true
+    },
+    {
+      "source": "/blog/wzor-odpowiedzi-na-zapytanie-o-wesele.html",
+      "destination": "/blog/wzor-odpowiedzi-na-zapytanie-klienta",
+      "permanent": true
+    },
+    {
+      "source": "/blog/wolne-terminy-sala-weselna",
+      "destination": "/blog/wolne-terminy-jak-zapelnic-kalendarz",
+      "permanent": true
+    },
+    {
+      "source": "/blog/wolne-terminy-sala-weselna.html",
+      "destination": "/blog/wolne-terminy-jak-zapelnic-kalendarz",
+      "permanent": true
+    },
+    {
+      "source": "/blog/imprezy-klub-bar-google-strona",
+      "destination": "/blog/wydarzenia-firmy-strona-google",
+      "permanent": true
+    },
+    {
+      "source": "/blog/imprezy-klub-bar-google-strona.html",
+      "destination": "/blog/wydarzenia-firmy-strona-google",
+      "permanent": true
+    },
+    {
+      "source": "/blog/umowa-dj-zespol-wesele",
+      "destination": "/blog/umowa-z-klientem-uslugi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/umowa-dj-zespol-wesele.html",
+      "destination": "/blog/umowa-z-klientem-uslugi",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
