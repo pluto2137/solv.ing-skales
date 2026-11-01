@@ -1,0 +1,13 @@
+/* Direct booking calculator. Loaded after en.css. */
+.calc{margin-top:28px;padding:28px;border-radius:26px;background:linear-gradient(170deg,rgba(14,22,70,.6),rgba(3,6,25,.85));border:1px solid var(--line)}
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.calc label{display:grid;gap:8px;font-size:.92rem;color:var(--mut)}
+.calc input{width:100%;padding:13px 15px;border-radius:14px;border:1px solid rgba(150,175,255,.25);background:rgba(255,255,255,.05);color:var(--fg);font:inherit;font-size:1.05rem}
+.calc input:focus{outline:none;border-color:var(--glow);box-shadow:0 0 0 3px rgba(107,140,255,.25)}
+.calc-out{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:20px}
+.kpi{padding:18px 20px;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.03);display:grid;gap:6px}
+.kpi .k-label{font-size:.88rem;color:var(--mut)}
+.kpi strong{font-size:1.7rem;color:#fff;font-weight:700;letter-spacing:-.01em}
+.kpi.hi{border-color:var(--glow);background:rgba(107,140,255,.1)}
+.kpi.hi strong{color:var(--glow)}
+@media(max-width:520px){.calc{padding:20px}}

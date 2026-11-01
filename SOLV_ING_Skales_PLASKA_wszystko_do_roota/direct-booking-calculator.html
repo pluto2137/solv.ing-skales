@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Direct booking savings calculator for vacation rentals | SOLV.ING</title>
+<meta name="description" content="Free calculator for Airbnb and Vrbo hosts: see how much a few repeat guests booking directly would keep in your pocket each month and each year, after card fees.">
+<meta name="theme-color" content="#02040f">
+<link rel="icon" href="/mark.webp" type="image/webp">
+<link rel="canonical" href="https://www.solving-agency.pl/direct-booking-calculator">
+<meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://www.solving-agency.pl/og-en.png"><meta property="og:site_name" content="SOLV.ING"><meta property="og:title" content="Direct booking savings calculator for vacation rentals"><meta property="og:description" content="How much would a few repeat guests booking directly save you? Put in your own numbers."><meta property="og:url" content="https://www.solving-agency.pl/direct-booking-calculator">
+<link rel="stylesheet" href="/fonts.css">
+<link rel="stylesheet" href="/legal.css">
+<link rel="stylesheet" href="/svc.css">
+<link rel="stylesheet" href="/en.css">
+<link rel="stylesheet" href="/calc.css">
+<script src="/calc.js" defer></script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Direct booking savings calculator","url":"https://www.solving-agency.pl/direct-booking-calculator","applicationCategory":"BusinessApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"en","description":"Calculator for vacation rental hosts: estimate how much repeat guests booking directly would save compared with paying a platform fee on every stay.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"ProfessionalService","@id":"https://www.solving-agency.pl/#organization","name":"SOLV.ING","url":"https://www.solving-agency.pl"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What platform fee should I enter?","acceptedAnswer":{"@type":"Answer","text":"Enter the share of each booking that the platform keeps from you. Hosts on a host-only fee often pay around 15%, hosts on a split fee pay much less themselves while the guest pays a service fee on top. Check your own payout statements for the exact number."}},{"@type":"Question","name":"Does a direct booking cost nothing?","acceptedAnswer":{"@type":"Answer","text":"No. You usually pay a card processing fee of roughly 3%, plus whatever your website and booking tools cost. The calculator subtracts the card fee you enter. Website costs are separate and depend on what you need."}},{"@type":"Question","name":"Can I ask Airbnb guests to book directly next time?","acceptedAnswer":{"@type":"Answer","text":"Airbnb's rules do not allow using its messaging or bookings to move guests off the platform. The safe route is to be easy to find on your own: a website under your property's name and a Google Business Profile, so guests who search for you later can book with you. This is not legal advice; read the platform's current terms."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><a class="lg" href="/en"><img src="/mark.webp" alt="SOLV.ING logo">SOLV.ING</a><nav class="tn" aria-label="Menu"><a href="/guides">Guides</a><a href="/examples">Examples</a><a href="/en#contact">Contact</a></nav></header>
+<main id="main">
+<h1>How much would direct bookings <em>keep in your pocket?</em></h1>
+<p class="lead">Put in your own numbers. The calculator shows what the platform fee costs you on every stay, and how much you'd keep if just a few repeat guests booked with you directly instead.</p>
+
+<form class="calc" id="calc" novalidate>
+<div class="calc-grid">
+<label>Nightly rate ($)<input id="rate" type="number" inputmode="decimal" min="0" step="1" value="185"></label>
+<label>Average stay (nights)<input id="nights" type="number" inputmode="decimal" min="1" step="0.5" value="3"></label>
+<label>Cleaning fee you charge ($)<input id="clean" type="number" inputmode="decimal" min="0" step="1" value="95"></label>
+<label>Platform fee you pay (%)<input id="fee" type="number" inputmode="decimal" min="0" max="40" step="0.1" value="15.5"></label>
+<label>Stays per month<input id="stays" type="number" inputmode="decimal" min="0" step="1" value="6"></label>
+<label>Of those, how many could book directly?<input id="direct" type="number" inputmode="decimal" min="0" step="1" value="2"></label>
+<label>Card fee on direct bookings (%)<input id="card" type="number" inputmode="decimal" min="0" max="10" step="0.1" value="3"></label>
+</div>
+</form>
+
+<div class="calc-out" aria-live="polite">
+<div class="kpi"><span class="k-label">Platform fee on one stay</span><strong id="o-stay">$0</strong></div>
+<div class="kpi"><span class="k-label">Platform fees per month, all stays</span><strong id="o-allm">$0</strong></div>
+<div class="kpi hi"><span class="k-label">You keep per month with direct stays</span><strong id="o-month">$0</strong></div>
+<div class="kpi hi"><span class="k-label">You keep per year</span><strong id="o-year">$0</strong></div>
+</div>
+<p class="note" id="o-text"></p>
+
+<h2>How it's calculated</h2>
+<ul class="pains">
+<li><strong>One stay</strong> = nightly rate × nights + cleaning fee.</li>
+<li><strong>Platform fee on a stay</strong> = one stay × the platform fee you entered.</li>
+<li><strong>A direct stay still costs something:</strong> we subtract the card fee you entered. Your website and booking tools cost money too, so compare the yearly number with what those would cost you.</li>
+<li>It's an estimate for planning, not financial or tax advice. Your payout statements have your real fee.</li>
+</ul>
+
+<h2>Where direct guests come from</h2>
+<p>Mostly from people who already know you: past guests who search your property's name, friends they tell, and travelers who find you on Google Maps. For that to work, your name has to lead somewhere guests can see rates and ask for their dates. Not just a Facebook page or a phone number.</p>
+<p>Airbnb's rules don't allow using its messages or bookings to move guests off the platform, so don't. Just be easy to find on your own. Our guide covers the safe ways: <a href="/guides">Guides for small lodging owners</a>.</p>
+
+<h2>Want to see it for your place?</h2>
+<p>We build simple direct-booking websites for cabins, motels, B&amp;Bs and vacation rentals: your rates by season, your rooms, and an "ask for your dates" form. You see a free preview built around your place before paying anything. Here's a <a href="/demo/cabins">sample site</a> and a few more <a href="/examples">examples</a>.</p>
+<p class="cta"><a class="btn" href="/en#contact">Get my free preview</a></p>
+</main>
+<footer class="fl"><nav aria-label="Language"><a href="/" hreflang="pl" lang="pl">Polski (PL)</a><a href="/en">English (EN)</a></nav><nav aria-label="Legal information"><a href="/polityka-prywatnosci" hreflang="pl">Privacy policy (PL + English summary)</a><a href="/regulamin" hreflang="pl">Terms (PL + English summary)</a><a href="/dane-uslugodawcy" hreflang="pl">Business details (PL + English summary)</a></nav><p>Oscar Rowe, Zimny Dwór 2, 83-425 Dziemiany, Poland · <a href="mailto:oscar.rowe21@gmail.com">oscar.rowe21@gmail.com</a></p></footer>
+</body>
+</html>

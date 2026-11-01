@@ -1,0 +1,22 @@
+/* Data report pages (e.g. /small-lodging-websites-report). Loaded after en.css. */
+.kf{list-style:none;padding:0;display:grid;gap:12px;margin-top:16px}
+.kf li{margin:0;padding:16px 18px;border:1px solid var(--line);border-radius:18px;background:rgba(14,22,70,.35)}
+.kf b{display:block;font-family:'Bricolage Grotesque',Arial,sans-serif;font-size:1.6rem;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:4px}
+.floor{margin-top:26px;padding:18px 22px;border-left:2px solid var(--glow);color:#d4ddff;background:rgba(14,22,70,.25);border-radius:0 14px 14px 0}
+.bars{list-style:none;padding:0;margin-top:18px;display:grid;gap:14px}
+.bars li{margin:0}
+.bars .bl-h{display:flex;justify-content:space-between;gap:12px;font-size:.95rem;color:#cfd8f7}
+.bars .bl-h span:last-child{color:#fff;font-weight:600;white-space:nowrap}
+.bars .tr{height:12px;margin-top:6px;border-radius:99px;background:rgba(130,155,255,.12);overflow:hidden}
+.bars .fi{height:100%;border-radius:99px;background:linear-gradient(90deg,#3b5bff,var(--glow))}
+.bars.sm .tr{height:8px}
+.bars.sm .fi{background:rgba(154,167,212,.6)}
+.cap{color:var(--mut);font-size:.9rem;margin-top:12px}
+.cat{margin-top:40px;padding-top:6px;border-top:1px solid var(--line)}
+.cat h2{margin-top:26px}
+.cat .n{font-family:'Bricolage Grotesque',Arial,sans-serif;color:#fff;font-weight:700;font-size:1.05rem;margin-bottom:8px}
+.fix{margin-top:12px;padding:12px 16px;border:1px solid var(--line);border-radius:14px;color:#d4ddff}
+.fix strong{color:#fff}
+.meth li{margin-top:10px}
+.rtable td.r{text-align:right;white-space:nowrap;color:#fff}
+@media(max-width:620px){.rtable td.r{text-align:left}.bars .bl-h{font-size:.9rem}.kf b{font-size:1.4rem}}

@@ -59,3 +59,16 @@
 - [Firma przeprowadzkowa: jak mieć więcej klientów z Google i strony](https://www.solving-agency.pl/blog/firma-przeprowadzkowa-strona-google-klienci): Strona i wizytówka Google dla firmy przeprowadzkowej: co jest w cenie, cena „od”, wycena po zdjęciach, przeprowadzki biur, opinie i zgody.
 - [Groomer i hotel dla psów: jak mieć więcej klientów z Google i strony](https://www.solving-agency.pl/blog/groomer-hotel-dla-psow-strona-google): Strona i wizytówka Google dla groomera, hotelu dla psów i kotów, opieki i szkolenia psów: ceny „od” według wielkości, rezerwacje, opinie i zgody.
 - [Firma ogrodnicza: jak mieć więcej klientów z Google i strony](https://www.solving-agency.pl/blog/firma-ogrodnicza-strona-google-klienci): Strona i wizytówka Google dla firmy ogrodniczej: obszar działania, cena „od” za m² i za wizytę, stała pielęgnacja, formularz wyceny, opinie i zgody.
+
+## English (US and UK small lodging owners)
+SOLV.ING builds simple direct-booking websites for small cabins, motels, B&Bs and vacation rentals in the US: rates by season, rooms, policies in plain text and an "ask for your dates" form. Every client sees a free preview built around their own place before paying anything. No price list; each project is quoted individually. Work happens by email, in English.
+- [English home page](https://www.solving-agency.pl/en)
+- [Examples: demo sites for made-up businesses](https://www.solving-agency.pl/examples)
+- [Direct booking savings calculator](https://www.solving-agency.pl/direct-booking-calculator): estimate what repeat guests booking directly would keep, after card fees.
+- [What we found reviewing 199 small US lodging websites (2026)](https://www.solving-agency.pl/small-lodging-websites-report): at least 45% showed no rates anywhere; template leftovers, typos, outdated content and broken links were common (lower bounds).
+- [Guides for small lodging owners](https://www.solving-agency.pl/guides)
+- [Airbnb temporary phone numbers: what hosts should check](https://www.solving-agency.pl/guides/airbnb-temporary-phone-numbers-hosts)
+- [Airbnb's checkout chores rule: what hosts should change](https://www.solving-agency.pl/guides/airbnb-checkout-chores-rule)
+- [Break-even occupancy for a short-term rental, worked out](https://www.solving-agency.pl/guides/short-term-rental-break-even-occupancy)
+- [Direct-booking website checklist for motels, cabins and B&Bs](https://www.solving-agency.pl/guides/direct-booking-website-checklist)
+- [Repeat guests booking direct: what Airbnb's rules allow](https://www.solving-agency.pl/guides/repeat-guests-book-direct-airbnb-rules)
