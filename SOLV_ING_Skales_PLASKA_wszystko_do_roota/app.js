@@ -5,7 +5,7 @@ var loader=d.getElementById('loader');
 function $(s,c){return (c||d).querySelector(s)}function $$(s,c){return Array.prototype.slice.call((c||d).querySelectorAll(s))}
 var STAR='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12 6.6-.6 11.4-5.4 12-12z"/></svg>';
 function fillMq(id,words,outline){var h='';for(var r=0;r<2;r++)words.forEach(function(w,i){h+='<span class="'+((i+outline)%2?'o':'')+'">'+w+STAR+'</span>'});$('#'+id).innerHTML=h}
-fillMq('m1',['Mniej roboty','Więcej gości','Więcej zysku'],0);fillMq('m2',['Pracujesz mniej','Zarabiasz więcej','Bez stresu'],1);
+fillMq('m1',['Mniej roboty','Więcej klientów','Więcej zysku'],0);fillMq('m2',['Pracujesz mniej','Zarabiasz więcej','Bez stresu'],1);
 /* utilities (no gsap needed) */
 $$('[data-copy]').forEach(function(b){b.addEventListener('click',function(){var t=b.getAttribute('data-copy');function ok(){var o=b.textContent;b.textContent='Skopiowano';b.classList.add('ok');setTimeout(function(){b.textContent='Kopiuj';b.classList.remove('ok')},1600)}
 try{navigator.clipboard.writeText(t).then(ok,fb)}catch(e){fb()}
