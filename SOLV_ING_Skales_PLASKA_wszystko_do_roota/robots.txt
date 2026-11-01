@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /podglad/
 
 User-agent: Googlebot
 Allow: /
