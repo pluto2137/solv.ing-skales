@@ -241,7 +241,7 @@ video::-webkit-media-controls,video::-webkit-media-controls-enclosure,video::-we
 .sec h2{font-size:clamp(2.4rem,6.5vw,6.4rem);margin-bottom:5vh;max-width:1000px}
 .two,.svc{display:grid;gap:16px;grid-template-columns:1fr}
 @media(min-width:900px){.two{grid-template-columns:1fr 1fr}}
-@media(min-width:760px){.svc{grid-template-columns:1fr 1fr}}
+@media(min-width:760px){.svc{grid-template-columns:1fr 1fr}.svc>.card:last-child:nth-child(odd){grid-column:1/-1}}
 .card{display:block;padding:34px;border-radius:30px;background:linear-gradient(170deg,rgba(14,22,70,.6),rgba(3,6,25,.85));border:1px solid var(--line);transition:border-color .3s,transform .3s}
 .card h3{font-size:clamp(1.4rem,2.3vw,2rem);margin-bottom:12px;line-height:1.1}
 .card p,.card li{color:#aab6e6}.card ol{padding-left:22px;margin:12px 0}.card li{margin-top:6px}.card p+p{margin-top:12px}
