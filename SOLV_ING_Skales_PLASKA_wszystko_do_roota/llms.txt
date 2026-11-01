@@ -3,7 +3,7 @@
 > SOLV.ING (solving-agency.pl) to agencja z Pomorza, która pomaga firmom usługowym zamieniać zapytania w rezerwacje i sprzedaż. Pracuje z firmami z każdej branży: restauracjami i lokalami, salonami, ekipami remontowymi, biurami nieruchomości, DJ-ami, zespołami i salami, w całej Polsce. Założyciel: Oskar Rowe. Kontakt: oscar.rowe21@gmail.com, +48 505 119 531.
 
 ## Co robimy
-- Strony internetowe z cenami „od”, pakietami i formularzem wolnego terminu (od 800 zł, bez abonamentu)
+- Strony internetowe z cenami „od”, pakietami i formularzem wolnego terminu (bez abonamentu)
 - Profil firmy w Google, zbieranie opinii od dawnych klientów i automatyczna prośba o opinię
 - Automatyczne odpowiedzi na zapytania i system zapytań z kalendarzem
 - Proste narzędzia webowe: CRM dla firm usługowych, generatory ofert PDF, formularze rezerwacji
@@ -11,6 +11,7 @@
 
 ## Jak pracujemy
 - Darmowy audyt (quiz, około 4 minuty), potem konkretne wnioski
+- Brak cennika: każdą usługę, także social media i reklamy, wyceniamy indywidualnie po bezpłatnym audycie
 - Darmowy podgląd przed płatnością, płatność 50/50, prawa autorskie przechodzą na klienta
 - Kontakt w wiadomościach, bez obowiązkowych rozmów telefonicznych
 
@@ -22,22 +23,22 @@
 - [System opinii](https://www.solving-agency.pl/system-opinii)
 - [Automatyzacja](https://www.solving-agency.pl/automatyzacja)
 - [Projekty](https://www.solving-agency.pl/projekty)
-- [English page: enquiry systems and websites for small businesses (UK/US), prices in GBP](https://www.solving-agency.pl/en)
+- [English page: enquiry systems and websites for small businesses (UK/US)](https://www.solving-agency.pl/en)
 
 ## Poradnik
-- [Ile kosztuje strona dla DJ-a w 2026?](https://www.solving-agency.pl/blog/ile-kosztuje-strona-dla-dj)
+- [Ile kosztuje strona dla DJ-a? Od czego zależy cena](https://www.solving-agency.pl/blog/ile-kosztuje-strona-dla-dj): Od czego zależy cena strony dla DJ-a albo zespołu weselnego: kreator, szablon czy strona na zamówienie, zakres, zdjęcia, formularz. I co strona musi mieć, żeby para zarezerwowała termin.
 - [Jak DJ może zdobyć więcej wesel na 2027?](https://www.solving-agency.pl/blog/jak-dj-moze-zdobyc-wiecej-wesel)
-- [Ile kosztuje strona dla firmy remontowej w 2026?](https://www.solving-agency.pl/blog/ile-kosztuje-strona-dla-firmy-remontowej)
+- [Ile kosztuje strona dla firmy remontowej? Od czego zależy cena](https://www.solving-agency.pl/blog/ile-kosztuje-strona-dla-firmy-remontowej): Od czego zależy cena strony dla firmy remontowej, elektrycznej albo serwisowej i co strona musi mieć, żeby klient wysłał zapytanie zamiast dzwonić do konkurencji.
 - [Jak restauracja może mieć więcej rezerwacji z Google?](https://www.solving-agency.pl/blog/jak-restauracja-moze-miec-wiecej-rezerwacji-z-google)
-- [Własny system rezerwacji dla salonu: kiedy warto odejść od platform?](https://www.solving-agency.pl/blog/wlasny-system-rezerwacji-dla-salonu)
+- [Własny system rezerwacji dla salonu: kiedy warto odejść od platform?](https://www.solving-agency.pl/blog/wlasny-system-rezerwacji-dla-salonu): Kiedy salon kosmetyczny albo fryzjerski powinien mieć własne rezerwacje online na stronie, od czego zależy koszt i jak nie stracić klientów, którzy dziś umawiają się przez aplikację.
 - [Wizytówka Google dla firmy bez lokalu: jak ją założyć, ukryć adres i zdobyć opinie](https://www.solving-agency.pl/blog/wizytowka-google-firma-bez-lokalu): Wizytówka Google jest za darmo. Jak firma, która dojeżdża do klienta, ustawi obszar działania, ukryje adres, przejdzie weryfikację i zbierze opinie.
 - [Social media dla firmy usługowej: co publikować, jak często i z jakimi zgodami](https://www.solving-agency.pl/blog/social-media-dla-firmy-uslugowej): Co firma usługowa powinna publikować w social mediach, jak często, jak prosić klientów o zgodę na zdjęcia i czemu nie opierać się na samym Facebooku.
-- [Ile kosztuje krótka reklama wideo z AI w 2026?](https://www.solving-agency.pl/blog/ile-kosztuje-reklama-wideo-z-ai)
+- [Ile kosztuje krótka reklama wideo z AI? Od czego zależy cena](https://www.solving-agency.pl/blog/ile-kosztuje-reklama-wideo-z-ai): Od czego zależy cena 15–30-sekundowej reklamy wideo zrobionej z pomocą AI, co powinno być w cenie i jak sprawdzić, czy wykonawca ma prawo do muzyki, głosu i obrazów.
 - [Jak firma usługowa może zdobyć więcej opinii w Google?](https://www.solving-agency.pl/blog/jak-zdobyc-wiecej-opinii-w-google)
 - [Prośba o opinię w Google: gotowe wzory wiadomości, zgoda i zasady](https://www.solving-agency.pl/blog/prosba-o-opinie-google-wzory): Gotowe wzory prośby o opinię w Google: SMS, e-mail, przypomnienie i tabliczka z kodem QR. Kiedy wysłać, jak zapytać o zgodę i czego unikać.
 - [Strona internetowa firmy: co musi mieć, żeby klienci wysyłali zapytania](https://www.solving-agency.pl/blog/strona-internetowa-firmy-co-musi-miec): Co musi mieć strona firmy usługowej, żeby przynosiła zapytania: oferta prostymi słowami, cena „od”, dowody pracy, opinie i krótki formularz.
 - [System zapytań dla firmy: jak szybko odpowiadać i nie tracić klientów](https://www.solving-agency.pl/blog/system-zapytan-dla-firmy): Gdzie giną zapytania od klientów, jedna lista, automatyczna odpowiedź z kalendarzem i przypomnienie. Co zrobisz za darmo i kiedy opłaca się system.
-- [Strona internetowa dla restauracji i lokalu: co musi mieć i ile kosztuje](https://www.solving-agency.pl/blog/strona-dla-restauracji-i-lokalu): Co gość sprawdza na stronie restauracji, sali, salonu albo pensjonatu: godziny, menu i ceny, rezerwacja, dojazd, zdjęcia. I ile kosztuje taka strona.
+- [Strona internetowa dla restauracji i lokalu: co musi mieć i od czego zależy cena](https://www.solving-agency.pl/blog/strona-dla-restauracji-i-lokalu): Co gość sprawdza na stronie restauracji, sali, salonu albo pensjonatu: godziny, menu i ceny, rezerwacja, dojazd, zdjęcia. I od czego zależy cena takiej strony.
 - [Ceny na stronie firmy usługowej: pokazywać je czy nie?](https://www.solving-agency.pl/blog/ceny-na-stronie-firmy): Czy firma usługowa powinna pokazywać ceny na stronie? Jak podać uczciwą cenę „od”, co wpisać w pakiet, co podnosi cenę i co, jeśli zobaczy ją konkurencja.
 - [Jak lokalna firma może zdobyć więcej klientów: od czego zacząć](https://www.solving-agency.pl/blog/jak-firma-moze-zdobyc-wiecej-klientow): Prawdziwe zdjęcia pracy, cena „od”, łatwe zapytanie, szybka odpowiedź, wizytówka Google i opinie. Kolejność kroków dla lokalnej firmy i czego nie robić.
 - [Jak odpisać na zapytanie klienta: wzory odpowiedzi do skopiowania](https://www.solving-agency.pl/blog/wzor-odpowiedzi-na-zapytanie-klienta): Gotowe wzory odpowiedzi na zapytanie klienta: termin wolny, zajęty, „ile kosztuje?”, wycena po oględzinach i jedno przypomnienie. Plus czego unikać.
