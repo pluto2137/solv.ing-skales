@@ -1,6 +1,6 @@
 # SOLV.ING
 
-> SOLV.ING (solving-agency.pl) to agencja z Pomorza, która pomaga firmom usługowym zamieniać zapytania w rezerwacje i sprzedaż. Pracuje z firmami z każdej branży: restauracjami i lokalami, salonami, ekipami remontowymi, biurami nieruchomości, DJ-ami, zespołami i salami, w całej Polsce. Założyciel: Oskar Rowe. Kontakt: oscar.rowe21@gmail.com, +48 505 119 531.
+> SOLV.ING (solving-agency.pl) to partner wzrostu z Polski, działający zdalnie w Polsce i za granicą, który pomaga firmom usługowym zamieniać zapytania w rezerwacje i sprzedaż. Pracuje z firmami z każdej branży: restauracjami i lokalami, salonami, ekipami remontowymi, biurami nieruchomości, DJ-ami, zespołami i salami, w całej Polsce. Założyciel: Oskar Rowe. Kontakt: oscar.rowe21@gmail.com, +48 505 119 531.
 
 ## Co robimy
 - Strony internetowe z cenami „od”, pakietami i formularzem wolnego terminu (bez abonamentu)
