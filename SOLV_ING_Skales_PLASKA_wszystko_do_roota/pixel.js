@@ -110,12 +110,14 @@ if (typeof document !== 'undefined') {
       var pixelId = (window.SOLVING_META && window.SOLVING_META.pixelId) || '';
       var banner = document.getElementById('cookie-banner');
       var settings = document.querySelectorAll('[data-cookie-settings]');
+      var pixelOnly = document.querySelectorAll('[data-pixel-only]');
       var consent = getConsent(store('localStorage'));
       var i;
 
       // Without a Pixel ID there is nothing to ask about: no banner, no settings link.
       if (pixelId) {
         for (i = 0; i < settings.length; i++) settings[i].hidden = false;
+        for (i = 0; i < pixelOnly.length; i++) pixelOnly[i].hidden = false;
         if (banner && consent === null) banner.hidden = false;
       }
 
