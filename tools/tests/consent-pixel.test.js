@@ -5,8 +5,8 @@ const path = require('node:path');
 
 const SITE = path.join(__dirname, '..', '..', 'SOLV_ING_Skales_PLASKA_wszystko_do_roota');
 const { getConsent, setConsent, CONSENT_KEY } = require(path.join(SITE, 'consent.js'));
-const { loadPixel, shouldFireLead, takePendingLead, fireLead } = require(path.join(SITE, 'pixel.js'));
-const { PENDING_KEY } = require(path.join(SITE, 'lead-form.js'));
+const { loadPixel, shouldFireLead, takePendingLead, fireLead, onThankYouLoad, onConsentChoice } = require(path.join(SITE, 'pixel.js'));
+const { PENDING_KEY, shouldStorePending } = require(path.join(SITE, 'lead-form.js'));
 
 function memStorage(init = {}) {
   const m = new Map(Object.entries(init));
@@ -71,7 +71,7 @@ test('loadPixel: nothing from Meta without an ID or without consent', () => {
   }
 });
 
-test('loadPixel: with ID and consent adds fbevents.js once and queues init + PageView', () => {
+test('loadPixel: with ID and consent adds fbevents.js once and queues autoConfig off, init, PageView', () => {
   const doc = fakeDoc();
   const win = {};
   assert.equal(loadPixel({ pixelId: '123', consent: 'granted', doc, win }), true);
@@ -79,7 +79,7 @@ test('loadPixel: with ID and consent adds fbevents.js once and queues init + Pag
   assert.equal(doc.added[0].src, 'https://connect.facebook.net/en_US/fbevents.js');
   assert.equal(doc.added[0].async, true);
   assert.equal(typeof win.fbq, 'function');
-  assert.deepEqual(win.fbq.queue.map((a) => Array.from(a)), [['init', '123'], ['track', 'PageView']]);
+  assert.deepEqual(win.fbq.queue.map((a) => Array.from(a)), [['set', 'autoConfig', false, '123'], ['init', '123'], ['track', 'PageView']]);
   // second call on the same page: no second script
   assert.equal(loadPixel({ pixelId: '123', consent: 'granted', doc, win }), false);
   assert.equal(doc.added.length, 1);
@@ -127,4 +127,80 @@ test('fireLead: browser Lead with the same eventID, then beacon to /api/meta-lea
     event_id: 'e1', email: 'a@b.pl', telefon: '505119531', owner: 'tak', consent: true,
     event_source_url: 'https://www.solving-agency.pl/audyt-sali-dziekujemy',
   });
+});
+
+// Thank-you page flow (review item 1): consent given on the thank-you page must still send the Lead, once.
+function fakeWin() {
+  const fbq = [];
+  const beacons = [];
+  return {
+    fbq: (...a) => fbq.push(a),
+    navigator: { sendBeacon: (url, body) => { beacons.push(JSON.parse(body)); return true; } },
+    location: { href: 'https://www.solving-agency.pl/audyt-sali-dziekujemy' },
+    _fbq: fbq,
+    _beacons: beacons,
+  };
+}
+const LEAD = { eventId: '6f1c2b1e-8d1a-4c55-9b7e-2f3a4b5c6d7e', owner: 'tak', email: '', telefon: '505119531' };
+
+test('thank-you: consent not answered yet → lead waits, nothing sent', () => {
+  const s = memStorage({ [PENDING_KEY]: JSON.stringify(LEAD) });
+  const win = fakeWin();
+  assert.equal(onThankYouLoad({ storage: s, consent: null, pixelId: '123', win }), 'waiting');
+  assert.equal(s._m.has(PENDING_KEY), true);
+  assert.equal(win._fbq.length + win._beacons.length, 0);
+});
+
+test('thank-you: "Akceptuję" clicked on the thank-you page fires the waiting Lead exactly once', () => {
+  const s = memStorage({ [PENDING_KEY]: JSON.stringify(LEAD) });
+  const win = fakeWin();
+  onThankYouLoad({ storage: s, consent: null, pixelId: '123', win });
+  assert.equal(onConsentChoice({ storage: s, consent: 'granted', pixelId: '123', win }), true);
+  assert.deepEqual(win._fbq, [['track', 'Lead', {}, { eventID: LEAD.eventId }]]);
+  assert.equal(win._beacons.length, 1);
+  // clicking again (Ustawienia cookies → Akceptuję) or reloading does not resend
+  assert.equal(onConsentChoice({ storage: s, consent: 'granted', pixelId: '123', win }), false);
+  assert.equal(onThankYouLoad({ storage: s, consent: 'granted', pixelId: '123', win }), 'none');
+  assert.equal(win._beacons.length, 1);
+});
+
+test('thank-you: "Odrzucam" clicked on the thank-you page drops the lead, nothing sent', () => {
+  const s = memStorage({ [PENDING_KEY]: JSON.stringify(LEAD) });
+  const win = fakeWin();
+  onThankYouLoad({ storage: s, consent: null, pixelId: '123', win });
+  assert.equal(onConsentChoice({ storage: s, consent: 'denied', pixelId: '123', win }), false);
+  assert.equal(s._m.has(PENDING_KEY), false);
+  assert.equal(win._fbq.length + win._beacons.length, 0);
+});
+
+test('thank-you: consent already granted → fires on load once; owner nie → dropped, nothing sent', () => {
+  let s = memStorage({ [PENDING_KEY]: JSON.stringify(LEAD) });
+  let win = fakeWin();
+  assert.equal(onThankYouLoad({ storage: s, consent: 'granted', pixelId: '123', win }), 'fired');
+  assert.equal(win._beacons.length, 1);
+  assert.equal(onThankYouLoad({ storage: s, consent: 'granted', pixelId: '123', win }), 'none');
+  assert.equal(win._beacons.length, 1);
+  s = memStorage({ [PENDING_KEY]: JSON.stringify({ ...LEAD, owner: 'nie' }) });
+  win = fakeWin();
+  assert.equal(onThankYouLoad({ storage: s, consent: 'granted', pixelId: '123', win }), 'dropped');
+  assert.equal(s._m.has(PENDING_KEY), false);
+  assert.equal(win._fbq.length + win._beacons.length, 0);
+});
+
+test('thank-you: no Pixel ID or denied → lead removed at once, nothing sent', () => {
+  for (const [consent, pixelId] of [[null, ''], ['granted', ''], ['denied', '123']]) {
+    const s = memStorage({ [PENDING_KEY]: JSON.stringify(LEAD) });
+    const win = fakeWin();
+    assert.notEqual(onThankYouLoad({ storage: s, consent, pixelId, win }), 'fired');
+    assert.equal(s._m.has(PENDING_KEY), false, `${consent}/${pixelId}`);
+    assert.equal(win._fbq.length + win._beacons.length, 0);
+  }
+});
+
+test('shouldStorePending: contact data kept for the thank-you page only when a Lead could still go', () => {
+  assert.equal(shouldStorePending('tak', 'granted', '123'), true);
+  assert.equal(shouldStorePending('tak', null, '123'), true, 'consent can still be given on the thank-you page');
+  assert.equal(shouldStorePending('tak', 'denied', '123'), false);
+  assert.equal(shouldStorePending('nie', 'granted', '123'), false);
+  assert.equal(shouldStorePending('tak', 'granted', ''), false);
 });

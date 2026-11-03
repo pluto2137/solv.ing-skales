@@ -77,6 +77,12 @@ function submitLead(fields, opts) {
     .then(function (r) { if (timer) clearTimeout(timer); return r; });
 }
 
+/* Keep contact data for the thank-you page only when a Lead could still be sent:
+   a Pixel ID is set, the owner answered "tak" and consent isn't "denied" (null = can still say yes there). */
+function shouldStorePending(owner, consent, pixelId) {
+  return owner === 'tak' && consent !== 'denied' && typeof pixelId === 'string' && pixelId.trim() !== '';
+}
+
 function newEventId() {
   return crypto.randomUUID();
 }
@@ -142,13 +148,16 @@ if (typeof document !== 'undefined') {
         var keyInput = form.querySelector('input[name="access_key"]');
         submitLead(f, { fetch: window.fetch.bind(window), key: keyInput ? keyInput.value : '' }).then(function (r) {
           if (r.ok) {
+            var pixelId = (window.SOLVING_META && window.SOLVING_META.pixelId) || '';
+            var consent = typeof getConsent === 'function' ? getConsent((function () { try { return window.localStorage; } catch (e) { return null; } })()) : null;
             try {
-              sessionStorage.setItem(PENDING_KEY, JSON.stringify({
+              if (shouldStorePending(f.wlasciciel, consent, pixelId)) sessionStorage.setItem(PENDING_KEY, JSON.stringify({
                 eventId: newEventId(),
                 owner: f.wlasciciel,
                 email: str(f.email),
                 telefon: str(f.telefon)
               }));
+              else sessionStorage.removeItem(PENDING_KEY);
             } catch (err) { /* storage blocked: thank-you page still works, just no Lead */ }
             location.href = '/audyt-sali-dziekujemy';
             return;
@@ -168,5 +177,5 @@ if (typeof document !== 'undefined') {
 }
 
 if (typeof module !== 'undefined') {
-  module.exports = { validateLead: validateLead, normalizePhone: normalizePhone, submitLead: submitLead, newEventId: newEventId, PENDING_KEY: PENDING_KEY };
+  module.exports = { validateLead: validateLead, normalizePhone: normalizePhone, submitLead: submitLead, newEventId: newEventId, shouldStorePending: shouldStorePending, PENDING_KEY: PENDING_KEY };
 }

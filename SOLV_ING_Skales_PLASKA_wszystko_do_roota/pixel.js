@@ -24,6 +24,8 @@ function loadPixel(o) {
   s.async = true;
   s.src = FBEVENTS_SRC;
   doc.head.appendChild(s);
+  // No automatic events or automatic advanced matching (form scraping): we send only PageView and Lead.
+  win.fbq('set', 'autoConfig', false, id);
   win.fbq('init', id);
   win.fbq('track', 'PageView');
   return true;
@@ -67,6 +69,27 @@ function fireLead(lead, win) {
   } catch (e) { /* the browser Lead already went; the server copy is a bonus */ }
 }
 
+function sendIfAllowed(o) {
+  var lead = takePendingLead(o.storage);
+  if (!lead) return 'none';
+  if (!shouldFireLead(lead, o.consent, o.pixelId)) return 'dropped';
+  fireLead(lead, o.win);
+  return 'fired';
+}
+
+/* Thank-you page load. If a Pixel ID is set and the visitor hasn't answered the banner yet,
+   the lead waits in sessionStorage for onConsentChoice. Otherwise it is taken (removed) now. */
+function onThankYouLoad(o) {
+  var hasId = typeof o.pixelId === 'string' && o.pixelId.trim() !== '';
+  if (hasId && o.consent === null) return 'waiting';
+  return sendIfAllowed(o);
+}
+
+/* Banner answered on the thank-you page: send the waiting Lead if allowed, else drop it. Removed either way. */
+function onConsentChoice(o) {
+  return sendIfAllowed(o) === 'fired';
+}
+
 /* Page glue: banner, settings link, Pixel, Lead on the thank-you page. Browser only. */
 if (typeof document !== 'undefined') {
   (function () {
@@ -96,13 +119,14 @@ if (typeof document !== 'undefined') {
         if (banner && consent === null) banner.hidden = false;
       }
 
+      var thankYou = document.body.getAttribute('data-page') === 'audyt-sali-dziekujemy';
       function choose(value) {
         setConsent(store('localStorage'), value);
         consent = value;
         if (banner) banner.hidden = true;
-        if (value === 'granted') {
-          loadPixel({ pixelId: pixelId, consent: value, doc: document, win: window });
-        } else {
+        if (value === 'granted') loadPixel({ pixelId: pixelId, consent: value, doc: document, win: window });
+        if (thankYou) onConsentChoice({ storage: store('sessionStorage'), consent: value, pixelId: pixelId, win: window });
+        if (value !== 'granted') {
           clearMetaCookies();
           if (window.__solvingPixelLoaded) location.reload();
         }
@@ -123,14 +147,14 @@ if (typeof document !== 'undefined') {
 
       loadPixel({ pixelId: pixelId, consent: consent, doc: document, win: window });
 
-      if (document.body.getAttribute('data-page') === 'audyt-sali-dziekujemy') {
-        var lead = takePendingLead(store('sessionStorage'));
-        if (lead && shouldFireLead(lead, getConsent(store('localStorage')), pixelId)) fireLead(lead, window);
-      }
+      if (thankYou) onThankYouLoad({ storage: store('sessionStorage'), consent: consent, pixelId: pixelId, win: window });
     });
   })();
 }
 
 if (typeof module !== 'undefined') {
-  module.exports = { loadPixel: loadPixel, shouldFireLead: shouldFireLead, takePendingLead: takePendingLead, fireLead: fireLead };
+  module.exports = {
+    loadPixel: loadPixel, shouldFireLead: shouldFireLead, takePendingLead: takePendingLead, fireLead: fireLead,
+    onThankYouLoad: onThankYouLoad, onConsentChoice: onConsentChoice
+  };
 }
