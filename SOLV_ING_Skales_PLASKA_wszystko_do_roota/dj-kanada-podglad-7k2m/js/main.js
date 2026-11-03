@@ -10,9 +10,22 @@
   document.querySelectorAll('.copy').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var t=b.textContent;function done(){b.textContent='Skopiowano';setTimeout(function(){b.textContent=t},1600)}
     try{navigator.clipboard.writeText(b.dataset.copy).then(done,done)}catch(err){done()}})});
 
+  /* Zajęte terminy – aktualizowane w ramach opieki nad stroną (RRRR-MM-DD) */
+  var BUSY=['2026-11-21','2026-11-29','2026-12-30','2026-12-31','2027-04-09','2027-06-05','2027-06-19'];
   var dateEl=document.getElementById('date');dateEl.min=new Date().toISOString().slice(0,10);
+  var note=document.getElementById('date-note');
+  function plDate(v){var p=v.split('-');return p[2]+'.'+p[1]+'.'+p[0]}
+  function checkDate(){var v=dateEl.value;if(!v){note.textContent='';note.className='date-note';return false}
+    if(BUSY.indexOf(v)>-1){note.className='date-note busy';note.textContent=plDate(v)+' jest już zajęty. Wyślijcie zapytanie o inną datę albo zadzwońcie.';return true}
+    note.className='date-note free';note.textContent=plDate(v)+' wygląda na wolny. Wyślijcie zapytanie, a potwierdzę.';return false}
+  dateEl.addEventListener('change',checkDate);dateEl.addEventListener('input',checkDate);
   var f=document.getElementById('request'),m=document.getElementById('form-msg');
-  f.addEventListener('submit',function(e){e.preventDefault();var miss=[];[['date','datę'],['name','imię'],['phone','telefon']].forEach(function(x){var el=document.getElementById(x[0]);if(!el.value){miss.push(x[1]);el.setAttribute('aria-invalid','true')}else el.removeAttribute('aria-invalid')});if(miss.length){m.className='form-msg err';m.textContent='Uzupełnijcie: '+miss.join(', ')+'.';return}m.className='form-msg ok';m.textContent='Dziękuję! Odezwę się z odpowiedzią. (W podglądzie nic nie zostało wysłane.)'});
+  if(/[?&]wyslano=1/.test(location.search)){m.className='form-msg ok';m.textContent='Dziękuję! Zapytanie dotarło. Odezwę się z odpowiedzią.'}
+  f.addEventListener('submit',function(e){var miss=[];[['date','datę'],['name','imię'],['phone','telefon']].forEach(function(x){var el=document.getElementById(x[0]);if(!el.value){miss.push(x[1]);el.setAttribute('aria-invalid','true')}else el.removeAttribute('aria-invalid')});
+    if(miss.length){e.preventDefault();m.className='form-msg err';m.textContent='Uzupełnijcie: '+miss.join(', ')+'.';return}
+    if(f.dataset.live!=='1'){e.preventDefault();m.className='form-msg ok';m.textContent='Dziękuję! Odezwę się z odpowiedzią. (W wersji do akceptacji nic nie zostało wysłane.)';return}
+    var nx=f.querySelector('[name=_next]');nx.value=location.origin+location.pathname+'?wyslano=1#rezerwacja';
+    m.className='form-msg';m.textContent='Wysyłam…'});
 
   var env=document.querySelector('.env');
   var envTl=null,envOpen=false;

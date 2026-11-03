@@ -307,3 +307,16 @@ footer{padding:40px var(--gutter) 70px;text-align:center;color:var(--muted);font
 }
 @media (max-width:560px){form{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* final: effects, booked dates, privacy, credit */
+.fx-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:1240px;margin:0 auto}
+.fx-ph{margin:0;padding:8px;border-radius:6px;background:var(--goldframe,linear-gradient(135deg,#f1dcaa,#a77d38));box-shadow:0 40px 90px rgba(0,0,0,.6)}
+.fx-ph img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:3px}
+.fx-ph figcaption{padding:14px 10px 8px;color:#3d0710;font:400 .95rem/1.4 var(--sans);text-align:center}
+.fx-ph figcaption b{display:block;font:400 1.9rem/1.1 var(--script);color:var(--crimson);margin-bottom:2px}
+@media (max-width:760px){.fx-grid{grid-template-columns:1fr}}
+.date-note{margin:4px 0 0;font-size:.85rem;min-height:1.2em;color:var(--ivory-dim)}
+.date-note.busy{color:#ffb8b8}.date-note.free{color:#d8e8bd}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
+.privacy{grid-column:1/-1;margin:14px 0 0;font-size:.74rem;line-height:1.5;color:var(--muted,rgba(243,233,216,.55))}
+footer .credit{display:block;margin-top:8px;font-size:.78rem;opacity:.8}
+footer .credit a{color:var(--gold-l);text-decoration:none;border-bottom:1px solid rgba(236,211,160,.35)}
