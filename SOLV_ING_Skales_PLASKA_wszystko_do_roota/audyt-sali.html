@@ -13,10 +13,17 @@
 <link rel="stylesheet" href="/svc.css">
 <link rel="stylesheet" href="/audyt-sali.css">
 <script src="/lead-form.js" defer></script>
+<script src="/meta-config.js" defer></script>
+<script src="/consent.js" defer></script>
+<script src="/pixel.js" defer></script>
 </head>
-<body>
+<body data-page="audyt-sali">
 <a class="skip" href="#main">Przejdź do treści</a>
 <header class="top"><a class="lg" href="/"><img src="/mark.webp" alt="Logo SOLV.ING">SOLV.ING</a></header>
+<div class="cookie" id="cookie-banner" role="region" aria-label="Zgoda na piksel Meta" tabindex="-1" hidden>
+<p>Używamy piksela Meta (Facebook), żeby sprawdzać, czy nasze reklamy działają. Włączymy go tylko za Twoją zgodą. <a class="ul" href="/polityka-prywatnosci#cookies">Więcej w Polityce prywatności.</a></p>
+<div class="cookie-btns"><button type="button" class="cbtn" data-consent="granted">Akceptuję</button><button type="button" class="cbtn" data-consent="denied">Odrzucam</button></div>
+</div>
 <main id="main">
 
 <section class="hero">
@@ -121,7 +128,7 @@
 </div>
 
 </main>
-<footer class="fl"><nav aria-label="Usługi"><a href="/strona-internetowa">Strona internetowa</a><a href="/wizytowka-google">Wizytówka Google</a><a href="/system-opinii">System opinii</a><a href="/automatyzacja">Automatyzacja zapytań</a><a href="/social-media-i-reklamy">Social media i reklamy</a><a href="/projekty">Projekty</a><a href="/dla-dj">Dla DJ-ów</a><a href="/blog">Poradnik</a></nav><nav aria-label="Informacje prawne"><a href="/polityka-prywatnosci">Polityka prywatności</a><a href="/regulamin">Regulamin</a><a href="/dane-uslugodawcy">Dane usługodawcy</a></nav>
+<footer class="fl"><nav aria-label="Usługi"><a href="/strona-internetowa">Strona internetowa</a><a href="/wizytowka-google">Wizytówka Google</a><a href="/system-opinii">System opinii</a><a href="/automatyzacja">Automatyzacja zapytań</a><a href="/social-media-i-reklamy">Social media i reklamy</a><a href="/projekty">Projekty</a><a href="/dla-dj">Dla DJ-ów</a><a href="/blog">Poradnik</a></nav><nav aria-label="Informacje prawne"><a href="/polityka-prywatnosci">Polityka prywatności</a><a href="/regulamin">Regulamin</a><a href="/dane-uslugodawcy">Dane usługodawcy</a><button type="button" class="cookie-link" data-cookie-settings hidden>Ustawienia cookies</button></nav>
 <p>Oscar Rowe, Zimny Dwór 2, 83-425 Dziemiany · <a href="mailto:oscar.rowe21@gmail.com">oscar.rowe21@gmail.com</a> · działalność nierejestrowana (art. 5 ust. 1 Prawa przedsiębiorców)</p></footer>
 </body>
 </html>
