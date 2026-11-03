@@ -2,6 +2,7 @@
 // Vercel function: server copy (Conversions API) of the "Lead" event from /audyt-sali-dziekujemy.
 // Sends only for venue owners (owner === 'tak') who gave consent (consent === true).
 // Env (set in Vercel by Oscar): META_PIXEL_ID, META_CAPI_TOKEN, META_GRAPH_VERSION. Any missing = do nothing.
+// Only accepts beacons whose Origin/Referer is https://(www.)solving-agency.pl (else 403) with a UUID event_id (else 400).
 // Never logs the email, phone or token.
 const crypto = require('node:crypto');
 
@@ -63,6 +64,23 @@ function parseBody(raw) {
   }
 }
 
+const ALLOWED_HOSTS = ['www.solving-agency.pl', 'solving-agency.pl'];
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+// The beacon comes from our own thank-you page, so its Origin (or Referer if Origin is missing) is our https host.
+// Stops drive-by and browser-based fake Leads; a forged curl can still set headers.
+function fromOurSite(headers) {
+  const h = headers || {};
+  const src = h.origin ? h.origin : h.referer;
+  if (!src) return false;
+  try {
+    const u = new URL(String(src));
+    return u.protocol === 'https:' && ALLOWED_HOSTS.indexOf(u.hostname) !== -1;
+  } catch (e) {
+    return false;
+  }
+}
+
 function send(res, code) {
   res.statusCode = code;
   res.end();
@@ -75,6 +93,7 @@ async function handler(req, res, deps) {
     res.setHeader('Allow', 'POST');
     return send(res, 405);
   }
+  if (!fromOurSite(req.headers)) return send(res, 403);
   const pixelId = env.META_PIXEL_ID;
   const token = env.META_CAPI_TOKEN;
   const version = env.META_GRAPH_VERSION;
@@ -83,7 +102,7 @@ async function handler(req, res, deps) {
   const body = parseBody(req.body);
   if (!body) return send(res, 400);
   if (body.consent !== true || body.owner !== 'tak') return send(res, 204);
-  if (!body.event_id) return send(res, 400);
+  if (typeof body.event_id !== 'string' || !UUID_RE.test(body.event_id)) return send(res, 400);
 
   const url = `https://graph.facebook.com/${encodeURIComponent(version)}/${encodeURIComponent(pixelId)}/events?access_token=${encodeURIComponent(token)}`;
   const payload = buildPayload(body, req, Math.floor(Date.now() / 1000));

@@ -11,7 +11,7 @@ const leadForm = require(path.join(SITE, 'lead-form.js'));
 
 const ENV = { META_PIXEL_ID: '123456', META_CAPI_TOKEN: 'secret-token', META_GRAPH_VERSION: 'v26.0' };
 const BODY = {
-  event_id: 'ev-1', email: '', telefon: '505 119 531', owner: 'tak', consent: true,
+  event_id: '6f1c2b1e-8d1a-4c55-9b7e-2f3a4b5c6d7e', email: '', telefon: '505 119 531', owner: 'tak', consent: true,
   event_source_url: 'https://www.solving-agency.pl/audyt-sali-dziekujemy',
 };
 
@@ -19,6 +19,7 @@ function req(over = {}) {
   return {
     method: 'POST',
     headers: {
+      origin: 'https://www.solving-agency.pl',
       'x-forwarded-for': '203.0.113.7, 10.0.0.1',
       'user-agent': 'TestAgent/1.0',
       cookie: '_fbp=fb.1.123.456; other=x',
@@ -115,7 +116,7 @@ test('valid body → one POST to Graph API with the right event, then 204', asyn
   assert.equal(payload.data.length, 1);
   const ev = payload.data[0];
   assert.equal(ev.event_name, 'Lead');
-  assert.equal(ev.event_id, 'ev-1');
+  assert.equal(ev.event_id, BODY.event_id);
   assert.equal(ev.action_source, 'website');
   assert.equal(ev.event_source_url, BODY.event_source_url);
   assert.equal(typeof ev.event_time, 'number');
@@ -182,4 +183,48 @@ test('Meta non-2xx → 204 and logs only the status', async () => {
   }
   assert.match(logged.join('\n'), /400/);
   assert.equal(logged.join('\n').includes('secret-token'), false);
+});
+
+const BASE_HEADERS = { 'x-forwarded-for': '203.0.113.7', 'user-agent': 'TestAgent/1.0' };
+
+test('Origin / Referer not ours → 403, no fetch', async () => {
+  for (const headers of [
+    { ...BASE_HEADERS },
+    { ...BASE_HEADERS, origin: 'https://evil.example' },
+    { ...BASE_HEADERS, origin: 'https://solving-agency.pl.evil.example' },
+    { ...BASE_HEADERS, origin: 'http://www.solving-agency.pl' },
+    { ...BASE_HEADERS, origin: 'null' },
+    { ...BASE_HEADERS, referer: 'https://evil.example/audyt-sali-dziekujemy' },
+    { ...BASE_HEADERS, origin: 'https://evil.example', referer: 'https://www.solving-agency.pl/audyt-sali-dziekujemy' },
+  ]) {
+    const fetch = spyFetch();
+    const r = res();
+    await handler(req({ headers }), r, { fetch, env: ENV });
+    assert.equal(r.statusCode, 403, JSON.stringify(headers));
+    assert.equal(fetch.calls.length, 0);
+  }
+});
+
+test('Origin solving-agency.pl, or Referer when Origin is missing → accepted', async () => {
+  for (const headers of [
+    { ...BASE_HEADERS, origin: 'https://solving-agency.pl' },
+    { ...BASE_HEADERS, origin: 'https://www.solving-agency.pl' },
+    { ...BASE_HEADERS, referer: 'https://www.solving-agency.pl/audyt-sali-dziekujemy' },
+  ]) {
+    const fetch = spyFetch();
+    const r = res();
+    await handler(req({ headers }), r, { fetch, env: ENV });
+    assert.equal(r.statusCode, 204, JSON.stringify(headers));
+    assert.equal(fetch.calls.length, 1);
+  }
+});
+
+test('event_id not a UUID → 400, no fetch', async () => {
+  for (const event_id of ['ev-1', 'x', '6f1c2b1e-8d1a-4c55-9b7e-2f3a4b5c6d7', '6f1c2b1e8d1a4c559b7e2f3a4b5c6d7e', 123]) {
+    const fetch = spyFetch();
+    const r = res();
+    await handler(req({ body: JSON.stringify({ ...BODY, event_id }) }), r, { fetch, env: ENV });
+    assert.equal(r.statusCode, 400, String(event_id));
+    assert.equal(fetch.calls.length, 0);
+  }
 });
