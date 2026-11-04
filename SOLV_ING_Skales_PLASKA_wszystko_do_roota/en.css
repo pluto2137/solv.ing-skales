@@ -15,7 +15,7 @@ h1 em{display:block;margin-top:6px}
 .eform input,.eform textarea{width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(150,175,255,.25);background:rgba(255,255,255,.05);color:var(--fg);font:inherit;font-size:1rem}
 .eform textarea{min-height:130px;resize:vertical}
 .eform input:focus,.eform textarea:focus{outline:none;border-color:var(--glow);box-shadow:0 0 0 3px rgba(107,140,255,.25)}
-.eform .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.eform .hp{display:none}
 .eform .btn{justify-self:start;cursor:pointer;border:0;font:inherit;font-weight:600}
 .eform .fine{font-size:.85rem;color:var(--mut)}
 @media(max-width:520px){.eform{padding:22px}.eform .btn{justify-self:stretch;justify-content:center}}

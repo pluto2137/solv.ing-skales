@@ -265,7 +265,7 @@ a.card:hover{border-color:rgba(150,175,255,.5);transform:translateY(-3px)}
 .aform input,.aform select{width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(150,175,255,.25);background:rgba(255,255,255,.05);color:var(--fg);font:inherit;font-size:1rem}
 .aform select option{background:#050b2e;color:#fff}
 .aform input:focus,.aform select:focus{outline:none;border-color:var(--glow);box-shadow:0 0 0 3px rgba(107,140,255,.25)}
-.aform .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.aform .hp{display:none}
 .aform .btn{justify-self:start;cursor:pointer;border:0;color:#fff}
 .aform .fine{font-size:.85rem;color:var(--mut)}
 @media(max-width:899px){.sec{padding:9vh 6vw}.sec h2{font-size:clamp(2.2rem,11vw,4rem);margin-bottom:3vh}.card{padding:26px;border-radius:24px}.aform{padding:24px;border-radius:24px}.ptab td{font-size:1rem}}

@@ -8,7 +8,7 @@ const SITE = path.join(__dirname, '..', '..', 'SOLV_ING_Skales_PLASKA_wszystko_d
 const cfg = JSON.parse(fs.readFileSync(path.join(SITE, 'vercel.json'), 'utf8'));
 
 // Copied from origin/main (e855dba) vercel.json. Every page except /audyt-sali* must keep exactly this.
-const GLOBAL_CSP = "default-src 'self'; script-src 'self'; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; frame-ancestors 'none'; upgrade-insecure-requests";
+const GLOBAL_CSP = "default-src 'self'; script-src 'self'; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com https://formsubmit.co; frame-ancestors 'none'; upgrade-insecure-requests";
 
 // The 6 other security headers on origin/main, unchanged.
 const OTHER_HEADERS = {
