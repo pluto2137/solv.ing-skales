@@ -28,8 +28,9 @@ const PAGE_OVERRIDES = {
 };
 
 function rule(source) {
-  return cfg.headers.find((r) => r.source === source);
+  return cfg.headers.find((r) => r.source === source && !r.has);
 }
+const QUIZ_HOSTS = '(wesele|dj|klub)\\.solving-agency\\.pl';
 function headerMap(r) {
   return Object.fromEntries(r.headers.map((h) => [h.key, h.value]));
 }
@@ -77,7 +78,28 @@ test('other parts of vercel.json are untouched', () => {
   const film = rule('/film-(.*)');
   assert.deepEqual(film, { source: '/film-(.*)', headers: [{ key: 'Cache-Control', value: 'public, max-age=604800' }] });
   assert.equal(cfg.cleanUrls, true);
-  assert.equal(cfg.redirects.length, 26);
+  assert.equal(cfg.redirects.length, 27);
   assert.ok(rule('/samples/(.*)'), 'samples rule from main kept');
-  assert.equal(cfg.headers.length, 4);
+  assert.equal(cfg.headers.length, 5);
+});
+
+test('quiz hosts: own CSP rule, global rule skips them, root rewritten to /q/<quiz>/', () => {
+  const g = rule('/((?!audyt-sali).*)');
+  assert.deepEqual(g.missing, [{ type: 'host', value: QUIZ_HOSTS }]);
+  const q = cfg.headers.find((r) => r.has && r.has[0].value === QUIZ_HOSTS);
+  assert.ok(q, 'quiz host header rule missing');
+  assert.equal(q.source, '/(.*)');
+  const m = headerMap(q);
+  for (const [k, v] of Object.entries(OTHER_HEADERS)) assert.equal(m[k], v, `quiz: ${k}`);
+  const csp = Object.fromEntries(directives(m['Content-Security-Policy']));
+  assert.equal(csp['connect-src'], 'https://api.web3forms.com https://formsubmit.co');
+  assert.equal(csp['frame-ancestors'], "'none'");
+  for (const quiz of ['wesele', 'dj', 'klub']) {
+    const r = cfg.rewrites.find((x) => x.has[0].value === `${quiz}.solving-agency.pl`);
+    assert.deepEqual(r, { source: '/', has: [{ type: 'host', value: `${quiz}.solving-agency.pl` }], destination: `/q/${quiz}/index.html` });
+    assert.ok(fs.existsSync(path.join(SITE, 'q', quiz, 'index.html')), `${quiz} page missing`);
+  }
+  const red = cfg.redirects[cfg.redirects.length - 1];
+  assert.equal(red.destination, 'https://:quiz.solving-agency.pl/');
+  assert.deepEqual(red.missing, [{ type: 'host', value: QUIZ_HOSTS }]);
 });

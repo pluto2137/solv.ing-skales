@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Krótki audyt dla DJ-ów klubowych i eventowych: skąd biorą się zlecenia i co poprawić. Około 4 minut.">
+<meta property="og:title" content="Audyt dla DJ-ów · SOLV.ING">
+<meta property="og:description" content="Ile grania zostawiasz na stole? Krótki audyt, około 4 minut.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#B8215F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23B8215F'/%3E%3Ctext x='32' y='44' font-family='Arial Black,Arial' font-weight='900' font-size='34' text-anchor='middle' fill='white'%3ES.%3C/text%3E%3C/svg%3E">
+<style>html,body{margin:0}body{-webkit-text-size-adjust:100%}[hidden]{display:none!important}img{max-width:100%}:root{color-scheme:light}</style>
+<title>Audyt dla DJ-ów · SOLV.ING</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+
+/* Layout: one narrow "deck" column. A mixer-style header (track counter + fader) sits above one question per screen; the result screen reads like a row of VU meters. */
+:root {
+  --bg: #F5F3F7;
+  --surface: #FFFFFF;
+  --ink: #1B1622;
+  --muted: #675F72;
+  --line: #E1DCE7;
+  --accent: #B8215F;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #F7E3EC;
+  --good: #23824F;
+  --warn: #B07805;
+  --bad: #C1352B;
+  --led-off: #E6E1EC;
+  --f-display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --f-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141018; --surface: #1D1823; --ink: #F2EEF6; --muted: #A69EB2; --line: #2F2838;
+    --accent: #FF6AA8; --accent-ink: #1A0710; --accent-soft: #3A1A2B;
+    --good: #4CC38A; --warn: #F0B43C; --bad: #FF6B5E; --led-off: #2A2431;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141018; --surface: #1D1823; --ink: #F2EEF6; --muted: #A69EB2; --line: #2F2838;
+  --accent: #FF6AA8; --accent-ink: #1A0710; --accent-soft: #3A1A2B;
+  --good: #4CC38A; --warn: #F0B43C; --bad: #FF6B5E; --led-off: #2A2431;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.55;
+  padding-inline: 16px; padding-block: 0 48px;
+}
+.wrap { max-width: 620px; margin: 0 auto; }
+
+/* Deck header */
+.deck {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: var(--bg);
+  padding-block: 16px 14px;
+  display: grid; gap: 12px;
+}
+.deck-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.brand { font-family: var(--f-display); font-weight: 700; font-size: 15px; letter-spacing: 0.02em; }
+.brand span { color: var(--accent); }
+.track { font-family: var(--f-mono); font-size: 12px; color: var(--muted); letter-spacing: 0.06em; font-variant-numeric: tabular-nums; }
+.fader { position: relative; height: 6px; border-radius: 3px; background: var(--led-off); }
+.fader-fill { position: absolute; inset: 0 auto 0 0; width: 0%; background: var(--accent); border-radius: 3px; transition: width .35s ease; }
+.fader-knob {
+  position: absolute; top: 50%; left: 0%; width: 18px; height: 18px; margin-left: -9px; margin-top: -9px;
+  background: var(--surface); border: 2px solid var(--accent); border-radius: 4px;
+  transition: left .35s ease;
+}
+
+/* Screens */
+.screen { padding-block: 20px 8px; display: grid; gap: 20px; }
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+h1, h2 { font-family: var(--f-display); font-weight: 700; text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: clamp(28px, 7vw, 40px); line-height: 1.12; }
+h2 { font-size: clamp(21px, 5vw, 26px); line-height: 1.22; }
+h3 { font-family: var(--f-display); font-weight: 500; font-size: 16px; margin: 0; }
+p { margin: 0; max-width: 62ch; }
+.lead { font-size: 17px; color: var(--muted); }
+.hint { font-size: 14px; color: var(--muted); }
+
+.facts { display: flex; flex-wrap: wrap; gap: 8px; }
+.fact { font-family: var(--f-mono); font-size: 12px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); }
+
+/* Options */
+.opts { display: grid; gap: 10px; }
+.opt {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  text-align: left; font: inherit; font-weight: 600; color: var(--ink);
+  background: var(--surface); border: 1.5px solid var(--line); border-radius: 12px;
+  padding: 14px 16px; cursor: pointer; transition: border-color .15s, background .15s;
+}
+.opt:hover { border-color: var(--accent); }
+.opt:focus-visible, .btn:focus-visible, input:focus-visible, textarea:focus-visible, .link:focus-visible {
+  outline: 3px solid var(--accent); outline-offset: 2px;
+}
+.opt .mark {
+  flex: none; width: 20px; height: 20px; border: 2px solid var(--line); border-radius: 50%;
+  display: grid; place-items: center;
+}
+.opt.multi .mark { border-radius: 5px; }
+.opt[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.opt[aria-pressed="true"] .mark { border-color: var(--accent); background: var(--accent); }
+.opt[aria-pressed="true"] .mark::after { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--accent-ink); }
+
+input[type="text"], textarea {
+  width: 100%; font: inherit; color: var(--ink); background: var(--surface);
+  border: 1.5px solid var(--line); border-radius: 12px; padding: 14px 16px;
+}
+textarea { min-height: 96px; resize: vertical; }
+
+.nav { display: flex; gap: 10px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.btn {
+  font: inherit; font-weight: 700; cursor: pointer; border-radius: 12px; padding: 14px 22px;
+  border: 1.5px solid var(--accent); background: var(--accent); color: var(--accent-ink);
+  text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+}
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn[disabled] { opacity: .45; cursor: not-allowed; }
+.btn.wide { width: 100%; }
+.link { background: none; border: 0; font: inherit; color: var(--muted); cursor: pointer; padding: 8px 0; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Result */
+.score-head { display: flex; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+.big { font-family: var(--f-display); font-weight: 700; font-size: clamp(56px, 16vw, 84px); line-height: 1; font-variant-numeric: tabular-nums; }
+.big small { font-size: .32em; color: var(--muted); font-weight: 500; }
+.verdict { font-weight: 600; max-width: 34ch; padding-bottom: 8px; }
+
+.meters { display: grid; gap: 14px; padding: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+.meter { display: grid; grid-template-columns: minmax(0, 9.5em) 1fr 3ch; align-items: center; gap: 12px; }
+.meter-label { font-size: 14px; font-weight: 600; min-width: 0; }
+.leds { display: grid; grid-template-columns: repeat(20, 1fr); gap: 3px; }
+.led { height: 14px; border-radius: 2px; background: var(--led-off); }
+.meter-val { font-family: var(--f-mono); font-size: 13px; text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); }
+.lvl-bad .led.on { background: var(--bad); }
+.lvl-warn .led.on { background: var(--warn); }
+.lvl-good .led.on { background: var(--good); }
+
+.tips { display: grid; gap: 12px; }
+.tip { display: grid; grid-template-columns: auto minmax(0,1fr); gap: 12px; padding: 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+.tip-tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; align-self: start; white-space: nowrap; border: 1px solid currentColor; }
+.tip-tag.bad { color: var(--bad); } .tip-tag.warn { color: var(--warn); } .tip-tag.good { color: var(--good); }
+.tip p { font-size: 15px; }
+.tip strong { display: block; margin-bottom: 4px; }
+
+.send { display: grid; gap: 14px; padding: 20px; border-radius: 14px; border: 1.5px solid var(--accent); background: var(--accent-soft); }
+.contact-line { font-family: var(--f-mono); font-size: 14px; user-select: all; }
+.summary { font-family: var(--f-mono); font-size: 12px; line-height: 1.5; white-space: pre-wrap; max-height: 180px; overflow: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px; color: var(--muted); }
+.toast { font-size: 14px; color: var(--good); font-weight: 600; min-height: 1.4em; }
+
+footer { margin-top: 36px; font-size: 13px; color: var(--muted); display: flex; gap: 12px; flex-wrap: wrap; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 16px; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+.done-mark { width: 56px; height: 56px; border-radius: 14px; background: var(--accent-soft); border: 1.5px solid var(--accent); display: grid; place-items: center; font-family: var(--f-display); font-weight: 700; color: var(--accent); font-size: 22px; }
+.steps { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.steps li { display: grid; grid-template-columns: 28px minmax(0,1fr); gap: 10px; align-items: start; }
+.steps .n { font-family: var(--f-mono); font-size: 12px; color: var(--accent); border: 1px solid var(--accent); border-radius: 6px; text-align: center; padding: 2px 0; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="deck" aria-label="Postęp">
+    <div class="deck-row">
+      <div class="brand">SOLV<span>.</span>ING</div>
+      <div class="track" id="track">INTRO</div>
+    </div>
+    <div class="fader" aria-hidden="true"><div class="fader-fill" id="faderFill"></div><div class="fader-knob" id="faderKnob"></div></div>
+  </header>
+
+  <main id="app">
+    <section class="screen" id="intro">
+      <div class="eyebrow" id="greet">Audyt dla DJ-ów klubowych i eventowych</div>
+      <h1>Ile grania zostawiasz na stole?</h1>
+      <p class="lead">Krótkie pytania o to, skąd biorą się Twoje zlecenia, jak pokazujesz się lokalom i firmom i jak promujesz swoje granie. Prawie wszystko się klika.</p>
+      <div class="facts">
+        <span class="fact">24 pytania</span>
+        <span class="fact">ok. 4 minuty</span>
+        <span class="fact">bez zobowiązań</span>
+      </div>
+      <p>Na podstawie odpowiedzi w ciągu jednego, dwóch dni przygotujemy dla Ciebie konkretne wnioski: gdzie uciekają zlecenia i co da się poprawić najszybciej.</p>
+      <div class="nav"><button class="btn" id="start" type="button">Zaczynamy</button></div>
+      <p class="hint">Odpowiedzi zostają w tej przeglądarce. Do nas trafiają dopiero, gdy sam je wyślesz na końcu.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>SOLV.ING · agencja wzrostu dla usług lokalnych</span>
+    <span>505 119 531</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  const PHONE_INTL = "48505119531";
+  const PHONE = "505 119 531";
+  const EMAIL = "oscar.rowe21@gmail.com";
+  // Web3Forms access key (backup form service; the key is public by design).
+  // Until a real key is set, the quiz sends through FormSubmit only, as before.
+  const WEB3FORMS_KEY = "bff1e2e2-41f9-4321-b8ff-2871a2837852";
+  // Link to the SOLV.ING privacy policy. Leave "" until the page is live.
+  const PRIVACY_URL = "https://www.solving-agency.pl/polityka-prywatnosci";
+  // Club / event DJ question bank. ORDER MATTERS for the reference code.
+  const Q = [
+    { id: "where", s: "Granie", k: "Gdzie gra", multi: true, q: "Gdzie grasz najczęściej?", o: ["Kluby", "Bary i puby", "Eventy firmowe", "Imprezy prywatne (urodziny, osiemnastki)", "Festiwale i plenery", "Własne eventy"] },
+    { id: "gigs", s: "Granie", k: "Imprez w miesiącu", q: "Ile imprez grasz w miesiącu?", o: ["Do 2", "3–5", "6–10", "Ponad 10"] },
+    { id: "rate", s: "Granie", k: "Stawka za imprezę", q: "Ile średnio bierzesz za jedną imprezę lub set?", o: ["Do 500 zł", "500–1 000 zł", "1 000–2 000 zł", "Ponad 2 000 zł"] },
+    { id: "resid", s: "Granie", k: "Rezydentura", q: "Masz stałe granie (rezydenturę) w jakimś lokalu?", o: ["Tak, w kilku", "Tak, w jednym", "Kiedyś miałem", "Nie"] },
+    { id: "next3", s: "Kalendarz", k: "Kalendarz na 3 miesiące", q: "Jak wygląda Twój kalendarz na najbliższe 3 miesiące?", o: ["Prawie pusty", "Kilka terminów", "Mniej więcej połowa weekendów", "Prawie pełny"] },
+    { id: "sources", s: "Skąd zlecenia", k: "Źródła zleceń", multi: true, q: "Skąd najczęściej przychodzą zlecenia?", o: ["Polecenia i znajomości", "Lokale same do mnie piszą", "Agencje eventowe lub bookingowe", "Instagram / Facebook", "Google", "Sam piszę do lokali i firm"] },
+    { id: "firm", s: "Skąd zlecenia", k: "Eventy firmowe", q: "Jak często grasz dla firm (wigilie, integracje, gale)?", o: ["Regularnie", "Kilka razy w roku", "Rzadko", "Wcale"] },
+    { id: "speed", s: "Skąd zlecenia", k: "Czas odpowiedzi", q: "Jak szybko odpisujesz na nowe zapytanie?", o: ["W ciągu godziny", "Tego samego dnia", "Po 1–2 dniach", "Różnie"] },
+    { id: "offer", s: "Oferta", k: "Co wysyła na zapytanie", q: "Co wysyłasz lokalowi albo firmie, kiedy pytają o ofertę?", o: ["Gotowy press kit lub ofertę w PDF", "Link do mojej strony", "Link do Instagrama albo setów", "Opisuję wszystko w wiadomości"] },
+    { id: "mixes", s: "Oferta", k: "Gdzie słychać sety", multi: true, none: "Nigdzie online", q: "Gdzie można posłuchać Twoich setów?", o: ["SoundCloud / Mixcloud", "YouTube", "Instagram / TikTok", "Nigdzie online"] },
+    { id: "video", s: "Wizerunek", k: "Nagrania z setów", q: "Masz nagrania wideo z setów (pełny parkiet, Ty za konsolą)?", o: ["Profesjonalne nagrania", "Trochę, z telefonu", "Prawie nic"] },
+    { id: "photos", s: "Wizerunek", k: "Zdjęcia promo", q: "Masz profesjonalne zdjęcia promocyjne?", o: ["Tak, aktualne", "Starsze niż 2 lata", "Tylko z telefonu", "Nie mam"] },
+    { id: "brand", s: "Wizerunek", k: "Logo i oprawa", q: "Jak wygląda Twoja oprawa graficzna: logo, plakaty, wizytówki?", o: ["Spójna (robił ją grafik)", "Mam logo, reszta różnie", "Robię sam na bieżąco", "Nie mam logo"] },
+    { id: "channels", s: "Widoczność", k: "Kanały", multi: true, q: "Co już masz?", o: ["Własna strona www", "Profil w Google", "Instagram", "Facebook", "TikTok", "YouTube"] },
+    { id: "posting", s: "Widoczność", k: "Publikacje", q: "Jak często coś publikujesz?", o: ["Prawie wcale", "Mniej więcej raz w miesiącu", "Raz w tygodniu", "Kilka razy w tygodniu"] },
+    { id: "own", s: "Własne imprezy", k: "Własne imprezy", q: "Organizujesz własne imprezy (bilety, wejściówki)?", o: ["Regularnie", "Czasem", "Kiedyś organizowałem", "Nie"] },
+    { id: "promo", s: "Własne imprezy", k: "Jak promuje imprezy", multi: true, none: "Nie promuję", q: "Jak promujesz swoje występy i imprezy?", o: ["Wydarzenie na Facebooku", "Posty i relacje", "Płatne reklamy", "Plakaty", "Lokal promuje sam", "Nie promuję"] },
+    { id: "refs", s: "Opinie i kontakty", k: "Rekomendacje", q: "Masz opinie lub rekomendacje od lokali i firm, które możesz pokazać?", o: ["Tak, zebrane i widoczne", "Mam, ale nigdzie ich nie pokazuję", "Nie zbieram"] },
+    { id: "guest", s: "Opinie i kontakty", k: "Ktoś pyta o rezerwację", q: "Po secie ktoś pyta, jak Cię zarezerwować. Co robisz?", o: ["Daję wizytówkę", "Podaję numer albo Instagram", "Mówię, żeby znalazł mnie w internecie", "Rzadko się to zdarza"] },
+    { id: "past", s: "Opinie i kontakty", k: "Dawni klienci", q: "Odzywasz się do lokali i firm, dla których już grałeś?", o: ["Regularnie (np. przed sezonem świątecznym)", "Mam kontakty, ale nie piszę", "Kontakty są rozrzucone po telefonie i Messengerze"] },
+    { id: "ads", s: "Reklama", k: "Reklamy", q: "Płaciłeś kiedyś za reklamę siebie albo swoich imprez?", o: ["Tak i to działa", "Próbowałem bez efektu", "Nigdy"] },
+    { id: "problem", s: "Cele", k: "Największy problem", q: "Co jest teraz Twoim największym problemem?", o: ["Za mało zleceń", "Za niskie stawki", "Brak stałych rezydentur", "Puste terminy w tygodniu", "Brak czasu na promocję"] },
+    { id: "goal", s: "Cele", k: "Cel na 12 miesięcy", q: "Czego chcesz za 12 miesięcy?", o: ["Więcej grania w klubach", "Wyższe stawki", "Więcej eventów firmowych", "Rozwinąć własne imprezy", "Większe sceny albo granie za granicą"] },
+    { id: "extra", text: true, s: "Na koniec", k: "Dodatkowe informacje", q: "Dodatkowe informacje", ph: "Wszystko, co warto wiedzieć o Twoim graniu", hint: "Opcjonalnie. Możesz zostawić puste." }
+  ];
+  const OTHER = "Inne";
+  const CQ = Q.filter(q => !q.text);
+  const PEOPLE = {};
+
+
+  const KEY = "solving-dj-club-v1";
+  let state = { step: -1, a: {}, o: {} };
+  try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s && s.a) state = s; } catch (e) {}
+  state.o = state.o || {};
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+  const app = document.getElementById("app");
+  const introNode = document.getElementById("intro");
+  const track = document.getElementById("track");
+  const fill = document.getElementById("faderFill");
+  const knob = document.getElementById("faderKnob");
+
+  const tag = (location.hash || "").replace("#", "").toLowerCase();
+  let person = PEOPLE[tag] || null;
+  if (!person && /^[a-z]{2,20}$/.test(tag)) person = { first: tag.charAt(0).toUpperCase() + tag.slice(1), brand: "" };
+  if (person) document.getElementById("greet").textContent = "Cześć " + person.first + " · audyt dla DJ-ów";
+
+  function setProgress(i) {
+    const total = Q.length;
+    const pct = i < 0 ? 0 : i >= total ? 100 : Math.round((i / total) * 100);
+    fill.style.width = pct + "%";
+    knob.style.left = pct + "%";
+    track.textContent = i < 0 ? "INTRO" : i >= total ? "GOTOWE" : "TRACK " + String(i + 1).padStart(2, "0") + " / " + total;
+  }
+
+  function el(tagName, attrs, kids) {
+    const n = document.createElement(tagName);
+    if (attrs) for (const k in attrs) {
+      if (k === "text") n.textContent = attrs[k];
+      else if (k === "class") n.className = attrs[k];
+      else n.setAttribute(k, attrs[k]);
+    }
+    (kids || []).forEach(c => c && n.appendChild(c));
+    return n;
+  }
+
+  function go(i) {
+    state.step = i; save(); render();
+    window.scrollTo(0, 0);
+  }
+
+  function answered(q) {
+    if (q.text) return true;
+    const v = state.a[q.id];
+    const otherOk = (state.o[q.id] || "").trim().length > 1;
+    if (q.multi) return Array.isArray(v) && v.length > 0 && (!v.includes(OTHER) || otherOk);
+    return !!v && (v !== OTHER || otherOk);
+  }
+  function firstUnanswered() {
+    for (let k = 0; k < Q.length; k++) if (!answered(Q[k])) return k;
+    return Q.length;
+  }
+
+  function render() {
+    const i = state.step;
+    setProgress(i);
+    if (i < 0) return renderIntro();
+    if (i >= Q.length) return renderDone();
+    const q = Q[i];
+    const sec = el("section", { class: "screen" });
+    sec.appendChild(el("div", { class: "eyebrow", text: q.s }));
+    sec.appendChild(el("h2", { id: "qtitle", text: q.q }));
+
+    const nextBtn = el("button", { class: "btn", type: "button", text: i === Q.length - 1 ? "Zakończ" : "Dalej" });
+    const refresh = () => { nextBtn.disabled = !answered(q); };
+
+    if (q.text) {
+      const ta = el("textarea", { id: "f-" + q.id, placeholder: q.ph || "", "aria-labelledby": "qtitle" });
+      ta.value = state.a[q.id] || "";
+      ta.addEventListener("input", () => { state.a[q.id] = ta.value; save(); });
+      sec.appendChild(ta);
+      if (q.hint) sec.appendChild(el("p", { class: "hint", text: q.hint }));
+      finish(sec, q, i, nextBtn, refresh);
+      return;
+    }
+
+    const box = el("div", { class: "opts", role: "group", "aria-labelledby": "qtitle" });
+    const cur = state.a[q.id];
+    const otherOn = q.multi ? (Array.isArray(cur) && cur.includes(OTHER)) : cur === OTHER;
+    q.o.concat(OTHER).forEach(label => {
+      const on = q.multi ? (Array.isArray(cur) && cur.includes(label)) : cur === label;
+      const b = el("button", { type: "button", class: "opt" + (q.multi ? " multi" : ""), "aria-pressed": on ? "true" : "false" },
+        [el("span", { class: "mark", "aria-hidden": "true" }), el("span", { text: label })]);
+      b.addEventListener("click", () => {
+        if (q.multi) {
+          let arr = Array.isArray(state.a[q.id]) ? state.a[q.id].slice() : [];
+          if (arr.includes(label)) arr = arr.filter(x => x !== label);
+          else {
+            if (q.none && label === q.none) arr = [];
+            else if (q.none) arr = arr.filter(x => x !== q.none);
+            arr.push(label);
+          }
+          state.a[q.id] = arr; save(); render();
+        } else if (label === OTHER) {
+          state.a[q.id] = OTHER; save(); render();
+        } else {
+          state.a[q.id] = label; save();
+          box.querySelectorAll(".opt").forEach(x => x.setAttribute("aria-pressed", "false"));
+          b.setAttribute("aria-pressed", "true");
+          setTimeout(() => go(i + 1), 220);
+        }
+      });
+      box.appendChild(b);
+    });
+    sec.appendChild(box);
+
+    if (otherOn) {
+      const inp = el("input", { type: "text", id: "o-" + q.id, placeholder: "Napisz własną odpowiedź", "aria-label": "Inna odpowiedź", autocomplete: "off" });
+      inp.value = state.o[q.id] || "";
+      inp.addEventListener("input", () => { state.o[q.id] = inp.value; save(); refresh(); });
+      inp.addEventListener("keydown", e => { if (e.key === "Enter" && answered(q)) go(i + 1); });
+      sec.appendChild(inp);
+      setTimeout(() => inp.focus(), 30);
+    }
+    if (q.multi) sec.appendChild(el("p", { class: "hint", text: "Możesz zaznaczyć kilka." }));
+    finish(sec, q, i, nextBtn, refresh);
+  }
+
+  function finish(sec, q, i, nextBtn, refresh) {
+    refresh();
+    nextBtn.addEventListener("click", () => { if (answered(q)) go(i + 1); });
+    const back = el("button", { class: "link", type: "button", text: "Wstecz" });
+    back.addEventListener("click", () => go(i - 1));
+    sec.appendChild(el("div", { class: "nav" }, [back, nextBtn]));
+    app.replaceChildren(sec);
+  }
+
+  function renderIntro() {
+    if (!introNode.isConnected) app.replaceChildren(introNode);
+    const started = Object.keys(state.a).length > 0;
+    const btn = document.getElementById("start");
+    btn.textContent = started ? "Wróć do pytań" : "Zaczynamy";
+    btn.onclick = () => go(started ? firstUnanswered() : 0);
+  }
+
+  const pos = (q, l) => l === OTHER ? q.o.length : q.o.indexOf(l);
+  function refCode() {
+    return "k1-" + CQ.map(q => {
+      const v = state.a[q.id];
+      if (q.multi) {
+        if (!Array.isArray(v) || !v.length) return "x";
+        let m = 0; v.forEach(l => { const n = pos(q, l); if (n >= 0) m |= (1 << n); });
+        return m.toString(36);
+      }
+      const n = pos(q, v);
+      return n >= 0 ? n.toString(36) : "x";
+    }).join(".");
+  }
+
+  const clean = s => (s || "").replace(/[;\r\n]+/g, ", ").replace(/\s+/g, " ").trim();
+  function message() {
+    const lines = ["Audyt DJ klubowy – SOLV.ING"];
+    if (person) lines.push("Od: " + (person.brand || person.first));
+    lines.push("");
+    Q.forEach(q => {
+      const v = state.a[q.id];
+      if (q.text) { lines.push(q.k + ": " + (clean(v) || "–")); return; }
+      const other = OTHER + ": " + clean(state.o[q.id]);
+      lines.push(q.k + ": " + (Array.isArray(v) ? v.map(x => x === OTHER ? other : x).join("; ") : (v === OTHER ? other : (v || "–"))));
+    });
+    lines.push("", "Nr ref.: " + refCode());
+    return lines.join("\n");
+  }
+
+  function renderDone() {
+    const missing = firstUnanswered();
+    const sec = el("section", { class: "screen" });
+    if (missing < Q.length) {
+      sec.appendChild(el("div", { class: "eyebrow", text: "Prawie gotowe" }));
+      sec.appendChild(el("h2", { text: "Zostało jeszcze pytanie bez odpowiedzi" }));
+      const b = el("button", { class: "btn", type: "button", text: "Przejdź do pytania " + (missing + 1) });
+      b.addEventListener("click", () => go(missing));
+      sec.appendChild(el("div", { class: "nav" }, [b]));
+      app.replaceChildren(sec); return;
+    }
+
+    if (state.sent) return renderSent();
+
+    const text = message();
+    const wa = "https://wa.me/" + PHONE_INTL + "?text=" + encodeURIComponent(text);
+    sec.appendChild(el("div", { class: "done-mark", "aria-hidden": "true", text: "✓" }));
+    sec.appendChild(el("div", { class: "eyebrow", text: "Dziękujemy" + (person ? ", " + person.first : "") }));
+    sec.appendChild(el("h2", { text: "Ostatni krok: wyślij nam odpowiedzi" }));
+    sec.appendChild(el("p", { class: "lead", text: "Przeanalizujemy je i w ciągu jednego, dwóch dni odezwiemy się z konkretnymi wnioskami dla Twojej marki. Jeśli nie zobaczysz w nich wartości, po prostu się pożegnamy." }));
+
+    const sendBtn = el("button", { class: "btn wide", type: "button", text: "Wyślij odpowiedzi" });
+    const sendStatus = el("p", { class: "hint", role: "status" });
+    const privacy = el("p", { class: "hint" }, [
+      document.createTextNode("Używamy tych danych tylko po to, żeby przygotować wnioski i odpowiedzieć na Twoje zgłoszenie. Administrator: Oscar Rowe (" + EMAIL + "). ")
+    ]);
+    if (PRIVACY_URL) privacy.appendChild(el("a", { href: PRIVACY_URL, target: "_blank", rel: "noopener", text: "Polityka prywatności" }));
+    sec.appendChild(sendBtn);
+    sec.appendChild(privacy);
+    sec.appendChild(sendStatus);
+    sendBtn.addEventListener("click", async () => {
+      sendBtn.disabled = true; sendBtn.textContent = "Wysyłam…";
+      sendStatus.textContent = "";
+      const who = person ? (person.brand || person.first) : "bez podpisu";
+      const subject = "Audyt DJ klubowy – " + who;
+      const fields = { DJ: who, Odpowiedzi: text };
+      const post = async (url, body) => {
+        const ctl = new AbortController();
+        const timer = setTimeout(() => ctl.abort(), 15000);
+        try {
+          const r = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify(body),
+            signal: ctl.signal
+          });
+          const j = await r.json().catch(() => ({}));
+          return r.ok && String(j.success) === "true";
+        } catch (e) { return false; } finally { clearTimeout(timer); }
+      };
+      // 1) Web3Forms (backup service), 2) FormSubmit (original). Success screen only if one of them worked.
+      let ok = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(WEB3FORMS_KEY) &&
+        await post("https://api.web3forms.com/submit", Object.assign({ access_key: WEB3FORMS_KEY, subject: subject, from_name: "SOLV.ING quiz klub" }, fields));
+      if (!ok) ok = await post("https://formsubmit.co/ajax/" + EMAIL, Object.assign({ _subject: subject, _template: "box", _captcha: "false" }, fields));
+      if (ok) { state.sent = true; save(); renderSent(); return; }
+      sendBtn.disabled = false; sendBtn.textContent = "Spróbuj wysłać ponownie";
+      sendStatus.textContent = "Nie udało się wysłać odpowiedzi. Spróbuj ponownie za chwilę albo wyślij je bezpośrednio: na WhatsApp, SMS-em lub mailem (numer i adres poniżej).";
+      fallbackBox.hidden = false;
+    });
+
+    const toast = el("div", { class: "toast", role: "status" });
+    const pre = el("div", { class: "summary", tabindex: "0", text: text });
+    const copy = el("button", { class: "btn ghost", type: "button", text: "Skopiuj odpowiedzi" });
+    copy.addEventListener("click", () => {
+      const fallback = () => {
+        const r = document.createRange(); r.selectNodeContents(pre);
+        const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+        toast.textContent = "Tekst zaznaczony. Skopiuj go skrótem lub z menu.";
+      };
+      try {
+        navigator.clipboard.writeText(text).then(() => { toast.textContent = "Skopiowano. Wklej w SMS lub e-mail."; }, fallback);
+      } catch (e) { fallback(); }
+    });
+
+    const fallbackBox = el("div", { class: "send" }, [
+      el("a", { class: "btn wide", href: wa, target: "_blank", rel: "noopener", text: "Wyślij odpowiedzi na WhatsApp" }),
+      el("div", { class: "nav" }, [copy]),
+      toast,
+      el("div", { class: "contact-line", text: PHONE + "  ·  " + EMAIL }),
+      pre
+    ]);
+    fallbackBox.hidden = true;
+    sec.appendChild(fallbackBox);
+    const again = el("button", { class: "link", type: "button", text: "Popraw odpowiedzi" });
+    again.addEventListener("click", () => go(0));
+    sec.appendChild(again);
+    app.replaceChildren(sec);
+    void fallbackBox;
+  }
+
+  function renderSent() {
+    setProgress(Q.length);
+    const sec = el("section", { class: "screen" });
+    sec.appendChild(el("div", { class: "done-mark", "aria-hidden": "true", text: "✓" }));
+    sec.appendChild(el("div", { class: "eyebrow", text: "Wysłane" }));
+    sec.appendChild(el("h2", { text: "Dziękujemy" + (person ? ", " + person.first : "") + ". Odpowiedzi do nas dotarły." }));
+    sec.appendChild(el("p", { class: "lead", text: "W ciągu jednego, dwóch dni odezwiemy się z konkretnymi wnioskami dla Twojej marki." }));
+    app.replaceChildren(sec);
+  }
+
+  if (state.step >= 0) render(); else { setProgress(-1); renderIntro(); }
+})();
+</script>
+
+</body>
+</html>
