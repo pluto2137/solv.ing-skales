@@ -78,12 +78,13 @@ test('other parts of vercel.json are untouched', () => {
   const film = rule('/film-(.*)');
   assert.deepEqual(film, { source: '/film-(.*)', headers: [{ key: 'Cache-Control', value: 'public, max-age=604800' }] });
   assert.equal(cfg.cleanUrls, true);
-  assert.equal(cfg.redirects.length, 27);
+  assert.equal(cfg.redirects.length, 30);
   assert.ok(rule('/samples/(.*)'), 'samples rule from main kept');
   assert.equal(cfg.headers.length, 5);
+  assert.equal(cfg.rewrites, undefined);
 });
 
-test('quiz hosts: own CSP rule, global rule skips them, root rewritten to /q/<quiz>/', () => {
+test('quiz hosts: own CSP rule, global rule skips them, root redirects to /q/<quiz>/ (redirects run before files, rewrites do not)', () => {
   const g = rule('/((?!audyt-sali).*)');
   assert.deepEqual(g.missing, [{ type: 'host', value: QUIZ_HOSTS }]);
   const q = cfg.headers.find((r) => r.has && r.has[0].value === QUIZ_HOSTS);
@@ -95,8 +96,8 @@ test('quiz hosts: own CSP rule, global rule skips them, root rewritten to /q/<qu
   assert.equal(csp['connect-src'], 'https://api.web3forms.com https://formsubmit.co');
   assert.equal(csp['frame-ancestors'], "'none'");
   for (const quiz of ['wesele', 'dj', 'klub']) {
-    const r = cfg.rewrites.find((x) => x.has[0].value === `${quiz}.solving-agency.pl`);
-    assert.deepEqual(r, { source: '/', has: [{ type: 'host', value: `${quiz}.solving-agency.pl` }], destination: `/q/${quiz}/index.html` });
+    const r = cfg.redirects.find((x) => x.has && x.has[0].value === `${quiz}.solving-agency.pl`);
+    assert.deepEqual(r, { source: '/', has: [{ type: 'host', value: `${quiz}.solving-agency.pl` }], destination: `/q/${quiz}/`, permanent: false });
     assert.ok(fs.existsSync(path.join(SITE, 'q', quiz, 'index.html')), `${quiz} page missing`);
   }
   const red = cfg.redirects[cfg.redirects.length - 1];

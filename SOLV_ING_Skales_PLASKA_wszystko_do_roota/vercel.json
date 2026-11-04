@@ -2,6 +2,39 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "klub.solving-agency.pl"
+        }
+      ],
+      "destination": "/q/klub/",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "dj.solving-agency.pl"
+        }
+      ],
+      "destination": "/q/dj/",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "wesele.solving-agency.pl"
+        }
+      ],
+      "destination": "/q/wesele/",
+      "permanent": false
+    },
+    {
       "source": "/blog/wizytowka-google-dla-dj",
       "destination": "/blog/wizytowka-google-firma-bez-lokalu",
       "permanent": true
@@ -272,38 +305,6 @@
           "value": "noindex, nofollow"
         }
       ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "host",
-          "value": "wesele.solving-agency.pl"
-        }
-      ],
-      "destination": "/q/wesele/index.html"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "host",
-          "value": "dj.solving-agency.pl"
-        }
-      ],
-      "destination": "/q/dj/index.html"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "host",
-          "value": "klub.solving-agency.pl"
-        }
-      ],
-      "destination": "/q/klub/index.html"
     }
   ]
 }
