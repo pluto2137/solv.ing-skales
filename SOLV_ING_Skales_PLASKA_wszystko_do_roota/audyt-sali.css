@@ -1,0 +1,56 @@
+/* /audyt-sali landing page + thank-you page. Builds on legal.css + svc.css. */
+[hidden]{display:none!important}
+.hero h1{margin-bottom:18px}
+.hero .cta{margin-top:28px}
+.hero .who{margin-top:16px;color:var(--mut);font-size:.95rem}
+
+.proof .shot{margin-top:12px;padding:40px 20px;border:1px dashed var(--line);border-radius:18px;text-align:center;color:var(--mut)}
+
+.about{display:flex;gap:18px;align-items:flex-start;margin-top:12px}
+.about img{flex:none;width:64px;height:64px;border-radius:16px;border:1px solid var(--line);padding:8px;background:rgba(14,22,70,.5)}
+.about p{margin-top:0}.about p+p{margin-top:12px}
+
+.lform{display:grid;gap:8px;margin-top:48px;padding:24px;border-radius:24px;border:1px solid var(--line);background:linear-gradient(170deg,rgba(14,22,70,.6),rgba(3,6,25,.85));position:relative;scroll-margin-top:16px}
+.lform h2{margin:0 0 4px}
+.lform .note{margin:0 0 10px;color:var(--mut);font-size:.95rem}
+.lform label{font-size:.95rem;color:#cfd8f7;margin-top:8px}
+.lform input[type=text],.lform input[type=tel],.lform input[type=email],.lform select{width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(150,175,255,.25);background:rgba(255,255,255,.05);color:var(--fg);font:inherit;font-size:1rem}
+.lform select option{background:#050b2e;color:#fff}
+.lform input:focus,.lform select:focus{outline:none;border-color:var(--glow);box-shadow:0 0 0 3px rgba(107,140,255,.25)}
+.lform [aria-invalid=true]{border-color:#ff8a8a}
+.lform .radio{border:0;margin-top:8px;display:flex;flex-wrap:wrap;gap:6px 22px}
+.lform .radio legend{font-size:.95rem;color:#cfd8f7;margin-bottom:6px;width:100%}
+.lform .radio label{display:flex;align-items:center;gap:8px;margin:0;font-size:1rem;color:var(--fg);cursor:pointer;min-height:44px}
+.lform input[type=radio],.lform input[type=checkbox]{width:20px;height:20px;accent-color:#3b5bff;flex:none}
+.lform .check{display:block;padding-left:30px;position:relative;line-height:1.5}
+.lform .check input{position:absolute;left:0;top:2px}
+.lform .err{color:#ff9d9d;font-size:.9rem;min-height:0}
+.lform .err:empty{display:none}
+.lform .btn{justify-self:start;margin-top:14px;cursor:pointer;border:0;font:inherit;font-weight:600}
+.lform .btn:disabled{opacity:.6;cursor:default;transform:none}
+.lform .status{color:#ff9d9d;font-size:.95rem}
+.lform .status:empty{display:none}
+.lform .fine{font-size:.85rem;color:var(--mut)}
+.hp{display:none}
+
+.awaria{margin-top:18px;padding:22px 24px;border:1px solid #ff9d9d;border-radius:20px;background:rgba(70,14,24,.35)}
+.awaria h2{margin:0 0 8px;font-size:1.25rem}
+.awaria ul{list-style:none;padding:0;display:grid;gap:10px;margin-top:14px}
+.awaria li{margin:0}
+.awaria a{display:inline-block;padding:10px 0;font-weight:600}
+
+@media(max-width:620px){
+  .lform{padding:20px 16px}
+  .lform .btn{justify-self:stretch;justify-content:center}
+  .about img{width:48px;height:48px}
+}
+
+/* Cookie banner: in the page flow under the header, so it never covers the form. */
+.cookie{margin:0 auto;max-width:780px;padding:18px 6vw 0}
+.cookie>p{padding:16px 18px 0;border:1px solid var(--line);border-bottom:0;border-radius:18px 18px 0 0;background:rgba(14,22,70,.55);font-size:.95rem;margin:0}
+.cookie-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px 18px 16px;border:1px solid var(--line);border-top:0;border-radius:0 0 18px 18px;background:rgba(14,22,70,.55)}
+.cbtn{min-height:46px;padding:12px 16px;border-radius:99px;border:1px solid rgba(150,175,255,.45);background:rgba(255,255,255,.06);color:var(--fg);font:inherit;font-size:1rem;font-weight:600;cursor:pointer}
+.cbtn:hover{background:rgba(255,255,255,.12)}
+.cookie:focus{outline:none}.cookie:focus-visible>p{outline:2px solid var(--glow)}
+.cookie-link{background:none;border:0;padding:0;font:inherit;color:var(--mut);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.cookie-link:hover{color:#fff}
