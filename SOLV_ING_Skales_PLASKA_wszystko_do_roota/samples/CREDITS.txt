@@ -1,6 +1,14 @@
-SOLV.ING video samples (promo clips made for our own app, Playlines).
-The opening shot of each clip is AI-generated. The rest is edited footage.
+SOLV.ING video samples: promo clips made for our own app (Playlines).
+In each clip the opening shot is AI-generated (LTX-2.5); the rest is a screen recording of the app.
+No audio track.
 
-Footage credits (Creative Commons Attribution, CC BY, via YouTube):
-- Improbable Matter, "How a Computer Works"
-- Marcus Jones, "How To Grow A YouTube Channel From 0 Subs In 2025"
+Credits for the YouTube footage shown inside the app (licence: Creative Commons Attribution 3.0, CC BY 3.0,
+https://creativecommons.org/licenses/by/3.0/ ; changes: cut, cropped, captioned):
+
+solving-sample-06-seven-things.mp4
+  Improbable Matter, "How a Computer Works – from silicon to apps"
+  https://www.youtube.com/watch?v=5f3NJnvnk7k
+
+solving-sample-08-creators-before-after.mp4
+  Marcus Jones, "How To Grow A YouTube Channel From 0 Subs In 2025"
+  https://www.youtube.com/watch?v=4CoBaiFkg-4
