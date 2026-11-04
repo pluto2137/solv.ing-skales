@@ -665,3 +665,8 @@ html::after{content:"";position:fixed;inset:-50%;z-index:80;pointer-events:none;
 @media(prefers-reduced-motion:reduce){.bgimg{animation:none}}
 .bgimg.silk{background-image:linear-gradient(90deg,rgba(2,4,15,.92) 0,rgba(2,4,15,.6) 30%,rgba(2,4,15,0) 52%),url(/bg-silk.webp);background-size:100% 100%,cover;background-position:0 0,60% 50%;animation:none}
 @media(max-width:899px){.bgimg.silk{background-image:linear-gradient(180deg,rgba(2,4,15,.9) 0,rgba(2,4,15,.55) 40%,rgba(2,4,15,.1) 70%),url(/bg-silk.webp);background-position:0 0,70% 50%}}
+/* live (WebGL) versions of the backgrounds */
+.bgimg.live{background-image:none!important;animation:none}
+.bgimg canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.bgimg.silk.live::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,4,15,.92) 0,rgba(2,4,15,.6) 30%,rgba(2,4,15,0) 52%)}
+@media(max-width:899px){.bgimg.silk.live::after{background:linear-gradient(180deg,rgba(2,4,15,.9) 0,rgba(2,4,15,.55) 40%,rgba(2,4,15,.1) 70%)}}
