@@ -78,5 +78,6 @@ test('other parts of vercel.json are untouched', () => {
   assert.deepEqual(film, { source: '/film-(.*)', headers: [{ key: 'Cache-Control', value: 'public, max-age=604800' }] });
   assert.equal(cfg.cleanUrls, true);
   assert.equal(cfg.redirects.length, 26);
-  assert.equal(cfg.headers.length, 3);
+  assert.ok(rule('/samples/(.*)'), 'samples rule from main kept');
+  assert.equal(cfg.headers.length, 4);
 });
