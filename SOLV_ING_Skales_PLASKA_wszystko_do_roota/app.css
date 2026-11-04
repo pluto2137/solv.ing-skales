@@ -619,3 +619,49 @@ html::after{content:"";position:fixed;inset:-50%;z-index:80;pointer-events:none;
 /* contact cards fill the column next to the quiz */
 @media(min-width:1100px){.ct .cgrid{grid-template-rows:1fr 1fr;align-self:stretch;align-content:stretch}.ct .cc{height:100%;padding:34px 30px}.ct .cci{width:72px;height:72px;border-radius:22px}.ct .cci svg{width:32px;height:32px}}
 .rcrow .rc span{font-size:1rem}
+/* 5.11b: Oscar's laptop pass */
+/* film grows from the middle and always fits under the menu */
+@media(min-width:900px){
+.reel{height:100svh;min-height:0;padding:0;justify-content:center}
+.reelbox{width:min(100vw,calc((100svh - 170px) * 16 / 9));transform-origin:50% 50%;will-change:transform}
+.rcrow{padding-top:2vh}
+}
+/* statement: clock + chores fill the empty space */
+.st{position:relative;overflow:hidden}
+.st .rv{position:relative;z-index:1}
+.stfx{position:absolute;inset:0;pointer-events:none}
+.stclk{position:absolute;right:-6vw;top:50%;width:min(72vh,44vw);transform:translateY(-50%);opacity:.55;filter:drop-shadow(0 0 40px rgba(42,75,255,.35))}
+.stclk .rim{stroke:rgba(150,175,255,.35);stroke-width:2}
+.stclk .rim2{stroke:rgba(150,175,255,.12);stroke-width:1.5;stroke-dasharray:4 10;transform-origin:200px 200px;animation:spin 40s linear infinite}
+.stclk .tk line{stroke:rgba(170,190,255,.6);stroke-width:3;stroke-linecap:round}
+.stclk .hh{stroke:#6b8cff;stroke-width:10;stroke-linecap:round}
+.stclk .mh{stroke:#fff;stroke-width:5;stroke-linecap:round}
+.chore{position:absolute;padding:10px 18px;border-radius:99px;border:1px solid rgba(150,175,255,.3);background:rgba(10,16,60,.7);color:#c3cdf5;font-size:clamp(.8rem,1vw,.98rem);font-weight:600;white-space:nowrap;animation:chf 5s ease-in-out infinite}
+.chore::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#ff5a7a;margin-right:10px;vertical-align:middle}
+.c1{left:6vw;top:12%}.c2{left:30vw;top:6%;animation-delay:-1s}.c3{left:14vw;bottom:10%;animation-delay:-2s}.c4{left:46vw;bottom:6%;animation-delay:-3s}.c5{left:58vw;top:14%;animation-delay:-4s}
+@keyframes chf{50%{transform:translateY(-10px)}}
+@media(max-width:899px){.stclk{width:80vw;right:-30vw;opacity:.28}.chore{font-size:.75rem;padding:7px 12px}.c1{left:5vw;top:5%}.c2{left:40vw;top:2%}.c3{left:5vw;bottom:4%}.c4{display:none}.c5{display:none}}
+/* slider: more room for the cards, fade only on the side you can still scroll to */
+@media(min-width:900px){.aud{grid-template-columns:minmax(0,.85fr) minmax(0,1.35fr);gap:3vw}}
+.slw .slider{-webkit-mask-image:none;mask-image:none}
+.slw.scrolled:not(.end) .slider{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 44px,#000 calc(100% - 70px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 44px,#000 calc(100% - 70px),transparent 100%)}
+.slw:not(.scrolled) .slider{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 70px),transparent 100%);mask-image:linear-gradient(90deg,#000 calc(100% - 70px),transparent 100%)}
+.slw.scrolled.end .slider{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 44px);mask-image:linear-gradient(90deg,transparent 0,#000 44px)}
+/* ambient light behind sections that used to be flat black */
+.aud,.ben,#faq,.ct{position:relative;isolation:isolate}
+.aud::before,.ben::before,#faq::before,.ct::before{content:"";position:absolute;z-index:-1;pointer-events:none;width:min(60vw,800px);height:min(60vw,800px);border-radius:50%;background:radial-gradient(circle,rgba(42,75,255,.16),transparent 65%);animation:amb 14s ease-in-out infinite alternate}
+.aud::before{left:0;top:10%}.ben::before{right:0;top:-10%;animation-delay:-4s}#faq::before{left:10%;bottom:0;animation-delay:-8s}.ct::before{right:0;top:20%;animation-delay:-2s}
+.ben::after,#faq::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(130,155,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(130,155,255,.05) 1px,transparent 1px);background-size:80px 80px;-webkit-mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 70%);mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 70%)}
+@keyframes amb{to{transform:translate(8%,10%) scale(1.15)}}
+@media(max-width:899px){.c1{left:5vw;top:3%}.c2{left:auto;right:5vw;top:10%}.c3{left:5vw;bottom:4%}}
+/* our own blue light backgrounds in two sections (the rest stays black) */
+.bgimg{position:absolute;inset:0;z-index:-1;pointer-events:none;background-size:cover;background-repeat:no-repeat;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 18%,#000 82%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 18%,#000 82%,transparent 100%)}
+.bgimg.silk{background-image:url(/bg-silk.webp);background-position:30% 50%;opacity:.9;animation:bgdrift 18s ease-in-out infinite alternate}
+.bgimg.liquid{background-image:url(/bg-liquid.webp);background-position:60% 50%;opacity:.55;animation:bgdrift 22s ease-in-out infinite alternate-reverse}
+@keyframes bgdrift{from{background-position:30% 45%;transform:scale(1)}to{background-position:38% 55%;transform:scale(1.06)}}
+.aud,.ct{overflow:hidden}
+.aud::before,.ct::before{display:none}
+@media(max-width:899px){.bgimg.silk{background-position:20% 50%;opacity:.7}.bgimg.liquid{opacity:.45}}
+@media(prefers-reduced-motion:reduce){.bgimg{animation:none}}
+.bgimg.silk{background-image:linear-gradient(90deg,rgba(2,4,15,.92) 0,rgba(2,4,15,.6) 30%,rgba(2,4,15,0) 52%),url(/bg-silk.webp);background-size:100% 100%,cover;background-position:0 0,60% 50%;animation:none}
+@media(max-width:899px){.bgimg.silk{background-image:linear-gradient(180deg,rgba(2,4,15,.9) 0,rgba(2,4,15,.55) 40%,rgba(2,4,15,.1) 70%),url(/bg-silk.webp);background-position:0 0,70% 50%}}
