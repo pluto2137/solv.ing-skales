@@ -590,3 +590,32 @@ html[lang=en] .cl::before{content:"Today: "}html[lang=en] .cr2::before{content:"
 .ct .cc{padding:30px}
 .ct .cc b{font-size:clamp(1.1rem,1.45vw,1.6rem)}.ct .cc{gap:16px}
 }
+/* 5.11: playbook pass */
+/* hero: shorter sub + trust line */
+.hsub{max-width:600px}
+.htrust{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin:26px auto 0;color:#c3cdf5;font-size:.95rem;font-weight:500}
+.htrust span{display:inline-flex;align-items:center;gap:8px}
+.htrust svg{width:18px;height:18px;padding:3px;border-radius:50%;background:rgba(42,75,255,.35);color:#fff;flex:none}
+/* plan + results cards: their own row under the film, never on top of it */
+.rcrow{position:relative;padding:6vh 6vw 4vh}
+.rcrow .rcs{display:grid!important;grid-template-columns:1fr;gap:14px;max-width:1100px;margin:0 auto;padding:0}
+@media(min-width:760px){.rcrow .rcs{grid-template-columns:1fr 1fr;gap:18px}}
+.rcrow .rc{position:relative!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;max-width:none;display:flex;align-items:center;gap:20px;padding:26px 28px;border-radius:26px;overflow:hidden;isolation:isolate;background:linear-gradient(150deg,rgba(32,52,170,.5),rgba(4,8,34,.92));border:1px solid rgba(150,175,255,.24)}
+.rcrow .rc::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.08) 50%,transparent 65%);background-size:300% 100%;animation:sheen 6s ease-in-out infinite}
+.rcrow .rc2::after{animation-delay:-3s}
+.rcrow .rc .ic{width:58px;height:58px;border-radius:18px;box-shadow:0 14px 34px -10px rgba(42,75,255,.95)}
+.rcrow .rc .ic svg{width:24px;height:24px}
+.rcrow .rc b{font-size:clamp(1.3rem,2vw,1.6rem);white-space:normal}
+.rcrow .rc:hover{border-color:rgba(150,175,255,.55);transform:translateY(-4px)}
+@media(max-width:899px){.rcrow{padding:4vh 5vw 2vh}.rcrow .rc{padding:20px 22px}}
+/* change rows get a real heading */
+.chh{position:relative;z-index:2;font-size:clamp(2rem,5vw,4.6rem);margin-bottom:4vh;max-width:1000px}
+/* process: bigger visuals so the cards aren't empty */
+@media(min-width:900px){.pn .viz{width:min(60%,380px)}}
+/* subtle film grain for a richer finish */
+html::after{content:"";position:fixed;inset:-50%;z-index:80;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1.2s steps(4) infinite}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}100%{transform:translate(0,0)}}
+@media(prefers-reduced-motion:reduce){html::after{animation:none}}
+/* contact cards fill the column next to the quiz */
+@media(min-width:1100px){.ct .cgrid{grid-template-rows:1fr 1fr;align-self:stretch;align-content:stretch}.ct .cc{height:100%;padding:34px 30px}.ct .cci{width:72px;height:72px;border-radius:22px}.ct .cci svg{width:32px;height:32px}}
+.rcrow .rc span{font-size:1rem}
