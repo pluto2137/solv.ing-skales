@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /podglad/
+Disallow: /samples/
 
 User-agent: Googlebot
 Allow: /
