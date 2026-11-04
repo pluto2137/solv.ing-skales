@@ -1,4 +1,5 @@
 (function(){
+  var EN=document.documentElement.lang==='en';
   // horizontal slider with buttons + drag
   var sl=document.querySelector('.slider');
   if(sl){
@@ -25,11 +26,11 @@
     var err=document.createElement('p');err.className='qerr';err.setAttribute('role','alert');
     f.classList.add('js');
     function show(n,back){qs.forEach(function(q,k){q.classList.toggle('on',k===n);q.classList.toggle('back',!!back)});
-      i=n;bar.style.width=((n+1)/qs.length*100)+'%';lab.textContent='Pytanie '+(n+1)+' z '+qs.length;
+      i=n;bar.style.width=((n+1)/qs.length*100)+'%';lab.textContent=(EN?'Question ':'Pytanie ')+(n+1)+(EN?' of ':' z ')+qs.length;
       bB.hidden=n===0;bN.hidden=n===qs.length-1;bS.hidden=n!==qs.length-1;err.remove();
       var inp=qs[n].querySelector('input:not([type=checkbox]):not([type=radio]),select');if(inp&&n>0)setTimeout(function(){inp.focus({preventScroll:true})},60)}
     function ok(n){var bad=[].slice.call(qs[n].querySelectorAll('[required]')).filter(function(el){return !el.checkValidity()});
-      if(bad.length){err.textContent=bad[0].type==='email'?'Wpisz poprawny adres e-mail.':'Uzupełnij to pole, żeby przejść dalej.';qs[n].appendChild(err);bad[0].focus();return false}return true}
+      if(bad.length){err.textContent=bad[0].type==='email'?(EN?'Please enter a valid email address.':'Wpisz poprawny adres e-mail.'):(EN?'Please fill this in to continue.':'Uzupełnij to pole, żeby przejść dalej.');qs[n].appendChild(err);bad[0].focus();return false}return true}
     bN.addEventListener('click',function(){if(ok(i))show(i+1)});
     bB.addEventListener('click',function(){show(i-1,true)});
     f.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.tagName==='INPUT'&&i<qs.length-1){e.preventDefault();if(ok(i))show(i+1)}});
@@ -38,7 +39,7 @@
       // send checked goals as one field
       var cel=[].slice.call(f.querySelectorAll('input[name=cel]:checked')).map(function(x){return x.value}).join(', ');
       f.querySelectorAll('input[name=cel]').forEach(function(x){x.disabled=true});
-      var h=document.createElement('input');h.type='hidden';h.name='cel';h.value=cel||'(nie wybrano)';f.appendChild(h)});
+      var h=document.createElement('input');h.type='hidden';h.name='cel';h.value=cel||(EN?'(none selected)':'(nie wybrano)');f.appendChild(h)});
     show(0);
   }
 })();
