@@ -1,0 +1,12 @@
+@font-face{font-family:Jost;src:url(fonts/jost-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+20A0-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Jost;src:url(fonts/jost-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:Cormorant;src:url(fonts/cormorant-garamond-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+20A0-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Cormorant;src:url(fonts/cormorant-garamond-latin-500-normal.woff2) format("woff2")}
+body{margin:0;background:#120103;color:#f3e9d8;font:400 1.02rem/1.7 Jost,system-ui,sans-serif}
+main{max-width:760px;margin:0 auto;padding:60px 22px 80px}
+h1{font:500 clamp(2rem,5vw,3rem)/1.1 Cormorant,Georgia,serif;color:#ecd3a0;margin:0 0 6px}
+h2{font:500 1.55rem/1.2 Cormorant,Georgia,serif;color:#ecd3a0;margin:34px 0 8px}
+a{color:#ecd3a0}
+.upd{color:rgba(243,233,216,.6);font-size:.9rem;margin:0 0 30px}
+.back{display:inline-block;margin-bottom:30px;text-decoration:none;border-bottom:1px solid rgba(236,211,160,.4)}
+ul{padding-left:20px}
