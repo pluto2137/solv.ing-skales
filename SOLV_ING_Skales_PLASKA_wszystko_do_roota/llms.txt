@@ -14,6 +14,7 @@
 - Wszystko, co powstanie, należy do klienta
 
 ## Strony (problemy, z którymi pomagamy)
+- [O nas: kim jesteśmy i jak pracujemy](https://www.solving-agency.pl/o-nas)
 - [Strona główna](https://www.solving-agency.pl/)
 - [Wolne soboty w sezonie? (DJ-e i zespoły weselne)](https://www.solving-agency.pl/dla-dj)
 - [Ludzie wchodzą na stronę, ale nie piszą](https://www.solving-agency.pl/strona-internetowa)
@@ -58,9 +59,10 @@
 - [Groomer i hotel dla psów: jak mieć więcej klientów z Google i strony](https://www.solving-agency.pl/blog/groomer-hotel-dla-psow-strona-google): Strona i wizytówka Google dla groomera, hotelu dla psów i kotów, opieki i szkolenia psów: ceny „od” według wielkości, rezerwacje, opinie i zgody.
 - [Firma ogrodnicza: jak mieć więcej klientów z Google i strony](https://www.solving-agency.pl/blog/firma-ogrodnicza-strona-google-klienci): Strona i wizytówka Google dla firmy ogrodniczej: obszar działania, cena „od” za m² i za wizytę, stała pielęgnacja, formularz wyceny, opinie i zgody.
 
-## English (US and UK small lodging owners)
-SOLV.ING builds simple direct-booking websites for small cabins, motels, B&Bs and vacation rentals in the US: rates by season, rooms, policies in plain text and an "ask for your dates" form. Every client sees a free preview built around their own place before paying anything. No price list; each project is quoted individually. Work happens by email, in English.
+## English
+SOLV.ING is a growth partner for businesses in Europe and the US. We get to know the business, find what is holding it back, make a plan and put into action what will help most: more customers, less busywork and more profit. Free audit first; no price list, every project is quoted after the audit; you pay after you approve. Founder: Oscar Rowe. Contact: oscar.rowe21@gmail.com.
 - [English home page](https://www.solving-agency.pl/en)
+- [About SOLV.ING](https://www.solving-agency.pl/about)
 - [Examples: demo sites for made-up businesses](https://www.solving-agency.pl/examples)
 - [Direct booking savings calculator](https://www.solving-agency.pl/direct-booking-calculator): estimate what repeat guests booking directly would keep, after card fees.
 - [What we found reviewing 199 small US lodging websites (2026)](https://www.solving-agency.pl/small-lodging-websites-report): at least 45% showed no rates anywhere; template leftovers, typos, outdated content and broken links were common (lower bounds).

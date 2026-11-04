@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.solving-agency.pl/</loc><lastmod>2026-11-01</lastmod><priority>1.0</priority></url>
-  <url><loc>https://www.solving-agency.pl/en</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
-  <url><loc>https://www.solving-agency.pl/strona-internetowa</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
-  <url><loc>https://www.solving-agency.pl/wizytowka-google</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
-  <url><loc>https://www.solving-agency.pl/system-opinii</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
-  <url><loc>https://www.solving-agency.pl/automatyzacja</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
-  <url><loc>https://www.solving-agency.pl/social-media-i-reklamy</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.solving-agency.pl/</loc><lastmod>2026-11-05</lastmod><priority>1.0</priority></url>
+  <url><loc>https://www.solving-agency.pl/en</loc><lastmod>2026-11-05</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.solving-agency.pl/strona-internetowa</loc><lastmod>2026-11-05</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.solving-agency.pl/wizytowka-google</loc><lastmod>2026-11-05</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.solving-agency.pl/system-opinii</loc><lastmod>2026-11-05</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.solving-agency.pl/automatyzacja</loc><lastmod>2026-11-05</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.solving-agency.pl/social-media-i-reklamy</loc><lastmod>2026-11-05</lastmod><priority>0.8</priority></url>
   <url><loc>https://www.solving-agency.pl/projekty</loc><lastmod>2026-11-04</lastmod><priority>0.7</priority></url>
-  <url><loc>https://www.solving-agency.pl/dla-dj</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.solving-agency.pl/dla-dj</loc><lastmod>2026-11-05</lastmod><priority>0.8</priority></url>
   <url><loc>https://www.solving-agency.pl/blog</loc><lastmod>2026-11-01</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.solving-agency.pl/blog/ile-kosztuje-strona-dla-dj</loc><lastmod>2026-11-04</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.solving-agency.pl/blog/jak-dj-moze-zdobyc-wiecej-wesel</loc><lastmod>2026-10-29</lastmod><priority>0.6</priority></url>
@@ -54,4 +54,6 @@
 <url><loc>https://www.solving-agency.pl/small-lodging-websites-report</loc><lastmod>2026-11-02</lastmod><priority>0.8</priority></url>
 <url><loc>https://www.solving-agency.pl/direct-booking-calculator</loc><lastmod>2026-11-02</lastmod><priority>0.8</priority></url>
 <url><loc>https://www.solving-agency.pl/examples</loc><lastmod>2026-11-02</lastmod><priority>0.8</priority></url>
+<url><loc>https://www.solving-agency.pl/o-nas</loc><lastmod>2026-11-05</lastmod></url>
+<url><loc>https://www.solving-agency.pl/about</loc><lastmod>2026-11-05</lastmod></url>
 </urlset>

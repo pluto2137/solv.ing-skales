@@ -112,3 +112,4 @@ body.pp{overflow-x:hidden}
 @media(min-width:900px){.pp h1{font-size:clamp(2.8rem,4.9vw,5rem)}.hero{grid-template-columns:1.2fr 1fr;gap:4vw}}
 .ctab2{margin-top:10vh}.pp .fl{margin-top:9vh}
 .wm2{flex-basis:100%;width:100%;display:block;text-align:center}
+.about .cz::before{content:"✓"}
