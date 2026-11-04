@@ -23,10 +23,11 @@
     cards.forEach(function(c,k){var b=d.createElement('i');b.addEventListener('click',function(){to(k)});dots.appendChild(b)});
     var dl=$$('i',dots);
     function pos(c){return c.getBoundingClientRect().left-sl.getBoundingClientRect().left+sl.scrollLeft-4}
-    function cur(){var best=0,bd=1e9;cards.forEach(function(c,k){var dd=Math.abs(pos(c)-sl.scrollLeft);if(dd<bd){bd=dd;best=k}});return best}
+    function atEnd(){return sl.scrollLeft+sl.clientWidth>=sl.scrollWidth-8}
+    function cur(){if(atEnd()&&sl.scrollLeft>8)return cards.length-1;var best=0,bd=1e9;cards.forEach(function(c,k){var dd=Math.abs(pos(c)-sl.scrollLeft);if(dd<bd){bd=dd;best=k}});return best}
     function to(k){k=Math.max(0,Math.min(cards.length-1,k));sl.scrollTo({left:pos(cards[k]),behavior:'smooth'})}
-    function upd(){var k=cur();var atEnd=sl.scrollLeft+sl.clientWidth>=sl.scrollWidth-8;
-      prev.classList.toggle('off',sl.scrollLeft<8);next.classList.toggle('off',atEnd);
+    function upd(){var k=cur();wrap.classList.toggle('scrolled',sl.scrollLeft>8);wrap.classList.toggle('end',atEnd());var isEnd=atEnd();
+      prev.classList.toggle('off',sl.scrollLeft<8);next.classList.toggle('off',isEnd);
       cards.forEach(function(c,j){c.classList.toggle('act',j===k)});dl.forEach(function(b,j){b.classList.toggle('on',j===k)})}
     prev.addEventListener('click',function(){to(cur()-1)});
     next.addEventListener('click',function(){to(cur()+1);next.classList.add('used')});
@@ -41,7 +42,7 @@
     sl.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();to(cur()+1)}if(e.key==='ArrowLeft'){e.preventDefault();to(cur()-1)}});
     if(window.gsap&&window.ScrollTrigger&&!reduce){
       gsap.from(cards,{x:220,opacity:0,duration:1.1,ease:'power4.out',stagger:.1,clearProps:'transform,opacity',scrollTrigger:{trigger:sl,start:'top 85%',once:true}});
-      gsap.from([prev,next],{scale:0,opacity:0,duration:.7,ease:'back.out(2)',delay:.5,clearProps:'transform,opacity',scrollTrigger:{trigger:sl,start:'top 85%',once:true}});
+      gsap.from(next,{scale:0,opacity:0,duration:.7,ease:'back.out(2)',delay:.5,clearProps:'transform,opacity',scrollTrigger:{trigger:sl,start:'top 85%',once:true}});
     }
   }
 
