@@ -54,9 +54,11 @@ function start(){
  $$('.mq').forEach(function(m,i){var inn=m.firstElementChild,dir=i%2?1:-1;tw.push(gsap.fromTo(inn,{xPercent:dir<0?0:-50},{xPercent:dir<0?-50:0,duration:34,ease:'none',repeat:-1}))});
  ScrollTrigger.create({trigger:'.mqs',start:'top bottom',end:'bottom top',onUpdate:function(s){boost=Math.min(Math.abs(s.getVelocity())/260,9)}});
  gsap.ticker.add(function(){boost*=.93;tw.forEach(function(t){t.timeScale(1+boost)})});
+ /* plan + results cards under the film */
+ $$('.rcrow .rc').forEach(function(c,i){gsap.from(c,{y:70,opacity:0,rotateX:12,transformPerspective:900,duration:1,ease:'power3.out',delay:i*.12,clearProps:'transform,opacity',scrollTrigger:{trigger:'.rcrow',start:'top 88%',once:true}})});
  /* benefit cards */
  $$('.bc .bv').forEach(function(v){gsap.fromTo(v,{y:30},{y:-30,ease:'none',scrollTrigger:{trigger:v.parentNode,start:'top bottom',end:'bottom top',scrub:true}})});
- $$('.bc').forEach(function(c,i){gsap.from(c,{opacity:0,y:110,rotateX:16,scale:.94,transformPerspective:1000,transformOrigin:'50% 100%',duration:1.2,ease:'power3.out',delay:(i%2)*.12,clearProps:'transform',scrollTrigger:{trigger:c,start:'top 90%',once:true,onEnter:function(){c.classList.add('in')}}})});
+ $$('.bc').forEach(function(c,i){gsap.from(c,{opacity:0,y:110,rotateX:innerWidth<900?6:14,scale:.95,transformPerspective:1000,transformOrigin:'50% 100%',duration:1.2,ease:'power3.out',delay:(i%2)*.12,clearProps:'transform',scrollTrigger:{trigger:c,start:'top 90%',once:true,onEnter:function(){c.classList.add('in')}}})});
  ScrollTrigger.create({trigger:'.badge',start:'top 85%',once:true,onEnter:function(){$('.badge').classList.add('in')}});
  gsap.to('.badge .rot',{rotation:360,transformOrigin:'50% 50%',ease:'none',scrollTrigger:{trigger:'.gar',start:'top bottom',end:'bottom top',scrub:true}});
  $$('.orb').forEach(function(o,i){gsap.to(o,{y:i?-120:140,ease:'none',scrollTrigger:{trigger:'.gar',start:'top bottom',end:'bottom top',scrub:true}})});
@@ -71,9 +73,7 @@ function start(){
   var tl=gsap.timeline({scrollTrigger:{trigger:'.reel',start:'top top',end:'+=110%',pin:true,scrub:.6,invalidateOnRefresh:true}});
   function fitW(){return Math.min(innerWidth,innerHeight*16/9)}
   tl.to('.reelbox',{width:function(){return fitW()+'px'},borderRadius:function(){return fitW()>=innerWidth-2?0:22},ease:'none',duration:1},0)
-    .fromTo('.rc1',{x:-140,opacity:0},{x:0,opacity:1,duration:.35},.3)
-    .fromTo('.rc2',{x:140,opacity:0},{x:0,opacity:1,duration:.35},.42)
-    .to('.rc1',{y:-70,duration:.3},.8).to('.rc2',{y:70,duration:.3},.8);
+;
   var rows=$$('.chg .row');
   gsap.set('.cr2',{opacity:.1,filter:'blur(7px)',x:-24});
   var t2=gsap.timeline({scrollTrigger:{trigger:'.chg',start:'top top',end:'+=190%',pin:true,scrub:.5}});
