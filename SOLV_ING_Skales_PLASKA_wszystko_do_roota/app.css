@@ -670,3 +670,9 @@ html::after{content:"";position:fixed;inset:-50%;z-index:80;pointer-events:none;
 .bgimg canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .bgimg.silk.live::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,4,15,.92) 0,rgba(2,4,15,.6) 30%,rgba(2,4,15,0) 52%)}
 @media(max-width:899px){.bgimg.silk.live::after{background:linear-gradient(180deg,rgba(2,4,15,.9) 0,rgba(2,4,15,.55) 40%,rgba(2,4,15,.1) 70%)}}
+/* film really centred, cards right under it */
+@media(min-width:900px){
+.reel{display:grid!important;place-items:center;align-content:center}
+.reelbox{width:min(100vw,calc((100svh - 150px) * 16 / 9));box-shadow:0 0 0 1px var(--line),0 30px 90px -30px rgba(42,75,255,.55)}
+.rcrow{margin-top:-62px;padding-top:0;z-index:2}
+}

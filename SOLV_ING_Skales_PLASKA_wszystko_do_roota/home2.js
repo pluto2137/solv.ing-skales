@@ -22,24 +22,35 @@
     var wrap=sl.parentNode,prev=wrap.querySelector('.sb.prev'),next=wrap.querySelector('.sb.next'),cards=$$('.sl',sl),dots=wrap.querySelector('.sdots');
     cards.forEach(function(c,k){var b=d.createElement('i');b.addEventListener('click',function(){to(k)});dots.appendChild(b)});
     var dl=$$('i',dots);
-    function pos(c){return c.getBoundingClientRect().left-sl.getBoundingClientRect().left+sl.scrollLeft-4}
-    function atEnd(){return sl.scrollLeft+sl.clientWidth>=sl.scrollWidth-8}
-    function cur(){if(atEnd()&&sl.scrollLeft>8)return cards.length-1;var best=0,bd=1e9;cards.forEach(function(c,k){var dd=Math.abs(pos(c)-sl.scrollLeft);if(dd<bd){bd=dd;best=k}});return best}
-    function to(k){k=Math.max(0,Math.min(cards.length-1,k));sl.scrollTo({left:pos(cards[k]),behavior:'smooth'})}
-    function upd(){var k=cur();wrap.classList.toggle('scrolled',sl.scrollLeft>8);wrap.classList.toggle('end',atEnd());var isEnd=atEnd();
-      prev.classList.toggle('off',sl.scrollLeft<8);next.classList.toggle('off',isEnd);
-      cards.forEach(function(c,j){c.classList.toggle('act',j===k)});dl.forEach(function(b,j){b.classList.toggle('on',j===k)})}
-    prev.addEventListener('click',function(){to(cur()-1)});
-    next.addEventListener('click',function(){to(cur()+1);next.classList.add('used')});
-    sl.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
+    // one source of truth for the active card, so arrows never skip or get stuck
+    var idx=0,busy=0;
+    function maxS(){return sl.scrollWidth-sl.clientWidth}
+    function pos(k){return Math.min(maxS(),Math.max(0,cards[k].offsetLeft-cards[0].offsetLeft))}
+    function atEnd(){return sl.scrollLeft>=maxS()-6}
+    function nearest(){if(atEnd()&&sl.scrollLeft>6)return cards.length-1;var best=0,bd=1e9;for(var k=0;k<cards.length;k++){var dd=Math.abs(pos(k)-sl.scrollLeft);if(dd<bd){bd=dd;best=k}}return best}
+    function paint(){wrap.classList.toggle('scrolled',idx>0);wrap.classList.toggle('end',idx===cards.length-1||atEnd());
+      prev.classList.toggle('off',idx===0);next.classList.toggle('off',idx===cards.length-1);
+      cards.forEach(function(c,j){c.classList.toggle('act',j===idx)});dl.forEach(function(b,j){b.classList.toggle('on',j===idx)})}
+    function to(k){idx=Math.max(0,Math.min(cards.length-1,k));busy=Date.now()+700;sl.style.scrollSnapType='none';sl.scrollTo({left:pos(idx),behavior:reduce?'auto':'smooth'});paint();
+      clearTimeout(sl._t);sl._t=setTimeout(function(){sl.style.scrollSnapType='';busy=0},720)}
+    function step(dir){var cur=sl.scrollLeft,k=idx;
+      // skip cards that wouldn't move the row (the last ones can't reach the left edge)
+      do{k+=dir}while(k>0&&k<cards.length-1&&Math.abs(pos(k)-cur)<6&&dir>0);
+      if(dir<0&&idx===cards.length-1){k=cards.length-1;while(k>0&&pos(k)>=cur-6)k--;}
+      to(k)}
+    prev.addEventListener('click',function(){step(-1)});
+    next.addEventListener('click',function(){step(1);next.classList.add('used')});
+    dl.forEach(function(b,k){b.onclick=null});
+    var se;sl.addEventListener('scroll',function(){if(Date.now()<busy)return;clearTimeout(se);se=setTimeout(function(){idx=nearest();paint()},90)},{passive:true});
+    addEventListener('resize',function(){idx=nearest();paint()});paint();
     var down=false,sx=0,sl0=0;
     sl.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;down=true;sx=e.clientX;sl0=sl.scrollLeft;sl.classList.add('drag')});
     addEventListener('pointermove',function(e){if(down)sl.scrollLeft=sl0-(e.clientX-sx)});
-    addEventListener('pointerup',function(){if(!down)return;down=false;sl.classList.remove('drag');to(cur())});
+    addEventListener('pointerup',function(){if(!down)return;down=false;sl.classList.remove('drag');var dx=sl.scrollLeft-sl0;if(Math.abs(dx)>40)step(dx>0?1:-1);else to(idx)});
     var acc=0,lock=0;
     sl.addEventListener('wheel',function(e){if(Math.abs(e.deltaX)<=Math.abs(e.deltaY))return;e.preventDefault();e.stopPropagation();
-      var now=Date.now();acc+=e.deltaX;if(now<lock){acc=0;return}if(Math.abs(acc)>40){to(cur()+(acc>0?1:-1));acc=0;lock=now+650}},{passive:false});
-    sl.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();to(cur()+1)}if(e.key==='ArrowLeft'){e.preventDefault();to(cur()-1)}});
+      var now=Date.now();if(now<lock){acc=0;return}acc+=e.deltaX;if(Math.abs(acc)>40){step(acc>0?1:-1);acc=0;lock=now+650}},{passive:false});
+    sl.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();step(1)}if(e.key==='ArrowLeft'){e.preventDefault();step(-1)}});
     if(window.gsap&&window.ScrollTrigger&&!reduce){
       gsap.from(cards,{x:220,opacity:0,duration:1.1,ease:'power4.out',stagger:.1,clearProps:'transform,opacity',scrollTrigger:{trigger:sl,start:'top 85%',once:true}});
       gsap.from(next,{scale:0,opacity:0,duration:.7,ease:'back.out(2)',delay:.5,clearProps:'transform,opacity',scrollTrigger:{trigger:sl,start:'top 85%',once:true}});
