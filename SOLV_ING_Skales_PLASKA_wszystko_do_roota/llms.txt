@@ -1,19 +1,17 @@
 # SOLV.ING
 
-> SOLV.ING (solving-agency.pl) to partner wzrostu z Polski, działający zdalnie w Polsce i za granicą, który pomaga firmom usługowym zamieniać zapytania w rezerwacje i sprzedaż. Pracuje z firmami z każdej branży: restauracjami i lokalami, salonami, ekipami remontowymi, biurami nieruchomości, DJ-ami, zespołami i salami, w całej Polsce. Założyciel: Oskar Rowe. Kontakt: oscar.rowe21@gmail.com, +48 505 119 531.
+> SOLV.ING (solving-agency.pl) to partner wzrostu dla firm. Najpierw poznaje firmę i sprawdza, co ją hamuje, potem robi plan i wdraża to, co da najwięcej: więcej klientów, mniej pracy, lepszy marketing, automatyzacje i własne narzędzia. Pracuje z firmami z każdej branży i każdej wielkości, w Polsce, Europie i USA. Założyciel: Oscar Rowe. Kontakt: oscar.rowe21@gmail.com, +48 505 119 531.
 
 ## Co robimy
-- Strony internetowe z cenami „od”, pakietami i formularzem wolnego terminu (bez abonamentu)
-- Profil firmy w Google, zbieranie opinii od dawnych klientów i automatyczna prośba o opinię
-- Automatyczne odpowiedzi na zapytania i system zapytań z kalendarzem
-- Proste narzędzia webowe: CRM dla firm usługowych, generatory ofert PDF, formularze rezerwacji
-- Rolki, social media, reklamy Meta i Google, krótkie reklamy wideo i animacje
+- Bezpłatny audyt firmy i plan wzrostu dopasowany do tej konkretnej firmy
+- Wdrożenie planu: obsługa klientów i zapytań, marketing i reklamy, opinie i wizerunek, automatyzacje, aplikacje i strony, filmy animowane
+- Pomiar wyników przed i po wdrożeniu
 
 ## Jak pracujemy
-- Darmowy audyt (quiz, około 4 minuty), potem konkretne wnioski
-- Brak cennika: każdą usługę, także social media i reklamy, wyceniamy indywidualnie po bezpłatnym audycie
-- Darmowy podgląd przed płatnością, płatność 50/50, prawa autorskie przechodzą na klienta
-- Kontakt w wiadomościach, bez obowiązkowych rozmów telefonicznych
+- Bezpłatny audyt (krótkie zgłoszenie albo rozmowa), potem konkretny plan
+- Brak cennika: każdy projekt wyceniamy indywidualnie po audycie
+- Płacisz po akceptacji; model płatności dopasowany do projektu (najczęściej połowa na start i połowa po akceptacji, czasem etapami albo od wyników)
+- Wszystko, co powstanie, należy do klienta
 
 ## Strony
 - [Strona główna](https://www.solving-agency.pl/)
@@ -24,7 +22,7 @@
 - [Automatyzacja](https://www.solving-agency.pl/automatyzacja)
 - [Social media i reklamy](https://www.solving-agency.pl/social-media-i-reklamy)
 - [Projekty](https://www.solving-agency.pl/projekty)
-- [English page: enquiry systems and websites for small businesses (UK/US)](https://www.solving-agency.pl/en)
+- [English page: growth partner for businesses (UK/US)](https://www.solving-agency.pl/en)
 
 ## Poradnik
 - [Ile kosztuje strona dla DJ-a? Od czego zależy cena](https://www.solving-agency.pl/blog/ile-kosztuje-strona-dla-dj): Od czego zależy cena strony dla DJ-a albo zespołu weselnego: kreator, szablon czy strona na zamówienie, zakres, zdjęcia, formularz. I co strona musi mieć, żeby para zarezerwowała termin.
