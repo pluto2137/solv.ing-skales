@@ -560,3 +560,33 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
 .slw .slider{padding-bottom:56px}.sdots{margin-top:-18px}
 @media(max-width:899px){.pn .viz{width:62%;max-width:260px}.pn{min-height:400px}}
 html[lang=en] .cl::before{content:"Today: "}html[lang=en] .cr2::before{content:"With us: "}
+/* 4.11c: laptop pass */
+@media(min-width:900px){.reelbox{max-height:none}}
+.st{padding:14vh 6vw}
+@media(min-width:900px){.aud{padding:12vh 6vw 6vh}.ben{padding:10vh 6vw}.sec{padding:10vh 6vw}.ct{padding:10vh 6vw 8vh}.gar{padding:16vh 6vw}}
+/* slider edges fade instead of a hard cut */
+.slw .slider{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 34px,#000 calc(100% - 70px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 34px,#000 calc(100% - 70px),transparent 100%);overscroll-behavior-x:contain}
+/* change rows: right column is a soft ghost until it reveals */
+.chg .cr2{will-change:filter,opacity}
+/* badge keeps spinning */
+.badge text{transform-box:view-box;transform-origin:100px 100px;animation:spin 18s linear infinite}
+/* benefit cards: bento layout on wide screens */
+.bg{perspective:1400px}
+@media(min-width:1000px){
+.bg{grid-template-columns:repeat(3,1fr);gap:18px}
+.bg .bc:nth-child(1),.bg .bc:nth-child(4){grid-column:span 2;display:grid;grid-template-columns:1.1fr 1fr;grid-template-rows:1fr auto auto;column-gap:30px;align-items:end}
+.bg .bc:nth-child(1) .bv,.bg .bc:nth-child(4) .bv{grid-column:2;grid-row:1/4;height:100%;min-height:260px;margin:0}
+.bg .bc:nth-child(1) h3,.bg .bc:nth-child(4) h3{grid-column:1;grid-row:2;font-size:clamp(2rem,3.2vw,3rem)}
+.bg .bc:nth-child(1) p,.bg .bc:nth-child(4) p{grid-column:1;grid-row:3;font-size:1.1rem}
+.bg .bc:nth-child(1)::after,.bg .bc:nth-child(4)::after{content:"";position:absolute;inset:auto auto -40% -10%;width:60%;height:80%;border-radius:50%;background:radial-gradient(circle,rgba(42,75,255,.28),transparent 70%);pointer-events:none;animation:slg 7s ease-in-out infinite alternate}
+.bc{min-height:420px}
+}
+/* contact: form and contact cards side by side on wide screens, no empty half */
+@media(min-width:1100px){
+.ct{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);column-gap:4vw;align-items:start}
+.ct>h2,.ct>.lead{grid-column:1/-1}
+.ct .quiz{grid-column:1;max-width:none;margin-bottom:0}
+.ct .cgrid{grid-column:2;grid-template-columns:1fr;margin-top:0;align-self:stretch;align-content:start}
+.ct .cc{padding:30px}
+.ct .cc b{font-size:clamp(1.1rem,1.45vw,1.6rem)}.ct .cc{gap:16px}
+}

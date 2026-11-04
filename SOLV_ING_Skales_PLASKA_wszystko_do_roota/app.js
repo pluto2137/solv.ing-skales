@@ -30,7 +30,7 @@ $$('a,button,[data-tilt]').forEach(function(el){el.addEventListener('pointerente
 /* card spotlight + tilt */
 $$('[data-tilt]').forEach(function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;c.style.setProperty('--mx',px*100+'%');c.style.setProperty('--my',py*100+'%');if(matchMedia('(hover:hover)').matches)c.style.transform='perspective(900px) rotateX('+((.5-py)*7)+'deg) rotateY('+((px-.5)*9)+'deg) translateZ(0)'});c.addEventListener('pointerleave',function(){c.style.transform=''})});
 
-var lenis=null;if(window.Lenis&&!reduce&&matchMedia('(hover:hover) and (pointer:fine)').matches){try{lenis=new Lenis({lerp:.07,wheelMultiplier:.8,anchors:{offset:-20}});window.__lenis=lenis}catch(e){lenis=null}}
+var lenis=null;if(window.Lenis&&!reduce&&matchMedia('(hover:hover) and (pointer:fine)').matches){try{lenis=new Lenis({lerp:.11,wheelMultiplier:1,anchors:{offset:-20}});window.__lenis=lenis}catch(e){lenis=null}}
 function done(){if(loader){loader.remove();loader=null}root.classList.add('ready')}
 if(!window.gsap||!window.ScrollTrigger||reduce){if(lenis){(function r(t){lenis.raf(t);requestAnimationFrame(r)})(0)}done();$$('.bc,.badge').forEach(function(e){e.classList.add('in')});return}
 gsap.registerPlugin(ScrollTrigger);ScrollTrigger.config({ignoreMobileResize:true});if(lenis){lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000)});gsap.ticker.lagSmoothing(0)}
@@ -55,7 +55,8 @@ function start(){
  ScrollTrigger.create({trigger:'.mqs',start:'top bottom',end:'bottom top',onUpdate:function(s){boost=Math.min(Math.abs(s.getVelocity())/260,9)}});
  gsap.ticker.add(function(){boost*=.93;tw.forEach(function(t){t.timeScale(1+boost)})});
  /* benefit cards */
- $$('.bc').forEach(function(c,i){gsap.from(c,{opacity:0,y:80,duration:1.1,ease:'power3.out',delay:(i%2)*.12,scrollTrigger:{trigger:c,start:'top 90%',once:true,onEnter:function(){c.classList.add('in')}}})});
+ $$('.bc .bv').forEach(function(v){gsap.fromTo(v,{y:30},{y:-30,ease:'none',scrollTrigger:{trigger:v.parentNode,start:'top bottom',end:'bottom top',scrub:true}})});
+ $$('.bc').forEach(function(c,i){gsap.from(c,{opacity:0,y:110,rotateX:16,scale:.94,transformPerspective:1000,transformOrigin:'50% 100%',duration:1.2,ease:'power3.out',delay:(i%2)*.12,clearProps:'transform',scrollTrigger:{trigger:c,start:'top 90%',once:true,onEnter:function(){c.classList.add('in')}}})});
  ScrollTrigger.create({trigger:'.badge',start:'top 85%',once:true,onEnter:function(){$('.badge').classList.add('in')}});
  gsap.to('.badge .rot',{rotation:360,transformOrigin:'50% 50%',ease:'none',scrollTrigger:{trigger:'.gar',start:'top bottom',end:'bottom top',scrub:true}});
  $$('.orb').forEach(function(o,i){gsap.to(o,{y:i?-120:140,ease:'none',scrollTrigger:{trigger:'.gar',start:'top bottom',end:'bottom top',scrub:true}})});
@@ -67,23 +68,24 @@ function start(){
  /* desktop pins */
  var mm=gsap.matchMedia();
  mm.add('(min-width: 900px)',function(){
-  var tl=gsap.timeline({scrollTrigger:{trigger:'.reel',start:'top top',end:'+=140%',pin:true,scrub:.6}});
-  tl.to('.reelbox',{width:'100vw',borderRadius:0,ease:'none',duration:1},0)
+  var tl=gsap.timeline({scrollTrigger:{trigger:'.reel',start:'top top',end:'+=110%',pin:true,scrub:.6,invalidateOnRefresh:true}});
+  function fitW(){return Math.min(innerWidth,innerHeight*16/9)}
+  tl.to('.reelbox',{width:function(){return fitW()+'px'},borderRadius:function(){return fitW()>=innerWidth-2?0:22},ease:'none',duration:1},0)
     .fromTo('.rc1',{x:-140,opacity:0},{x:0,opacity:1,duration:.35},.3)
     .fromTo('.rc2',{x:140,opacity:0},{x:0,opacity:1,duration:.35},.42)
     .to('.rc1',{y:-70,duration:.3},.8).to('.rc2',{y:70,duration:.3},.8);
   var rows=$$('.chg .row');
-  gsap.set('.cr2',{clipPath:'inset(-20% 100% -20% 0%)',x:-30});
-  var t2=gsap.timeline({scrollTrigger:{trigger:'.chg',start:'top top',end:'+=260%',pin:true,scrub:.5}});
+  gsap.set('.cr2',{opacity:.1,filter:'blur(7px)',x:-24});
+  var t2=gsap.timeline({scrollTrigger:{trigger:'.chg',start:'top top',end:'+=190%',pin:true,scrub:.5}});
   t2.to('.bgfx',{opacity:1,duration:rows.length},0);
-  gsap.set('.chg .ok',{scale:0,rotate:-90});gsap.set('.chg .rn',{opacity:0,y:30});rows.forEach(function(r,i){t2.to($('.rn',r),{opacity:1,y:0,duration:.3},i).to($('.t',r),{backgroundSize:'100% 3px',duration:.35},i).to($('.cl',r),{opacity:.38,duration:.35},i).to($('.cr2',r),{clipPath:'inset(-20% -5% -20% 0%)',x:0,duration:.6},i+.3).to($('.ok',r),{scale:1,rotate:0,duration:.35,ease:'back.out(2.6)'},i+.55).add(function(){r.classList.toggle('done')},i+.6)});
+  gsap.set('.chg .ok',{scale:0,rotate:-90});gsap.set('.chg .rn',{opacity:0,y:30});rows.forEach(function(r,i){t2.to($('.rn',r),{opacity:1,y:0,duration:.3},i).to($('.t',r),{backgroundSize:'100% 3px',duration:.35},i).to($('.cl',r),{opacity:.38,duration:.35},i).to($('.cr2',r),{opacity:1,filter:'blur(0px)',x:0,duration:.6},i+.3).to($('.ok',r),{scale:1,rotate:0,duration:.35,ease:'back.out(2.6)'},i+.55).add(function(){r.classList.toggle('done')},i+.6)});
   t2.to({},{duration:.5});
   var track=$('.ptrack');function dist(){return Math.max(0,track.scrollWidth-innerWidth)}
   gsap.to(track,{x:function(){return -dist()},ease:'none',scrollTrigger:{trigger:'.proc',start:'top top',end:function(){return '+='+dist()},pin:true,scrub:.6,invalidateOnRefresh:true,onUpdate:function(s){gsap.set('.pbar i',{scaleX:s.progress})}}});
  });
  mm.add('(max-width: 899px)',function(){
-  gsap.set('.cr2',{clipPath:'inset(-20% 100% -20% 0%)'});
-  gsap.set('.chg .ok',{scale:0,rotate:-90});$$('.chg .row').forEach(function(r){var t=gsap.timeline({paused:true});t.to($('.t',r),{backgroundSize:'100% 3px',duration:.6,ease:'power2.inOut'}).to($('.cl',r),{opacity:.45,duration:.4},0).to($('.cr2',r),{clipPath:'inset(-20% -5% -20% 0%)',duration:.8,ease:'power3.out'},.35).to($('.ok',r),{scale:1,rotate:0,duration:.45,ease:'back.out(2.6)'},.7);ScrollTrigger.create({trigger:r,start:'top 78%',once:true,onEnter:function(){t.play()}})});
+  gsap.set('.cr2',{opacity:.1,filter:'blur(7px)'});
+  gsap.set('.chg .ok',{scale:0,rotate:-90});$$('.chg .row').forEach(function(r){var t=gsap.timeline({paused:true});t.to($('.t',r),{backgroundSize:'100% 3px',duration:.6,ease:'power2.inOut'}).to($('.cl',r),{opacity:.45,duration:.4},0).to($('.cr2',r),{opacity:1,filter:'blur(0px)',duration:.8,ease:'power3.out'},.35).to($('.ok',r),{scale:1,rotate:0,duration:.45,ease:'back.out(2.6)'},.7);ScrollTrigger.create({trigger:r,start:'top 78%',once:true,onEnter:function(){t.play()}})});
   gsap.from('.pn',{opacity:0,y:60,duration:.9,stagger:.12,scrollTrigger:{trigger:'.ptrack',start:'top 80%',once:true}});
  });
  /* intro */

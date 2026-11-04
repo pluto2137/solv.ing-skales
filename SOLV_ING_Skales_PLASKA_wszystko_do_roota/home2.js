@@ -35,6 +35,9 @@
     sl.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;down=true;sx=e.clientX;sl0=sl.scrollLeft;sl.classList.add('drag')});
     addEventListener('pointermove',function(e){if(down)sl.scrollLeft=sl0-(e.clientX-sx)});
     addEventListener('pointerup',function(){if(!down)return;down=false;sl.classList.remove('drag');to(cur())});
+    var acc=0,lock=0;
+    sl.addEventListener('wheel',function(e){if(Math.abs(e.deltaX)<=Math.abs(e.deltaY))return;e.preventDefault();e.stopPropagation();
+      var now=Date.now();acc+=e.deltaX;if(now<lock){acc=0;return}if(Math.abs(acc)>40){to(cur()+(acc>0?1:-1));acc=0;lock=now+650}},{passive:false});
     sl.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();to(cur()+1)}if(e.key==='ArrowLeft'){e.preventDefault();to(cur()-1)}});
     if(window.gsap&&window.ScrollTrigger&&!reduce){
       gsap.from(cards,{x:220,opacity:0,duration:1.1,ease:'power4.out',stagger:.1,clearProps:'transform,opacity',scrollTrigger:{trigger:sl,start:'top 85%',once:true}});
