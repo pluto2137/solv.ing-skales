@@ -654,3 +654,14 @@ html::after{content:"";position:fixed;inset:-50%;z-index:80;pointer-events:none;
 .ben::after,#faq::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(130,155,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(130,155,255,.05) 1px,transparent 1px);background-size:80px 80px;-webkit-mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 70%);mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 70%)}
 @keyframes amb{to{transform:translate(8%,10%) scale(1.15)}}
 @media(max-width:899px){.c1{left:5vw;top:3%}.c2{left:auto;right:5vw;top:10%}.c3{left:5vw;bottom:4%}}
+/* our own blue light backgrounds in two sections (the rest stays black) */
+.bgimg{position:absolute;inset:0;z-index:-1;pointer-events:none;background-size:cover;background-repeat:no-repeat;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 18%,#000 82%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 18%,#000 82%,transparent 100%)}
+.bgimg.silk{background-image:url(/bg-silk.webp);background-position:30% 50%;opacity:.9;animation:bgdrift 18s ease-in-out infinite alternate}
+.bgimg.liquid{background-image:url(/bg-liquid.webp);background-position:60% 50%;opacity:.55;animation:bgdrift 22s ease-in-out infinite alternate-reverse}
+@keyframes bgdrift{from{background-position:30% 45%;transform:scale(1)}to{background-position:38% 55%;transform:scale(1.06)}}
+.aud,.ct{overflow:hidden}
+.aud::before,.ct::before{display:none}
+@media(max-width:899px){.bgimg.silk{background-position:20% 50%;opacity:.7}.bgimg.liquid{opacity:.45}}
+@media(prefers-reduced-motion:reduce){.bgimg{animation:none}}
+.bgimg.silk{background-image:linear-gradient(90deg,rgba(2,4,15,.92) 0,rgba(2,4,15,.6) 30%,rgba(2,4,15,0) 52%),url(/bg-silk.webp);background-size:100% 100%,cover;background-position:0 0,60% 50%;animation:none}
+@media(max-width:899px){.bgimg.silk{background-image:linear-gradient(180deg,rgba(2,4,15,.9) 0,rgba(2,4,15,.55) 40%,rgba(2,4,15,.1) 70%),url(/bg-silk.webp);background-position:0 0,70% 50%}}
