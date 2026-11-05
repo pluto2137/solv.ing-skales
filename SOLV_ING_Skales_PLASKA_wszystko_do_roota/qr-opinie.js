@@ -39,14 +39,14 @@
     var p = u.pathname.toLowerCase();
     var all = (u.pathname + u.search + u.hash).toLowerCase();
     if (h === 'g.page') {
-      if (/^\/r\/[^/]+\/review\/?$/.test(p)) return '';
+      if (/^\/(r\/)?[^/]+\/review\/?$/.test(p)) return '';
       if (/^\/r\//.test(p)) return 'Ten link może otwierać sam profil, a nie okno opinii. Link z Google do opinii zwykle kończy się na /review. Zeskanuj gotowy kod telefonem i sprawdź, co się otwiera.';
     }
     if (h === 'search.google.com' && p.indexOf('/local/writereview') === 0) {
       if (u.searchParams.get('placeid')) return '';
       return 'W tym linku brakuje identyfikatora firmy (placeid). Skopiuj link jeszcze raz z opcji „Uzyskaj więcej opinii”.';
     }
-    if (/(^|\.)google\.[a-z.]+$/.test(h) && (all.indexOf('writereview') > -1 || /lrd=[^&]*,[13]/.test(all))) return '';
+    if (/(^|\.)google\.[a-z.]+$/.test(h) && (all.indexOf('writereview') > -1 || /lrd=[^&]*,3/.test(all))) return '';
     if (h === 'maps.app.goo.gl' || h === 'goo.gl' || h === 'g.co' || /(^|\.)google\.[a-z.]+$/.test(h)) {
       return 'To wygląda na link do samej wizytówki, nie do okna opinii. Klient zobaczy profil i będzie szukać przycisku na własną rękę. Lepiej skopiuj link z opcji „Uzyskaj więcej opinii” (instrukcja wyżej).';
     }
@@ -78,9 +78,9 @@
   function texts(link, firm) {
     var f = firm || '[nazwa firmy]';
     return {
-      sms: 'Dzień dobry, tu ' + f + '. Dziękujemy za [wizytę / zlecenie]. Jeśli znajdziesz chwilę, napisz w Google kilka słów o tym, jak było. Każda opinia, także krytyczna, pomaga nam i kolejnym klientom: ' + link,
+      sms: 'Dzień dobry, tu ' + f + '. Dziękujemy za [wizytę / zlecenie]. Napisz proszę w Google kilka szczerych słów o tym, jak było, także jeśli coś mamy poprawić: ' + link,
       wa: 'Cześć, tu [imię], ' + f + '. Dzięki za [wizytę / zlecenie]! Mamy prośbę: napisz w Google kilka szczerych słów o tym, jak było, także jeśli coś możemy poprawić. Link: ' + link,
-      mail: 'Temat: ' + f + ': dziękujemy za współpracę\n\nDzień dobry [imię],\n\ndziękujemy za [krótko: czym była usługa]. Jeśli masz kilka minut, napisz w Google, jak przebiegła współpraca: co było dobrze i co możemy poprawić. Twoja opinia pomoże innym klientom w wyborze, a nam w pracy.\n\nLink do opinii: ' + link + '\n\nPozdrawiamy,\n[imię], ' + f
+      mail: 'Temat: ' + f + ' dziękuje za współpracę\n\nDzień dobry, [imię],\n\ndziękujemy za [krótko: czym była usługa]. Jeśli masz kilka minut, napisz w Google, jak przebiegła współpraca: co było dobrze i co możemy poprawić. Twoja opinia pomoże innym klientom w wyborze, a nam w pracy.\n\nLink do opinii: ' + link + '\n\nPozdrawiamy,\n[imię], ' + f
     };
   }
 

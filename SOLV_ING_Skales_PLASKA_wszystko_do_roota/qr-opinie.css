@@ -1,11 +1,11 @@
 /* Kod QR do opinii Google (5.11) */
-@media(max-width:899px){.hero.qh .glow{right:-6vw}}
 .hero.qh{min-height:0;padding:7vh 0 2vh;grid-template-columns:1fr}
 .hero.qh .lead{max-width:720px}
 .qtool{margin-top:5vh;display:grid;gap:22px}
 .qbox{position:relative;padding:clamp(22px,4vw,40px);border-radius:26px;border:1px solid var(--line);background:linear-gradient(170deg,rgba(14,22,70,.6),rgba(3,6,25,.85))}
 .qbox h2{font-size:clamp(1.5rem,3vw,2.2rem);margin:0 0 14px}
 .qbox>p{color:#d4ddff}
+.qbox h3{margin-top:28px}
 .qsteps{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px;counter-reset:q}
 .qsteps li{counter-increment:q;position:relative;margin:0;padding:14px 16px 14px 60px;border-radius:16px;border:1px solid var(--line);background:rgba(2,4,15,.4);color:#e3e9ff}
 .qsteps li::before{content:counter(q);position:absolute;left:16px;top:13px;width:30px;height:30px;border-radius:50%;background:var(--blue);display:grid;place-items:center;font-weight:700;color:#fff;font-size:.9rem}
