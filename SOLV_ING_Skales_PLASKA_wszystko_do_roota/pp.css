@@ -106,7 +106,7 @@ body.pp{overflow-x:hidden}
 .v-dla-dj .e1{animation-delay:.15s}.v-dla-dj .e2{animation-delay:.3s}.v-dla-dj .e3{animation-delay:.45s}
 @keyframes eq{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
 @keyframes spin{to{transform:rotate(360deg)}}
-@media(max-width:899px){.hero{min-height:0;padding:6vh 0 2vh}.sec{padding-top:9vh}.pc,.cz{padding:24px}}
+@media(max-width:899px){.hero .glow{right:-6vw}.hero{min-height:0;padding:6vh 0 2vh}.sec{padding-top:9vh}.pc,.cz{padding:24px}}
 @media(prefers-reduced-motion:reduce){.pp *{animation:none!important;transition:none!important}.js [data-r]{opacity:1;transform:none}}
 .pp main{max-width:1300px}
 @media(min-width:900px){.pp h1{font-size:clamp(2.8rem,4.9vw,5rem)}.hero{grid-template-columns:1.2fr 1fr;gap:4vw}}
