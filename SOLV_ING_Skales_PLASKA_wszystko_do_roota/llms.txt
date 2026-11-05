@@ -20,6 +20,7 @@
 - [Ludzie wchodzą na stronę, ale nie piszą](https://www.solving-agency.pl/strona-internetowa)
 - [Klienci nie znajdują Cię w Google i na Mapach](https://www.solving-agency.pl/wizytowka-google)
 - [Mało opinii w Google mimo zadowolonych klientów](https://www.solving-agency.pl/system-opinii)
+- [Kod QR do opinii Google: darmowy generator](https://www.solving-agency.pl/kod-qr-opinie-google): wklejasz link do opinii z profilu firmy w Google, dostajesz kod QR (PNG, SVG), kartkę do druku i 3 gotowe wiadomości. Działa w przeglądarce, link nie jest nigdzie wysyłany.
 - [Zapytania uciekają, bo nie zdążasz odpisać](https://www.solving-agency.pl/automatyzacja)
 - [Social media i reklamy bez klientów](https://www.solving-agency.pl/social-media-i-reklamy)
 - [Projekty](https://www.solving-agency.pl/projekty)

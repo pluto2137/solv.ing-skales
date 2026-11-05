@@ -1,0 +1,60 @@
+/* Kod QR do opinii Google (5.11) */
+@media(max-width:899px){.hero.qh .glow{right:-6vw}}
+.hero.qh{min-height:0;padding:7vh 0 2vh;grid-template-columns:1fr}
+.hero.qh .lead{max-width:720px}
+.qtool{margin-top:5vh;display:grid;gap:22px}
+.qbox{position:relative;padding:clamp(22px,4vw,40px);border-radius:26px;border:1px solid var(--line);background:linear-gradient(170deg,rgba(14,22,70,.6),rgba(3,6,25,.85))}
+.qbox h2{font-size:clamp(1.5rem,3vw,2.2rem);margin:0 0 14px}
+.qbox>p{color:#d4ddff}
+.qsteps{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px;counter-reset:q}
+.qsteps li{counter-increment:q;position:relative;margin:0;padding:14px 16px 14px 60px;border-radius:16px;border:1px solid var(--line);background:rgba(2,4,15,.4);color:#e3e9ff}
+.qsteps li::before{content:counter(q);position:absolute;left:16px;top:13px;width:30px;height:30px;border-radius:50%;background:var(--blue);display:grid;place-items:center;font-weight:700;color:#fff;font-size:.9rem}
+.qsteps b{color:#fff}
+.qsmall{color:var(--mut);font-size:.95rem;margin-top:14px}
+.qform{display:grid;gap:18px;margin-top:6px}
+.qf label{display:block;font-weight:600;color:#fff;margin-bottom:6px}
+.qf .hint{display:block;font-weight:400;color:var(--mut);font-size:.9rem}
+.qf input,.qta textarea{width:100%;font:inherit;font-size:16px;color:var(--fg);background:rgba(2,4,15,.7);border:1px solid rgba(150,175,255,.35);border-radius:14px;padding:14px 16px}
+.qf input::placeholder{color:#6f7cab}
+.qf input:focus-visible,.qta textarea:focus-visible{outline:2px solid var(--glow);outline-offset:2px;border-color:var(--glow)}
+.qf input[aria-invalid=true]{border-color:#ff8a8a}
+button.btn{border:0;cursor:pointer;font-family:inherit;justify-self:start}
+.btn2{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:99px;border:1px solid rgba(150,175,255,.45);background:rgba(42,75,255,.12);color:#fff;font:inherit;font-weight:600;font-size:.95rem;text-decoration:none;cursor:pointer;transition:background .3s,border-color .3s}
+.btn2:hover{background:rgba(42,75,255,.3);border-color:var(--glow)}
+.qmsg:empty{display:none}
+.qmsg{padding:14px 16px;border-radius:14px;border-left:4px solid var(--glow);background:rgba(42,75,255,.12);color:#e3e9ff}
+.qmsg.warn{border-left-color:var(--gold);background:rgba(255,212,94,.1);color:#ffeebd}
+.qmsg.err{border-left-color:#ff8a8a;background:rgba(255,120,120,.1);color:#ffd6d6}
+.qout{display:grid;gap:26px;align-items:start}
+@media(min-width:800px){.qout{grid-template-columns:300px 1fr}}
+.qout h2:focus,#qr-out-h:focus{outline:none}
+#qr-out{scroll-margin-top:90px}
+.qcode{background:#fff;border-radius:18px;padding:10px;width:100%;max-width:300px}
+.qcode img{display:block;width:100%;height:auto;image-rendering:pixelated}
+.qurl{color:var(--mut);font-size:.85rem;overflow-wrap:anywhere;margin-top:10px}
+.qbtns{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 6px}
+.qmsgs{display:grid;gap:16px;margin-top:22px}
+@media(min-width:1000px){.qmsgs{grid-template-columns:repeat(3,1fr)}}
+.qta{display:flex;flex-direction:column;gap:8px}
+.qta label{font-weight:700;color:#fff;font-family:'Bricolage Grotesque',Arial,sans-serif;font-size:1.1rem}
+.qta textarea{min-height:210px;resize:vertical;line-height:1.5;font-size:15px}
+.qta .btn2{align-self:flex-start}
+.qrules{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:10px}
+.qrules li{display:flex;gap:14px;align-items:flex-start;margin:0;padding:16px 18px;border-radius:16px;border:1px solid var(--line);background:rgba(2,4,15,.4);color:#e3e9ff}
+.qrules i{flex:none;width:26px;height:26px;border-radius:50%;background:rgba(255,120,120,.2);border:1px solid rgba(255,138,138,.6);display:grid;place-items:center;font-style:normal;font-size:.8rem;font-weight:700;color:#fff;margin-top:2px}
+.qrules b{color:#fff}
+.sec.about .lead2{color:#d4ddff;max-width:680px;margin:-2vh 0 4vh;font-size:1.1rem}
+.qnext{margin-top:22px;color:#d4ddff}
+#karta{display:none}
+@media(max-width:600px){.qsteps li{padding-left:56px}.qbtns .btn2,.qbtns button.btn2{flex:1 1 100%}}
+@media print{
+  @page{margin:12mm}
+  html,body{background:#fff!important;color:#000}
+  body>*{display:none!important}
+  body>#karta{display:block!important}
+  #karta{width:120mm;margin:0 auto;padding:12mm 10mm;border:1px dashed #777;border-radius:6mm;text-align:center;color:#000;font-family:'Hanken Grotesk',Arial,sans-serif;break-inside:avoid}
+  #karta .kf{font-family:'Bricolage Grotesque',Arial,sans-serif;font-weight:800;font-size:20pt;line-height:1.15;margin:0 0 3mm;color:#000}
+  #karta .kh{font-family:'Bricolage Grotesque',Arial,sans-serif;font-weight:700;font-size:17pt;line-height:1.2;margin:0 0 6mm;color:#000}
+  #karta img{display:block;width:70mm;height:70mm;margin:0 auto 6mm}
+  #karta .ki{font-size:13pt;margin:0;color:#000}
+}
