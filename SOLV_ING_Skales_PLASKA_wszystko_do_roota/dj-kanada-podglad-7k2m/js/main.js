@@ -140,7 +140,7 @@
 
     gsap.fromTo('.glove',{y:160,rotate:-8,scale:.82},{y:0,rotate:0,scale:1,ease:'none',clearProps:'transform',scrollTrigger:{trigger:'#rezerwacja',start:'top bottom',end:'top 15%',scrub:1}});
     gsap.fromTo('.card',{x:mobile?0:120,y:mobile?60:0},{x:0,y:0,ease:'none',scrollTrigger:{trigger:'#rezerwacja',start:'top 85%',end:'center 60%',scrub:1}});
-    gsap.from('.glove .mover',{yPercent:30,ease:'none',scrollTrigger:{trigger:'#rezerwacja',start:'top bottom',end:'center center',scrub:1}});
+    gsap.fromTo('.glove .mover',{scale:1.3,yPercent:8},{scale:1,yPercent:0,ease:'none',scrollTrigger:{trigger:'#rezerwacja',start:'top bottom',end:'center center',scrub:1}});
     gsap.from('.b-copy .lead,.phone',{y:30,autoAlpha:0,duration:1,stagger:.12,ease:'power3.out',scrollTrigger:{trigger:'#rezerwacja',start:'top 60%'}});
     gsap.from('.card',{autoAlpha:0,duration:1.2,ease:'power2.out',scrollTrigger:{trigger:'.card',start:'top 92%'}});
 
