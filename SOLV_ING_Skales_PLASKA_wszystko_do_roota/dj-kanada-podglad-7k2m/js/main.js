@@ -188,3 +188,10 @@
     ScrollTrigger.refresh();
   }
 })();
+
+/* live clips: play only while visible (saves data), never with reduced motion */
+(function(){var v=[].slice.call(document.querySelectorAll('.vclip video'));if(!v.length)return;
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){v.forEach(function(x){x.controls=true});return}
+if(!('IntersectionObserver' in window)){v.forEach(function(x){x.preload='metadata';x.play().catch(function(){})});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){var x=e.target;if(e.isIntersecting){x.play().catch(function(){})}else{x.pause()}})},{rootMargin:'120px'});
+v.forEach(function(x){io.observe(x)})})();
