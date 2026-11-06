@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#050b2e">
+<meta name="description" content="Audyt DJ w 2 minuty: 8 krótkich pytań, tylko klikasz.">
+<meta property="og:title" content="Audyt DJ w 2 minuty · SOLV.ING">
+<meta property="og:description" content="8 krótkich pytań, tylko klikasz. Na końcu 3 rzeczy, które dadzą Ci najwięcej.">
+<title>Audyt DJ w 2 minuty · SOLV.ING</title>
+<link rel="icon" href="/favicon-48.png">
+<style>
+@font-face{font-family:'Bricolage Grotesque';font-weight:200 800;font-display:swap;src:url(/bricolage-grotesque-latin-opsz-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2013-2014,U+201C-201E}
+@font-face{font-family:'Bricolage Grotesque';font-weight:200 800;font-display:swap;src:url(/bricolage-grotesque-latin-ext-opsz-normal.woff2) format('woff2');unicode-range:U+0100-02FF}
+@font-face{font-family:'Hanken Grotesk';font-weight:100 900;font-display:swap;src:url(/hanken-grotesk-latin-wght-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2013-2014,U+201C-201E}
+@font-face{font-family:'Hanken Grotesk';font-weight:100 900;font-display:swap;src:url(/hanken-grotesk-latin-ext-wght-normal.woff2) format('woff2');unicode-range:U+0100-02FF}
+:root{color-scheme:light;--navy:#050b2e;--blue:#2a4bff;--blue-d:#1a33c4;--ink:#141a33;--mut:#5b6485;--line:#e6e9f4;--bg:#f6f7fb;--card:#fff;--soft:#8fa6ff}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:#e9ecf6;font-family:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink);-webkit-text-size-adjust:100%}
+.app{max-width:480px;margin:0 auto;height:100vh;height:100dvh;display:flex;flex-direction:column;background:var(--bg);box-shadow:0 0 0 1px var(--line)}
+header{flex-shrink:0;display:flex;align-items:center;gap:12px;padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top));background:#fff;border-bottom:1px solid var(--line)}
+.av{width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font:700 18px 'Bricolage Grotesque',sans-serif;flex-shrink:0}
+.nm{font-weight:700;font-size:16px}.sub{font-size:13px;color:var(--mut)}
+.prog{margin-left:auto;font-size:13px;font-weight:600;color:var(--mut);white-space:nowrap}
+#chat{flex:1;overflow-y:auto;padding:16px 14px 8px;display:flex;flex-direction:column;gap:8px;scroll-behavior:smooth;overscroll-behavior:contain}
+.day{align-self:center;font-size:12px;color:var(--mut);padding:4px 0 8px}
+.bot{align-self:flex-start;max-width:82%;background:var(--card);border:1px solid var(--line);border-radius:18px 18px 18px 6px;padding:10px 14px;font-size:16px;line-height:1.45;white-space:pre-line}
+.step{display:block;font-size:12px;font-weight:700;color:var(--mut);padding-bottom:2px}
+.user{align-self:flex-end;max-width:82%;background:var(--blue);color:#fff;border-radius:18px 18px 6px 18px;padding:10px 14px;font-size:16px;line-height:1.4}
+.card{align-self:flex-start;width:min(300px,86%);border-radius:20px;overflow:hidden;background:var(--card);border:1px solid var(--line)}
+.ban{background:var(--navy);padding:18px;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;min-height:132px}
+.ban.short{min-height:0}
+.k{font:700 13px 'Bricolage Grotesque',sans-serif;letter-spacing:.12em;color:var(--soft)}
+.h{font:700 26px/1.05 'Bricolage Grotesque',sans-serif;color:#fff;margin:0}
+.ban.short .h{font-size:22px;line-height:1.1}
+.cb{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px}
+.ct{font-weight:700;font-size:16px;margin:0}.cd{font-size:15px;line-height:1.45;color:#3b4466;margin:0}
+.acts{display:flex;flex-direction:column;padding:4px 8px 8px}
+.act{min-height:48px;border:0;border-top:1px solid var(--line);background:transparent;display:flex;align-items:center;justify-content:center;gap:8px;font:700 16px 'Hanken Grotesk',sans-serif;color:var(--blue);text-decoration:none;cursor:pointer}
+.act:hover{color:var(--blue-d)}
+.act svg{width:18px;height:18px}
+#chips{flex-shrink:0;padding:10px 12px 8px;display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;min-height:12px}
+.chip{min-height:44px;padding:0 18px;border-radius:22px;border:1.5px solid var(--blue);background:#fff;color:var(--blue);font:700 15px 'Hanken Grotesk',sans-serif;cursor:pointer;transition:transform .12s,background .12s,color .12s;-webkit-tap-highlight-color:transparent}
+.chip:hover{background:#eef1ff}
+.chip:active{transform:scale(.95);background:var(--blue);color:#fff}
+.chip:focus-visible,.act:focus-visible{outline:3px solid var(--soft);outline-offset:2px}
+.foot{flex-shrink:0;padding:4px 16px 10px;padding-bottom:max(10px,env(safe-area-inset-bottom));font-size:12px;line-height:1.4;color:var(--mut);text-align:center}
+.foot a{color:var(--mut)}
+.typing{display:flex;gap:5px;padding:13px 16px}
+.typing span{width:7px;height:7px;border-radius:50%;background:var(--mut);animation:b 1.2s infinite}
+.typing span:nth-child(2){animation-delay:.2s}.typing span:nth-child(3){animation-delay:.4s}
+@keyframes b{0%,80%,100%{opacity:.25}40%{opacity:1}}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.bot,.user,.card,.chip{animation:in .22s ease-out}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media (min-width:520px){.app{margin-top:0}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="av" aria-hidden="true">S</div>
+    <div><div class="nm">SOLV.ING</div><div class="sub">Audyt DJ w 2 minuty</div></div>
+    <div class="prog" id="prog" aria-live="polite"></div>
+  </header>
+  <main id="chat" aria-live="polite" aria-label="Rozmowa">
+    <div class="day">Dzisiaj</div>
+  </main>
+  <div id="chips" role="group" aria-label="Odpowiedzi do wyboru"></div>
+  <p class="foot">Odpowiedzi trafiają tylko do nas i służą do przygotowania wniosków. <a href="/polityka-prywatnosci">Prywatność</a></p>
+</div>
+<noscript><p style="padding:16px">Ten quiz potrzebuje JavaScriptu. Możesz też zrobić <a href="/q/dj/">wersję na stronie</a>.</p></noscript>
+<script>
+(function () {
+  "use strict";
+  // Same 8 questions as the RCS bot (api/rcs.js). A test in our notes (agent/rcs-testy/test-rcs.js) keeps them equal.
+  var QS = [
+    { id: "y2027", q: "Ile sobót na sezon 2027 masz już zajętych?", o: ["Prawie nic", "Około 1/4", "Około połowy", "Prawie wszystkie"] },
+    { id: "sources", q: "Skąd najczęściej przychodzą do Ciebie pary?", o: ["Polecenia", "Google i Mapy", "Instagram / Facebook", "TikTok", "Portale ślubne", "Sale i planerzy"], multi: true },
+    { id: "inq", q: "Ile zapytań o termin dostajesz w miesiącu?", o: ["Mniej niż 5", "5–15", "15–30", "Ponad 30"] },
+    { id: "googlepos", q: "Wpisz w Google „DJ na wesele” i swoje miasto. Gdzie jesteś?", o: ["Top 3 na mapie", "Pierwsza strona", "Dalej albo wcale", "Nie sprawdzałem"] },
+    { id: "conv", q: "Ile zapytań kończy się rezerwacją?", o: ["Mniej niż 1 na 5", "1–2 na 5", "Mniej więcej połowa", "Większość", "Nie liczę"] },
+    { id: "speed", q: "Jak szybko odpisujesz na nowe zapytanie?", o: ["W godzinę", "Tego samego dnia", "Po 1–2 dniach", "Różnie"] },
+    { id: "pricecheck", q: "Gdzie para sprawdzi cenę i wolny termin?", o: ["Na mojej stronie", "Cena tak, termin nie", "Tylko pisząc"] },
+    { id: "offseason", q: "Co grasz poza sezonem weselnym?", o: ["Sylwester", "Studniówki", "Imprezy firmowe", "Urodziny i 18-tki", "Kluby i bary", "Prawie nic"], multi: true, none: "Prawie nic" }
+  ];
+  var DONE_LABEL = "To wszystko";
+  var EMAIL = "oscar.rowe21@gmail.com";
+  var WEB3FORMS_KEY = "bff1e2e2-41f9-4321-b8ff-2871a2837852";
+  var PHONE_INTL = "48505119531";
+  var CAL_TEXT = "Cześć, zrobiłem audyt DJ w czacie. Chętnie umówię 15 minut rozmowy.";
+
+  var chat = document.getElementById("chat");
+  var chipsEl = document.getElementById("chips");
+  var prog = document.getElementById("prog");
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var tag = (location.hash || "").replace("#", "").toLowerCase();
+  var who = /^[a-z0-9-]{2,30}$/.test(tag) ? tag : "";
+  var KEY = "solving-czat-dj-v1";
+  var st = { i: -1, a: {}, picked: [], sent: false };
+  var busy = false;
+
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} }
+  function load() { try { var s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s && s.a) return s; } catch (e) {} return null; }
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, reduce ? 0 : ms); }); }
+  function scroll() { chat.scrollTop = chat.scrollHeight; }
+  function node(tagName, cls, text) { var d = document.createElement(tagName); if (cls) d.className = cls; if (text != null) d.textContent = text; return d; }
+  function bot(text, step) { var d = node("div", "bot"); if (step) d.appendChild(node("span", "step", step)); d.appendChild(document.createTextNode(text)); chat.appendChild(d); scroll(); return d; }
+  function user(text) { chat.appendChild(node("div", "user", text)); scroll(); }
+  async function typing(ms) { var t = node("div", "bot typing"); t.setAttribute("aria-label", "SOLV.ING pisze"); t.innerHTML = "<span></span><span></span><span></span>"; chat.appendChild(t); scroll(); await wait(ms || 700); t.remove(); }
+  function chips(list) {
+    chipsEl.replaceChildren();
+    list.forEach(function (label) {
+      var b = node("button", "chip", label); b.type = "button";
+      b.addEventListener("click", function () { tap(label); });
+      chipsEl.appendChild(b);
+    });
+    scroll();
+  }
+  function setProg() { prog.textContent = st.i >= 0 && st.i < QS.length ? (st.i + 1) + " / " + QS.length : ""; }
+
+  function introCard() {
+    var c = node("div", "card");
+    var ban = node("div", "ban");
+    ban.appendChild(node("div", "k", "SOLV.ING"));
+    var h = node("h1", "h"); h.innerHTML = "Audyt DJ<br>w 2 minuty"; ban.appendChild(h);
+    var cb = node("div", "cb");
+    cb.appendChild(node("p", "ct", "8 krótkich pytań, tylko klikasz"));
+    cb.appendChild(node("p", "cd", "Na końcu dostajesz od nas 3 rzeczy, które dadzą Ci najwięcej. Bez pisania."));
+    c.appendChild(ban); c.appendChild(cb); chat.appendChild(c); scroll();
+  }
+  var ICON_CAL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>';
+  var ICON_TEL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>';
+  function resultCard() {
+    var c = node("div", "card");
+    var ban = node("div", "ban short");
+    ban.appendChild(node("div", "k", "GOTOWE"));
+    ban.appendChild(node("p", "h", "Twoje 3 rzeczy: dziś albo jutro"));
+    var cb = node("div", "cb");
+    cb.appendChild(node("p", "cd", "Przejrzymy odpowiedzi i odezwiemy się z krótkim planem: co Cię dziś hamuje i od czego zacząć. Bez zobowiązań."));
+    var acts = node("div", "acts");
+    var a1 = node("a", "act"); a1.href = "https://wa.me/" + PHONE_INTL + "?text=" + encodeURIComponent(CAL_TEXT); a1.target = "_blank"; a1.rel = "noopener"; a1.innerHTML = ICON_CAL + "Umów 15 min rozmowy";
+    var a2 = node("a", "act"); a2.href = "tel:+" + PHONE_INTL; a2.innerHTML = ICON_TEL + "Zadzwoń do nas";
+    acts.appendChild(a1); acts.appendChild(a2);
+    c.appendChild(ban); c.appendChild(cb); c.appendChild(acts); chat.appendChild(c); scroll();
+  }
+
+  function ask(i) {
+    var Q = QS[i];
+    bot(Q.q + (Q.multi ? "\nMożesz wybrać kilka." : ""), "Pytanie " + (i + 1) + " z " + QS.length);
+    st.picked = [];
+    chips(Q.o.slice());
+    setProg();
+  }
+  function multiChips() {
+    var Q = QS[st.i];
+    var left = Q.o.filter(function (x) { return st.picked.indexOf(x) < 0 && x !== Q.none; });
+    chips(st.picked.length ? left.concat([DONE_LABEL]) : Q.o.slice());
+  }
+
+  async function tap(label) {
+    if (busy) return;
+    if (st.i === -1) {
+      chipsEl.replaceChildren(); user(label);
+      if (label === "Może później") { busy = true; await typing(600); bot("Jasne. Wróć tu, kiedy będziesz mieć 2 minuty."); busy = false; chips(["Zaczynamy"]); return; }
+      busy = true; await typing(650); st.i = 0; save(); ask(0); busy = false; return;
+    }
+    var Q = QS[st.i];
+    if (!Q) return;
+    if (Q.multi && label !== DONE_LABEL && label !== Q.none) {
+      user(label); st.picked.push(label); multiChips(); return;
+    }
+    chipsEl.replaceChildren(); user(label);
+    st.a[Q.id] = Q.multi ? (label === Q.none ? [Q.none] : st.picked.slice()) : label;
+    st.i += 1; save();
+    busy = true;
+    if (st.i < QS.length) { await typing(650); ask(st.i); busy = false; return; }
+    setProg();
+    await typing(800);
+    bot("Dzięki, mamy wszystko. Wysyłam odpowiedzi…");
+    var ok = await send();
+    busy = false;
+    if (ok) { st.sent = true; save(); await typing(500); resultCard(); chips(["Od nowa"]); }
+    else { bot("Nie udało się wysłać. Spróbuj jeszcze raz za chwilę albo wyślij je na WhatsApp."); retryChips(); }
+  }
+  function retryChips() {
+    chipsEl.replaceChildren();
+    var b = node("button", "chip", "Wyślij ponownie"); b.type = "button";
+    b.addEventListener("click", async function () { chipsEl.replaceChildren(); busy = true; await typing(500); var ok = await send(); busy = false; if (ok) { st.sent = true; save(); resultCard(); chips(["Od nowa"]); } else { bot("Dalej nie działa. Kliknij WhatsApp poniżej."); retryChips(); } });
+    var w = node("a", "chip", "Wyślij na WhatsApp"); w.href = "https://wa.me/" + PHONE_INTL + "?text=" + encodeURIComponent(summary()); w.target = "_blank"; w.rel = "noopener"; w.style.display = "inline-flex"; w.style.alignItems = "center"; w.style.textDecoration = "none";
+    chipsEl.appendChild(b); chipsEl.appendChild(w); scroll();
+  }
+  function summary() {
+    var lines = ["Audyt DJ (czat)" + (who ? " – " + who : "")];
+    QS.forEach(function (Q, n) { var v = st.a[Q.id]; lines.push((n + 1) + ". " + Q.q + "\n→ " + (Array.isArray(v) ? v.join(", ") : (v || "–"))); });
+    return lines.join("\n");
+  }
+  async function post(url, body) {
+    var ctl = new AbortController(); var t = setTimeout(function () { ctl.abort(); }, 15000);
+    try {
+      var r = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(body), signal: ctl.signal });
+      var j = await r.json().catch(function () { return {}; });
+      return r.ok && String(j.success) === "true";
+    } catch (e) { return false; } finally { clearTimeout(t); }
+  }
+  async function send() {
+    var subject = "Audyt DJ czat – " + (who || "bez podpisu");
+    var fields = { DJ: who || "bez podpisu", Kanal: "czat www", Odpowiedzi: summary() };
+    var ok = await post("https://api.web3forms.com/submit", Object.assign({ access_key: WEB3FORMS_KEY, subject: subject, from_name: "SOLV.ING czat dj" }, fields));
+    if (!ok) ok = await post("https://formsubmit.co/ajax/" + EMAIL, Object.assign({ _subject: subject, _template: "box", _captcha: "false" }, fields));
+    return ok;
+  }
+
+  chipsEl.addEventListener("click", function (e) {
+    if (e.target && e.target.textContent === "Od nowa" && e.target.tagName === "BUTTON") {
+      st = { i: -1, a: {}, picked: [], sent: false }; save();
+      chat.replaceChildren(node("div", "day", "Dzisiaj")); start(); e.stopImmediatePropagation();
+    }
+  }, true);
+
+  async function start() {
+    introCard(); setProg();
+    await wait(400);
+    chips(["Zaczynamy", "Może później"]);
+  }
+
+  var prev = load();
+  if (prev && prev.sent) {
+    st = prev; introCard();
+    bot("Twoje odpowiedzi już do nas dotarły. Odezwiemy się dziś albo jutro.");
+    resultCard(); chips(["Od nowa"]);
+  } else if (prev && prev.i >= 0 && prev.i < QS.length) {
+    st = prev; introCard(); bot("Wracamy tam, gdzie skończyłeś."); ask(st.i);
+  } else {
+    start();
+  }
+})();
+</script>
+</body>
+</html>
