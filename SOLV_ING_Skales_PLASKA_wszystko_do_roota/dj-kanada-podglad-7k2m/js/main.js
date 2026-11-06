@@ -189,9 +189,10 @@
   }
 })();
 
-/* live clips: play only while visible (saves data), never with reduced motion */
+/* live clips: always autoplay muted in a loop, no controls; pause only while off screen */
 (function(){var v=[].slice.call(document.querySelectorAll('.vclip video'));if(!v.length)return;
-if(matchMedia('(prefers-reduced-motion: reduce)').matches){v.forEach(function(x){x.controls=true});return}
-if(!('IntersectionObserver' in window)){v.forEach(function(x){x.preload='metadata';x.play().catch(function(){})});return}
-var io=new IntersectionObserver(function(es){es.forEach(function(e){var x=e.target;if(e.isIntersecting){x.play().catch(function(){})}else{x.pause()}})},{rootMargin:'120px'});
-v.forEach(function(x){io.observe(x)})})();
+v.forEach(function(x){x.muted=true;x.defaultMuted=true;x.controls=false;x.setAttribute('muted','');var p=x.play();if(p)p.catch(function(){})});
+if(!('IntersectionObserver' in window))return;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){var x=e.target;if(e.isIntersecting){var p=x.play();if(p)p.catch(function(){})}else{x.pause()}})},{rootMargin:'200px'});
+v.forEach(function(x){io.observe(x)});
+document.addEventListener('touchstart',function(){v.forEach(function(x){if(x.paused){var p=x.play();if(p)p.catch(function(){})}})},{once:true,passive:true})})();
